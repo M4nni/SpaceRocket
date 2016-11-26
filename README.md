@@ -7,3 +7,5 @@
 Space Rocket ist ein Highscore-Spiel auf Greenfoo-Basis, in dem man mit einer Rakete versuchen muss Asteroiden in einem Asteroidenfeld auszuweichen.
 
 ##Umsetzung
+Wir programmieren unser Projekt "SpaceRocket" in der Programmierumgebung "Greenfoot", die auf der obejktorientierten Programmiersprache *Java* basiert. Zuerst haben wir uns überlegt, welche Größe, welches Format und welche Auflösung unsere Welt haben soll. Unser Spiel soll über eine klassische Auflösung und ein klassischen Seitenverhälnis verfügen, damit es auf jedem Computer spielbar ist. Wir haben uns deswegen für das Seitenverhältis von 16/9 und eine Auflösung von 960 * 540 Pixeln entschieden. Diese Bildeigenschaften sind von den meisten aktuellen Display umsetzbar. Wir haben in Greenfoot 
+Greenfoot generiert beim erstellen eines Szenarios ein Zellen-Koordinatensystem, das deckungsgleich zur generierten Welt ist. Die Zellengröße ist
