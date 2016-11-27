@@ -31,5 +31,15 @@ Gleichzeitig soll die Rakete aber nie den unteren Bildschirmrand erreichen, wesh
 
 Anschließend haben wir uns um die Programmierung der Asteroiden gekümmert, in die wir bisher am meisten Zeit hineingesteckt haben. Zu Beginn haben wir uns ein Asteroiden Bild in einer angemessenen Größe heruntergeladen und als Bild unserer Asteroiden in Greenfoot verwendet. Bei der Programmierung der Asteroiden haben wir zunächst zwei Variablen mithilfe von int festgelegt: 1. den Winkel, der eine zufällige Zahl von 0 bis 49 annimmt, damit die Asteroiden sich auch auf die Rakete hin bewegen und nicht in eine völlig andere Richtung und 2. die Art der Drehung, die eine zufällige Zahl von 0-1 erhält. Befasst haben wir uns dann mit dem "Crashen" der Asteroiden gegen den Rand der Welt. Dazu haben wir public boolean atWorldEdge() benutzt. Das boolean beschreibt zwei Fälle, die vorkommen können. Entweder richtig(true) und falsch (false). Wenn die X-Koordinate = 0 ist, also die Asteroiden sich am linken Bildschirmrand befindet, werden diese entfernt (return). Wenn die y-Koordinate = 0 ist oder die Asteroiden sich am unteren Bildrand befinden, werden sie ebenfalls entfernt, egal ob sie richtig oder falsch waren. Dann haben wir wieder mit public void act, wie wir es bei der Rakete auch getan haben, den Asteroiden befohlen, sich mit einer Geschwindigkeit von -12, also nur nach links (zur Rakete hin) zu bewegen. Jetzt kommen die beiden Variablen ins Spiel: Mithilfe erneuter if-Befehler konnten wir festlegen, dass die Asteroiden, wenn die TypeofRotation 0 beträgt, einen oben festgelegten positiven Winkel erhalten und wenn die TypeofRotation 1 beträgt, einen festgelegten negativen Winkel bekommen. Schließlich entfernen die Asteroiden durch den Befehl atWorldEdge sich quasi selbst, wenn sie eben einen Rand in der Welt erreichen.  
 
-Dies ist unser derzeitiger Stand zu unserem Projekt SpaceRocket
+Dies ist unser derzeitiger Stand zu unserem Spiel SpaceRocket, dennoch haben wir das Projekt noch längst nicht fertiggestellt da uns noch viele Dinge fehlen, die wir geplant haben:
+1. Es sollen während des Spiel neue Asteroiden spawnen, die aber nur auf der rechten Hälfte entstehen können.
+2. Wenn die Rakete einen Asteroiden berührt, soll es eine Explosion geben und der Spieler soll verlieren (game-over).
+3. Das game-over, das erscheint, wenn man verliert, fehlt noch.
+4. Das Einfügen und Programmieren eines Scores, der den Punktestand abhängig von der überlebten Zeit zählt und beim game-over angezeigt wird.
+5. Das Hinzufügen anderer Objekte, wie z.B. Bomben, die explodieren können und sich ähnlich wie die Asteroiden verhalten
+6. Das Einfügen einer Bullet-Klasse (und Programmieren), denn die Rakete soll später in bestimmten Abständen und mit bestimmter Munition schießen können.
+7. Das Einfügen und Programmieren einer Counter-Klasse.
+8. Das Einfügen von Sternen in den Hintergrund, die den Eindruck erwecken sollen, dass man mit der Rakete wirklich durch den Weltraum fliegt.
+9. Das Einfügen von Sounds, z.B. bei der Explosion oder beim game-over. 
 
+#ENDE
