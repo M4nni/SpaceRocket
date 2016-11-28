@@ -1,5 +1,5 @@
-# SpaceRocket-Projekt-Informatik-von-Finn-Westphal-und-Robin-Wagner
-## Projekt von Robin Wagner und Finn Westphal
+# SpaceRocket-Projekt 
+## Ein Informatik-Projekt von Robin Wagner und Finn Westphal
 
 ##Einleitung: Anforderungen und Elemente des Spiels
 Space Rocket ist ein Highscore-Spiel auf Greenfoot-Basis, in dem man mit einer Rakete, die sich am linken Bildschirmrand befindet und sich nur nach oben oder unten bewegen kann, versucht, Asteroiden, die nur von der rechten Bildschirmseite heranfliegen, in einem Asteroidenfeld auszuweichen. Jeder Asteroid verschwindet aus der Welt, wenn er den Rand der Welt erreicht. Man verliert, wenn man mit einem Asteroiden zusammenstößt.
