@@ -1,4 +1,4 @@
-# SpaceRocket-Projekt 
+# SpaceRocket
 ## Ein Informatik-Projekt von Robin Wagner und Finn Westphal
 
 ##Einleitung: Anforderungen und Elemente des Spiels
