@@ -26,7 +26,7 @@ Diese Koordinaten haben wir so gewählt, dass die Rakete ziemlich weit links, ab
         addObject(new counter(), 30, 510);
         addObject(new Asteroid(), 960, Greenfoot.getRandomNumber(541) - 0);
         addObject(new Asteroid(), Greenfoot.getRandomNumber(480) + 480, 1);
-        addObject(new Asteroid(), Greenfoot.getRandomNumber(480) + 480, 960);
+        addObject(new Asteroid(), Greenfoot.getRandomNumber(480) + 480, 540);
 ```
 
 Danach haben wir uns um die Rakete gekümmert. Diese soll sich zwar nicht nach links und rechts bewegen, da die Asteroiden auf die Rakete hingeflogen kommen sollen, aber sie soll sich nach oben und unten bewegen können. Zuerst haben wir ein Bild einer Rakete zur Actor-Klasse Rocket hinzugefügt und uns dann mit dem Code beschäftigt. Mithilfe des Konstruktors *public* erstellen wir eine Klasse, die in der Lage ist mit anderen Klassen Informationen austauschen. Wir verwenden die Methode *void act()*. Der Rückgabetyp *void* gibt an, ob und wenn ja, welche Informationen zuzückgegeben werden. In diesen Fall bedeutet *void* so viel wie "nichts", wir erhalten dementsprechend keine Informationen über die Ausführung der Methode. *void act()* ist ausschließlich eine ausführende Methode, die keine weiteren Parameter für ihre Ausführung benötigt, weswegen die Klammern von *act()* keinen Inhalt haben. Wir legen mit dieser Methode das Verhalten der Rakete fest. Hier haben wir mit den Befehlen setRotation() und setLocation() gearbeitet. Mithilfe von setRotation können wir festlegen, ob die Rakete sich in einem bestimmten Winkel dreht oder eben nicht. Durch ausprobieren haben wir herausgefunden, dass eine Rotation von 20° bzw. -20° geeignet für die simulierte Bewegung unser Rakete ist.
