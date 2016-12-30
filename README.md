@@ -1,4 +1,5 @@
 # SpaceRocket
+
 ## Ein Informatik-Projekt von Robin Wagner und Finn Westphal
 
 ##Einleitung: Anforderungen und Elemente des Spiels
@@ -34,32 +35,29 @@ Um diese Steuerung in Greenfoot umzusetzen, haben wir unnächst festgelegt, dass
    }
 ```
 
-Durch ausprobieren haben wir herausgefunden, dass eine Rotation von 20° bzw. -20° geeignet für die simulierte Bewegung unser Rakete ist.
-
-Damit sich die Rakete beim Tastendruck mit konstanter Geschwindigkeit nach unten bewegt, verwenden wir die Methode *setLocation*, die mindestens drei weitere Parameter für ihre Funktion benötigt, welche die aktuelle Position des Objektes in der Welt und die Bewegungsrichtung relativ zu dieser Position ist. Die Rückgabetypen *getX* und *getY* geben die aktuellen Koordinaten des klassenspezifischen Objektes an. Sie werden durch ein Komma getrennt und in den Klammern der Methode *setLocation* integriert. Damit nun bei Tastendruck eine Bewegung vollzogen wird, kann man hinter jedem Rückgabetypen eine natürliche Zahlen addiert bzw. subtrahiert werden. So wird bei jeder Ausführung dieses frames oder Blocks das Objekt um die jeweiligen Koordinaten bewegt. Durch das mehrfache Ausführen dieser Methode resultiert daraus eine lineare Fortbewegungsrichtung. 
-
-Für unsere Anwendung soll sich unser Objekt, die Rakete, lediglich entlang der y-Achse bewegen, weswegen die x-Koordinate unverändert bleibt. Die Rakete soll außerdem nur beim Tastdruck ihre Position verändern und nicht in der Lage sein die Welt über ihre Grenzen zu verlassen. Um diese Bedingungen mit der Bewegung der Rakete in Verbindung zu bringen verwenden wir eine *if-Methode*, die die Ausführung einer oder mehrerer Methoden nur zulässt, wenn alle ihre Bedingungsparameter erfüllt werden. Werden die Bedingungen erfüllt so werden die in geschweiften Klammern stehende Methode oder Methoden im Anschluss an die if-Methode ausgeführt.
-In unserem Fall bestehen unsere Bedinungsparameter aus zwei *Greenfoot.isKeyDown*-Methoden und dem Rückgabetyp *getY()*. Die Methode *Greenfoot.isKeyDown* prüft ständig, ob eine bestimmte Taste auf der Tastatur gedrückt wird. Dabei wird der jeweilige Tastenname in Anführungszeichen in Klammern an die Methode ergänzt. Da die Steuerung optional über die Pfeiltasten "oben" und "unten", sowie über die Tasten "w" und "s" erfolgen soll, verwenden wir *Greenfoot.isKeyDown* zweimal pro if-Methode. Für die Abwärtsbewegung bespielsweise verwenden wir *Greenfoot.isKeyDown("down")* und *Greenfoot.isKeyDown("s")*, die durch zwei senkrechte Striche "||" voneinander getrennt werden. Diese bilden einen Operator, der soviel wie "oder" bedeutet. Damit die Rakete die Welt nicht verlassen kann haben wir den Rückgabetyp *getY()* als kleiner als 540 festgelegt, was der maximalen y-Koordianten unserer Welt entspricht. Er wird mit zwei Et-Zeichen "&&" an die beiden *Greenfoot.isKeyDown* ergänzt. Die beiden Et-Zeichen ergeben ebenfalls einen Operator mit der Bedeutung "und". Daraus folgt, dass die Bedingung der if-Methode nur erfüllt ist, wenn mindestens einer der Tasten "down" oder "s" gedrückt wird und die aktulle Position der Rakete eine kleinere y-Koordinate als 540 aufweist. Werden die Bedingungen erfüllt, bewegt sich die Rakete mit einer Geschwindigkeit von 12 Pixeln pro frame-Ausführung entlang der y-Achse in Richtung der unterm Kante der Welt. 
+Damit sich die Rakete beim Tastendruck mit konstanter Geschwindigkeit nach unten bewegt, verwenden wir die Methode *setLocation*, die mindestens drei weitere Parameter für ihre Funktion benötigt, welche die aktuelle Position des Objektes in der Welt und die Bewegungsrichtung relativ zu dieser Position ist. Die Rückgabetypen *getX* und *getY* geben die aktuellen Koordinaten des klassenspezifischen Objektes an. Sie werden durch ein Komma getrennt und in den Klammern der Methode *setLocation* integriert. Damit nun bei Tastendruck eine Bewegung vollzogen wird, kann man hinter jedem Rückgabetypen eine natürliche Zahlen addiert bzw. subtrahiert werden. So wird bei jeder Ausführung dieses frames oder Blocks das Objekt um die jeweiligen Koordinaten bewegt. Durch das mehrfache Ausführen dieser Methode resultiert daraus eine lineare Fortbewegungsrichtung. Für unsere Anwendung soll sich unser Objekt, die Rakete, lediglich entlang der y-Achse bewegen, weswegen die x-Koordinate unverändert bleibt. Zur visuellen Verdeutlichung verwenden wir außerdem die Methode *setRoation*, die das Objekt, in diesem Fall unsere Rakete, im einem bestimmten Winkel ausrichtet. Dieser Winkel wird in Klammer an die Methode ergänzt. Durch ausprobieren haben wir herausgefunden, dass eine Rotation von 20° bzw. -20° geeignet für die simulierte Bewegung unser Rakete ist. Die Rakete soll außerdem nur beim Tastdruck ihre Position verändern und nicht in der Lage sein die Welt über ihre Grenzen zu verlassen. Um diese Bedingungen mit der Bewegung der Rakete in Verbindung zu bringen verwenden wir eine *if-Methode*, die die Ausführung einer oder mehrerer Methoden nur zulässt, wenn alle ihre Bedingungsparameter erfüllt werden. Werden die Bedingungen erfüllt so werden die in geschweiften Klammern stehende Methode oder Methoden im Anschluss an die if-Methode ausgeführt. In unserem Fall bestehen unsere Bedinungsparameter aus zwei *Greenfoot.isKeyDown*-Methoden und dem Rückgabetyp *getY()*. Die Methode *Greenfoot.isKeyDown* prüft ständig, ob eine bestimmte Taste auf der Tastatur gedrückt wird. Dabei wird der jeweilige Tastenname in Anführungszeichen in Klammern an die Methode ergänzt. Da die Steuerung optional über die Pfeiltasten "oben" und "unten", sowie über die Tasten "w" und "s" erfolgen soll, verwenden wir *Greenfoot.isKeyDown* zweimal pro if-Methode. Für die Abwärtsbewegung bespielsweise verwenden wir *Greenfoot.isKeyDown("down")* und *Greenfoot.isKeyDown("s")*, die durch zwei senkrechte Striche "||" voneinander getrennt werden. Diese bilden einen Operator, der soviel wie "oder" bedeutet. Damit die Rakete die Welt nicht verlassen kann haben wir den Rückgabetyp *getY()* als kleiner als 540 festgelegt, was der maximalen y-Koordianten unserer Welt entspricht. Er wird mit zwei Et-Zeichen "&&" an die beiden *Greenfoot.isKeyDown* ergänzt. Die beiden Et-Zeichen ergeben ebenfalls einen Operator mit der Bedeutung "und". Daraus folgt, dass die Bedingung der if-Methode nur erfüllt ist, wenn mindestens einer der Tasten "down" oder "s" gedrückt wird und die aktulle Position der Rakete eine kleinere y-Koordinate als 540 aufweist. Werden die Bedingungen erfüllt, bewegt sich die Rakete mit einer Geschwindigkeit von 12 Pixeln pro frame-Ausführung entlang der y-Achse in Richtung der unterm Kante der Welt. 
 
 ```javascript
-   if (Greenfoot.isKeyDown("down") || Greenfoot.isKeyDown("s") && getY() < 540)
+   if (Greenfoot.isKeyDown("down") || Greenfoot.isKeyDown("s") && getY() <= 540)
    {
       setRotation(20);
       setLocation(getX(), getY()+12);
    }
 ```
 
-Äquivalent dazu
+Äquivalent dazu ergibt sich für die Aufwärtbewegung:
 
 ```javascript
-   if (Greenfoot.isKeyDown("up") || Greenfoot.isKeyDown("w") && getY() > 0)
+   if (Greenfoot.isKeyDown("up") || Greenfoot.isKeyDown("w") && getY() >= 0)
    {
    setRotation(-20);
    setLocation(getX(), getY()-12);
    }
 ```
 
-Gleichzeitig soll die Rakete aber nie den unteren Bildschirmrand erreichen, weshalb wir gesagt haben, dass die Y-Koordinate immer noch kleiner sein soll als 540. Genau andersherum funktioniert es, wenn man die w Taste oder alternativ die Pfeiltaste nach oben drückt. Die Rakete bewegt sich um 20 Grad nach oben, erhält eine um 12 verringerte y- Koordinate (die X-Koordinate bleibt gleich), damit die Rakete nach oben rotiert und gleichzeitig durch den Befehl getY() > 0) aber nie den oberen Rand der Welt erreicht. Somit war die Programmierung der Rakete abgeschlossen, da das alles ist, was die Rakete können soll.
+Hier wurden "down" und "s" durch "up" und "w" ersetzt und der der Rückgabewert *getY* größer gleich 0 gesetzt. Dadurch ist die Bedingung der if-Methode nur erfüllt, wenn die "up"- oder "w"-Taste gedrückt und die aktuelle y-Koordinaten der Rakete größer als 0 ist. Somit kann die Rakete die Welt nicht an der oberen Kante verlassen. Die Neigung der Aufwärtsbewegung ist betragsgleich der Neigung der Abwärtsbewegung, jedoch ist sie negativ, sodass die Rakete gegen dem Uhrzeigersinn sich mit 20° um die eigene Achse rotiert. In der Methode *setLocation* wird der Rückgabetyp *getY* mit 12 subtrahiert, sodass sich die Rakete nach oben anstatt nach unten bewegt.
+
+Zusammengefasst ergibt sich für den Code der Rakete:
 
 ```javascript
 import greenfoot.*;
