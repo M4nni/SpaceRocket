@@ -45,7 +45,7 @@ Damit sich die Rakete beim Tastendruck mit konstanter Geschwindigkeit nach unten
    }
 ```
 
-Äquivalent dazu ergibt sich für die Aufwärtbewegung:
+Äquivalent dazu ergibt sich für die Aufwärtsbewegung:
 
 ```javascript
    if (Greenfoot.isKeyDown("up") || Greenfoot.isKeyDown("w") && getY() >= 0)
