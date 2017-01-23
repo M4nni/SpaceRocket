@@ -13,6 +13,7 @@
 3. **[Was noch zu tun ist](#was-noch-zu-tun-ist)**  
 
 ##Einleitung: Anforderungen und Elemente des Spiels
+
 Space Rocket ist ein Highscore-Spiel auf Greenfoot-Basis, in dem man mit einer Rakete, die sich am linken Bildschirmrand befindet und sich nur nach oben oder unten bewegen kann, versucht, Asteroiden, die nur von der rechten Bildschirmseite heranfliegen, in einem Asteroidenfeld auszuweichen. Jeder Asteroid verschwindet aus der Welt, wenn er den Rand der Welt erreicht. Man verliert, wenn man mit einem Asteroiden zusammenstößt.
 
 ##Umsetzung
@@ -38,6 +39,8 @@ Bisher enthält unsere Welt noch keine Objekte, die agieren können und für uns
         addObject(new Asteroid(), Greenfoot.getRandomNumber(480) + 480, 1);
         addObject(new Asteroid(), Greenfoot.getRandomNumber(480) + 480, 540);
 ```
+
+---
 
 ###Die Rakete
 
@@ -95,6 +98,8 @@ public void act()
 }
 }
 ```
+
+---
 
 ###Die Asteroiden
 
@@ -159,6 +164,4 @@ Dies ist unser derzeitiger Stand zu unserem Spiel SpaceRocket, dennoch haben wir
 6. Das Einfügen einer Bullet-Klasse (und Programmieren), denn die Rakete soll später in bestimmten Abständen und mit bestimmter Munition schießen können.
 7. Das Einfügen und Programmieren einer Counter-Klasse.
 8. Das Einfügen von Sternen in den Hintergrund, die den Eindruck erwecken sollen, dass man mit der Rakete wirklich durch den Weltraum fliegt.
-9. Das Einfügen von Sounds, z.B. bei der Explosion oder beim game-over. 
-
-#ENDE
+9. Das Einfügen von Sounds, z.B. bei der Explosion oder beim game-over.
