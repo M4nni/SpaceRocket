@@ -162,5 +162,3 @@ Dies ist unser derzeitiger Stand zu unserem Spiel SpaceRocket, dennoch haben wir
 9. Das Einfügen von Sounds, z.B. bei der Explosion oder beim game-over. 
 
 #ENDE
-
-![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 1")
