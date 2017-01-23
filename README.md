@@ -7,7 +7,7 @@
 ##Inhaltsverzeichnis
 
 |[Einleitung](https://github.com/M4nni/SpaceRocket-Projekt-Informatik-von-Finn-Westphal-und-Robin-Wagner/edit/master/)|
-**[Einleitung](##das-szenario)**
+**[Einleitung](#das-szenario)**
 
 ##Einleitung: Anforderungen und Elemente des Spiels
 Space Rocket ist ein Highscore-Spiel auf Greenfoot-Basis, in dem man mit einer Rakete, die sich am linken Bildschirmrand befindet und sich nur nach oben oder unten bewegen kann, versucht, Asteroiden, die nur von der rechten Bildschirmseite heranfliegen, in einem Asteroidenfeld auszuweichen. Jeder Asteroid verschwindet aus der Welt, wenn er den Rand der Welt erreicht. Man verliert, wenn man mit einem Asteroiden zusammenstößt.
