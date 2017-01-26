@@ -165,3 +165,6 @@ Dies ist unser derzeitiger Stand zu unserem Spiel SpaceRocket, dennoch haben wir
 7. Das Einfügen und Programmieren einer Counter-Klasse.
 8. Das Einfügen von Sternen in den Hintergrund, die den Eindruck erwecken sollen, dass man mit der Rakete wirklich durch den Weltraum fliegt.
 9. Das Einfügen von Sounds, z.B. bei der Explosion oder beim game-over.
+
+##Quellen
+Michael Kölling: *Einführung in Java mit Greenfoot*. Pearson Education Deutschland GmbH, 2010
