@@ -1,8 +1,10 @@
 # SpaceRocket
 
-## Ein Informatik-Projekt von Robin Wagner und Finn Westphal
+##Ein Informatik-Projekt von Robin Wagner und Finn Westphal
 
 ![alt text](https://raw.githubusercontent.com/M4nni/SpaceRocket-Projekt-Informatik-von-Finn-Westphal-und-Robin-Wagner/master/Screenshot_Greenfoot_SpaceRocket_Szenario.png)
+
+![alt text][logo]
 
 ##Inhaltsverzeichnis
 1. **[Einleitung](#einleitung-anforderungen-und-elemente-des-spiels)**  
@@ -39,6 +41,21 @@ Bisher enthält unsere Welt noch keine Objekte, die agieren können und für uns
         addObject(new Asteroid(), 960, Greenfoot.getRandomNumber(541) - 0);
         addObject(new Asteroid(), Greenfoot.getRandomNumber(480) + 480, 1);
         addObject(new Asteroid(), Greenfoot.getRandomNumber(480) + 480, 540);
+```
+
+Zusammengefasst ergibt sich für die World-Klasse:
+
+```javascript
+import greenfoot.*;
+public space_backround_1()
+    {
+        super(960, 540, 1, true);
+        addObject(new rocket(), 150, 270);
+        addObject(new counter(), 30, 510);
+        addObject(new Asteroid(), 960, Greenfoot.getRandomNumber(541) - 0);
+        addObject(new Asteroid(), Greenfoot.getRandomNumber(480) + 480, 1);
+        addObject(new Asteroid(), Greenfoot.getRandomNumber(480) + 480, 540);
+    }
 ```
 
 ---
@@ -112,7 +129,7 @@ Bei der Programmierung der Asteroiden haben wir zunächst zwei Variablen definie
 int [Name der Variablen] = ...
 ```
 
-Da sich die Asteroiden mit einem zufälligen Winkel fortbewegen sollen, verwenden wir die bekannte Methode *Greenfoot.getRandomNumber* für die Winkelvariable names *Angle* (engl. Winkel). Diese Methode generiert jedoch nur natürliche Zahlen. Ohne weiteres lassen sich also nur Winkel im Uhrzeigersinn erzeugen. Somit sind  die Asteroiden lediglich in der Lage, eine Aufwärtsbewegung zu erfahren. Aus diesem Grund haben wir eine weitere Variable mit der Bezeichnung *TypeOfRotation* festgelegt, deren Funktion später noch genauer erläutert wird. Wir haben die Variable für den Winkel (Angle) gleich *Greenfoot.getRandomNumber(50)* gesetzt wodurch die zufällige Zahl von 0 bis 49 generiert wird. Die Variable *TypeOfRotation* erstellt durch den Grenwert *(2)* zufällig eine 0 oder eine 1. Der Wert dieser Variable kann also nur zwei Zustände annehmen. 
+Da sich die Asteroiden mit einem zufälligen Winkel fortbewegen sollen, verwenden wir die bekannte Methode *Greenfoot.getRandomNumber* für die Winkelvariable names *Angle* (engl. Winkel). Diese Methode generiert jedoch nur natürliche Zahlen. Ohne Weiteres lassen sich also nur Winkel im Uhrzeigersinn erzeugen. Somit sind  die Asteroiden lediglich in der Lage, eine Aufwärtsbewegung zu erfahren. Aus diesem Grund haben wir eine weitere Variable mit der Bezeichnung *TypeOfRotation* festgelegt, deren Funktion später noch genauer erläutert wird. Wir haben die Variable für den Winkel (Angle) gleich *Greenfoot.getRandomNumber(50)* gesetzt wodurch die zufällige Zahl von 0 bis 49 generiert wird. Die Variable *TypeOfRotation* erstellt durch den Grenwert *(2)* zufällig eine 0 oder eine 1. Der Wert dieser Variable kann also nur zwei Zustände annehmen.
 
 ```javascript
 import greenfoot.*;
@@ -120,13 +137,13 @@ int Angle = Greenfoot.getRandomNumber(50);
 int TypeOfRotation = Greenfoot.getRandomNumber(2);
 ```
 
+Die Asteroiden sollen entfernt werden, sobald sie die Ränder der Welt erreichen. Es muss also ständig geprüft werden, ob sich ein Asteroid am Rand der Welt befindet. Die Methode *atWorldEdge()* prüft ständig ob sich ein Objekt an den Grenzen der Welt befindet.
 
 ```javascript
 public boolean atWorldEdge()
 {
 }
 ```
-
 
 den Winkel, der eine zufällige Zahl von 0 bis 49 annimmt, damit die Asteroiden sich auch auf die Rakete hin bewegen und nicht in eine völlig andere Richtung und 2. die Art der Drehung, die eine zufällige Zahl von 0-1 erhält. Befasst haben wir uns dann mit dem "Crashen" der Asteroiden gegen den Rand der Welt. Dazu haben wir public boolean atWorldEdge() benutzt. Das boolean beschreibt zwei Fälle, die vorkommen können. Entweder richtig(true) und falsch (false). Wenn die X-Koordinate = 0 ist, also die Asteroiden sich am linken Bildschirmrand befindet, werden diese entfernt (return). Wenn die y-Koordinate = 0 ist oder die Asteroiden sich am unteren Bildrand befinden, werden sie ebenfalls entfernt, egal ob sie richtig oder falsch waren. Dann haben wir wieder mit public void act, wie wir es bei der Rakete auch getan haben, den Asteroiden befohlen, sich mit einer Geschwindigkeit von -12, also nur nach links (zur Rakete hin) zu bewegen. Jetzt kommen die beiden Variablen ins Spiel: Mithilfe erneuter if-Befehler konnten wir festlegen, dass die Asteroiden, wenn die TypeofRotation 0 beträgt, einen oben festgelegten positiven Winkel erhalten und wenn die TypeofRotation 1 beträgt, einen festgelegten negativen Winkel bekommen. Schließlich entfernen die Asteroiden durch den Befehl atWorldEdge sich quasi selbst, wenn sie eben einen Rand in der Welt erreichen.
 
