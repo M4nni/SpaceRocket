@@ -4,8 +4,6 @@
 
 ![alt text](https://raw.githubusercontent.com/M4nni/SpaceRocket-Projekt-Informatik-von-Finn-Westphal-und-Robin-Wagner/master/Screenshot_Greenfoot_SpaceRocket_Szenario.png)
 
-![alt text][logo]
-
 ##Inhaltsverzeichnis
 1. **[Einleitung](#einleitung-anforderungen-und-elemente-des-spiels)**  
 2. **[Umsetzung](#umsetzung)**  
@@ -137,7 +135,7 @@ int Angle = Greenfoot.getRandomNumber(50);
 int TypeOfRotation = Greenfoot.getRandomNumber(2);
 ```
 
-Die Asteroiden sollen entfernt werden, sobald sie die Ränder der Welt erreichen. Es muss also ständig geprüft werden, ob sich ein Asteroid am Rand der Welt befindet. Die Methode *atWorldEdge()* prüft ständig ob sich ein Objekt an den Grenzen der Welt befindet.
+Die Asteroiden sollen entfernt werden, sobald sie die Ränder der Welt erreichen. Es muss also ständig geprüft werden, ob sich ein Asteroid am Rand der Welt befindet. Die Methode *atWorldEdge()* prüft ständig, ob ein Objekt die maximalen bzw. die minimalen Koordinaten und damit die Grenzen der Welt erreicht hat. Diese Methode gibt im Gegensatz zu der bisher verwendeten Methode *act()* zurück. In diesem Fall handelt es sich um die boolesche Ausdrücke *true* und *false*, welche auf deutsch so viel wie *richtig* und *falsch* bedeuten. Dies sind die beiden einzigen Zustände, die die Rückgabetypen von *atWorldEdge* annehmen können. Der Rückgabetyp *richtig* bedeutet in diesem Fall, dass sich das Objekt am Rand der Welt befindet, während *false* das Gegenteil aussagt.
 
 ```javascript
 public boolean atWorldEdge()
@@ -145,7 +143,19 @@ public boolean atWorldEdge()
 }
 ```
 
-den Winkel, der eine zufällige Zahl von 0 bis 49 annimmt, damit die Asteroiden sich auch auf die Rakete hin bewegen und nicht in eine völlig andere Richtung und 2. die Art der Drehung, die eine zufällige Zahl von 0-1 erhält. Befasst haben wir uns dann mit dem "Crashen" der Asteroiden gegen den Rand der Welt. Dazu haben wir public boolean atWorldEdge() benutzt. Das boolean beschreibt zwei Fälle, die vorkommen können. Entweder richtig(true) und falsch (false). Wenn die X-Koordinate = 0 ist, also die Asteroiden sich am linken Bildschirmrand befindet, werden diese entfernt (return). Wenn die y-Koordinate = 0 ist oder die Asteroiden sich am unteren Bildrand befinden, werden sie ebenfalls entfernt, egal ob sie richtig oder falsch waren. Dann haben wir wieder mit public void act, wie wir es bei der Rakete auch getan haben, den Asteroiden befohlen, sich mit einer Geschwindigkeit von -12, also nur nach links (zur Rakete hin) zu bewegen. Jetzt kommen die beiden Variablen ins Spiel: Mithilfe erneuter if-Befehler konnten wir festlegen, dass die Asteroiden, wenn die TypeofRotation 0 beträgt, einen oben festgelegten positiven Winkel erhalten und wenn die TypeofRotation 1 beträgt, einen festgelegten negativen Winkel bekommen. Schließlich entfernen die Asteroiden durch den Befehl atWorldEdge sich quasi selbst, wenn sie eben einen Rand in der Welt erreichen.
+Damit *atWorldEdge* funktionieren kann, müssen ihre Rückgabetypen definiert werden. Sie sind Teil der Methode.
+
+```javascript
+public boolean atWorldEdge()
+{
+   if(getX() == 0)
+   {
+      return true;
+   }
+}
+```   
+
+
 
 ```javascript
 import greenfoot.*;
@@ -157,7 +167,7 @@ public boolean atWorldEdge()
    {
       return true;
    }
-   if(getY() == 0 || getY() > getWorld().getHeight() - 2 && TypeOfRotation == 1)
+   if(getY() == 0 && TypeOfRotation == 0 || getY() == 539 && TypeOfRotation == 1)
    {
       return true;
    }
