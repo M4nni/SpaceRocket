@@ -1,12 +1,15 @@
-<h2>
-SpaceRocket
-</h2>
+# SpaceRocket
 
-##Ein Informatik-Projekt von Robin Wagner und Finn Westphal
+<h2>
+Ein Informatik-Projekt von Robin Wagner und Finn Westphal
+</h2>
 
 ![alt text](https://raw.githubusercontent.com/M4nni/SpaceRocket-Projekt-Informatik-von-Finn-Westphal-und-Robin-Wagner/master/Screenshot_Greenfoot_SpaceRocket_Szenario.png)
 
-##Inhaltsverzeichnis
+<h2>
+<a id="Inh">Inhaltsverzeichins</a>
+</h2>
+
 1. **[Einleitung](#einleitung-anforderungen-und-elemente-des-spiels)**  
 2. **[Umsetzung](#umsetzung)**  
    **[Das Szenario](#das-szenario)**  
