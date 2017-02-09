@@ -10,9 +10,12 @@ Ein Informatik-Projekt von Robin Wagner und Finn Westphal
 <a id="Inh">Inhaltsverzeichnis</a>
 </h2>
 
+
+<p>
 <ul>
-<li><a href= "Einleitung"> 1. Einleitung: Anforderungen an das Spiel </a></li>
+<a href= "Einleitung"> Einleitung: Anforderungen an das Spiel </a>
 </ul>
+</p>
 2. **[Umsetzung](#umsetzung)**  
    **[Das Szenario](#das-szenario)**  
    **[Die Rakete](#die-rakete)**  
