@@ -11,9 +11,7 @@ Ein Informatik-Projekt von Robin Wagner und Finn Westphal
 </h2>
 
 
-<ul>
 <a href= "Ein"> Einleitung: Anforderungen an das Spiel </a>
-</ul>
 
 2. **[Umsetzung](#umsetzung)**  
    **[Das Szenario](#das-szenario)**  
