@@ -9,9 +9,9 @@ SpaceRocket
 ##Inhaltsverzeichnis
 1. **[Einleitung](#einleitung-anforderungen-und-elemente-des-spiels)**  
 2. **[Umsetzung](#umsetzung)**  
- **[Das Szenario](#das-szenario)**  
- **[Die Rakete](#die-rakete)**  
- **[Die Asteroiden](#die-asteroiden)**  
+   **[Das Szenario](#das-szenario)**  
+   **[Die Rakete](#die-rakete)**  
+   **[Die Asteroiden](#die-asteroiden)**  
 3. **[Was noch zu tun ist](#was-noch-zu-tun-ist)**  
 4. **[Quellen](#quellen)**
 
