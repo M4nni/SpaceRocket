@@ -10,7 +10,7 @@ Ein Informatik-Projekt von Robin Wagner und Finn Westphal
 id="Inh">Inhaltsverzeichnis
 </h2>
 
-<li><a href= "Einleitung"> 1. Einleitung </a></li>
+<li><a href= "Einleitung"> 1. Einleitung: Anforderungen an das Spiel </a></li>
 2. **[Umsetzung](#umsetzung)**  
    **[Das Szenario](#das-szenario)**  
    **[Die Rakete](#die-rakete)**  
@@ -18,7 +18,9 @@ id="Inh">Inhaltsverzeichnis
 3. **[Was noch zu tun ist](#was-noch-zu-tun-ist)**  
 4. **[Quellen](#quellen)**
 
-##Einleitung: Anforderungen und Elemente des Spiels
+<h2>
+<a id="Einleitung">1. Einleitung: Anforderungen und Elemente des Spiels</a>
+</h2>
 
 Space Rocket ist ein Highscore-Spiel auf Greenfoot-Basis, in dem man mit einer Rakete, die sich am linken Bildschirmrand befindet und sich nur nach oben oder unten bewegen kann, versucht, Asteroiden, die nur von der rechten Bildschirmseite heranfliegen, in einem Asteroidenfeld auszuweichen. Jeder Asteroid verschwindet aus der Welt, wenn er den Rand der Welt erreicht. Man verliert, wenn man mit einem Asteroiden zusammenstößt.
 
