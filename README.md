@@ -1,4 +1,4 @@
-# SpaceRocket
+#SpaceRocket
 
 <h2>
 Ein Informatik-Projekt von Robin Wagner und Finn Westphal
@@ -11,7 +11,7 @@ Ein Informatik-Projekt von Robin Wagner und Finn Westphal
 </h2>
 
 
-<a href= "Ein"> Einleitung: Anforderungen an das Spiel </a>
+<a href= "#Ein"> Einleitung: Anforderungen an das Spiel </a>
 
 2. **[Umsetzung](#umsetzung)**  
    **[Das Szenario](#das-szenario)**  
