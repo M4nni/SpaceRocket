@@ -8,16 +8,12 @@ Ein Informatik-Projekt von Robin Wagner und Finn Westphal
 
 ![alt text](https://raw.githubusercontent.com/M4nni/SpaceRocket-Projekt-Informatik-von-Finn-Westphal-und-Robin-Wagner/master/Screenshot_Greenfoot_SpaceRocket_Szenario.png)
 
-<h2>
-<a id="Inh">Inhaltsverzeichnis</a>
-</h2>
-
-
-<a href= "#Einleitung"> Einleitung: Anforderungen an das Spiel </a>
-<a href= "#Umsetzung"> Umsetzung</a>
-<a href= "Das Szenario"> Das Szenario</a>
-<a hred= "Die Rakete"> Die Rakete</a>
-<a hred= "Die Asteroiden"> Die Asteroiden</a>
+<li><a href= "#Einleitung"> Einleitung: Anforderungen und Elemente des Spiel </a></li>
+<li><a href= "#Umsetzung"> Umsetzung</a></li>
+<li><a href= "#Das Szenario"> Das Szenario</a></li>
+<li><a href= "#Die Rakete"> Die Rakete</a></li>
+<li><a href= "#Die Asteroiden"> Die Asteroiden</a></li>
+<li><a href= "#Quellen"> Quellen</a></li>
 
 2. **[Umsetzung](#umsetzung)**  
    **[Das Szenario](#das-szenario)**  
@@ -25,7 +21,6 @@ Ein Informatik-Projekt von Robin Wagner und Finn Westphal
    **[Die Asteroiden](#die-asteroiden)**  
 3. **[Was noch zu tun ist](#was-noch-zu-tun-ist)**  
 4. **[Quellen](#quellen)**
-
 
 <h2>
 <a id="Einleitung">1. Einleitung: Anforderungen und Elemente des Spiels</a>
@@ -138,7 +133,7 @@ public void act()
 
 ---
 
-###Die Asteroiden
+<a id= "Die Asteroiden"> Die Asteroiden</a>
 
 Anschließend haben wir uns um die Programmierung der Asteroiden gekümmert, in die wir bisher am meisten Zeit hineingesteckt haben. Zu Beginn haben wir uns ein Asteroiden Bild in einer angemessenen Größe heruntergeladen und als Bild unserer Asteroiden in Greenfoot verwendet. Die Asteroiden sollen während das der Ausführung des Szenarios zufällig spawnen und sich von rechts nach links mit einem zufälligen Winkel in Richtung der Rakete bewegen. Sobald sie auf den Rand der Welt zufliegen, sollen sie aus dem Szenario entfernt werden. Um diese Anforderungen zu erfüllen benötigen wir eine Methode die in der Lage ist einen Asteroiden zu entfernen, wenn er sich am Rand der Welt befindet. Außerdem brauchen wir eine weitere Methoden, die den Asteroiden eine feste Geschwindigkeit und einen zufälligen Winkel zuweisen. 
 
@@ -231,7 +226,7 @@ public void act()
 }
 ```
 
-##Was noch zu tun ist
+<a id= "Was noch zu tun ist">          Was noch zu tun ist</a>
 
 Dies ist unser derzeitiger Stand zu unserem Spiel SpaceRocket, dennoch haben wir das Projekt noch längst nicht fertiggestellt da uns noch viele Dinge fehlen, die wir geplant haben:
 1. Es sollen während des Spiel neue Asteroiden spawnen, die aber nur auf der rechten Hälfte entstehen können.
@@ -244,5 +239,5 @@ Dies ist unser derzeitiger Stand zu unserem Spiel SpaceRocket, dennoch haben wir
 8. Das Einfügen von Sternen in den Hintergrund, die den Eindruck erwecken sollen, dass man mit der Rakete wirklich durch den Weltraum fliegt.
 9. Das Einfügen von Sounds, z.B. bei der Explosion oder beim game-over.
 
-##Quellen
+<a id="Quellen"> Quellen</a>
 Michael Kölling: *Einführung in Java mit Greenfoot*. Pearson Education Deutschland GmbH, 2010
