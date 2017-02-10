@@ -8,12 +8,17 @@ Ein Informatik-Projekt von Robin Wagner und Finn Westphal
 
 ![alt text](https://raw.githubusercontent.com/M4nni/SpaceRocket-Projekt-Informatik-von-Finn-Westphal-und-Robin-Wagner/master/Screenshot_Greenfoot_SpaceRocket_Szenario.png)
 
-<li><a href= "#Einleitung"> Einleitung: Anforderungen und Elemente des Spiel </a></li>
+<ol>
+<li><a href= "#Einleitung"> Einleitung: Anforderungen und Elemente des Spiels</a></li>
 <li><a href= "#Umsetzung"> Umsetzung</a></li>
+<ol>
 <li><a href= "#Das Szenario"> Das Szenario</a></li>
 <li><a href= "#Die Rakete"> Die Rakete</a></li>
 <li><a href= "#Die Asteroiden"> Die Asteroiden</a></li>
+</ol>
+<li><a href= "#Was noch zu tun ist"> Was noch zu tun ist</a></li>
 <li><a href= "#Quellen"> Quellen</a></li>
+</ol>
 
 <h2>
 <a id="Einleitung">1. Einleitung: Anforderungen und Elemente des Spiels</a>
@@ -22,11 +27,11 @@ Ein Informatik-Projekt von Robin Wagner und Finn Westphal
 Space Rocket ist ein Highscore-Spiel auf Greenfoot-Basis, in dem man mit einer Rakete, die sich am linken Bildschirmrand befindet und sich nur nach oben oder unten bewegen kann, versucht, Asteroiden, die nur von der rechten Bildschirmseite heranfliegen, in einem Asteroidenfeld auszuweichen. Jeder Asteroid verschwindet aus der Welt, wenn er den Rand der Welt erreicht. Man verliert, wenn man mit einem Asteroiden zusammenstößt.
 
 <h2>
-<a id="Umsetzung"> Umsetzung</a>
+<a id="Umsetzung"> 2. Umsetzung</a>
 </h2>
 
 <h3>
-<a id= "Das Szenario"> Das Szenario</a>
+<a id= "Das Szenario"> 2.1 Das Szenario</a>
 </h3>
 
 <p>
@@ -73,7 +78,7 @@ public space_backround_1()
 ---
 
 <h3>
-<a id= "Die Rakete"> Die Rakete</a>
+<a id= "Die Rakete"> 2.2 Die Rakete</a>
 </h3>
 
 Danach haben wir uns um die Rakete gekümmert. Diese soll sich zwar nicht nach links und rechts bewegen, da die Asteroiden auf die Rakete zufliegen sollen, aber sie soll sich nach oben und unten bewegen können. Zuerst haben wir ein Bild einer Rakete zur Actor-Klasse Rocket hinzugefügt und uns dann mit dem Code beschäftigt. Mithilfe des Konstruktors *public* erstellten wir eine Klasse, die in der Lage ist, mit anderen Klassen Informationen austauschen. Wir verwenden die Methode *void act()*. Der Rückgabetyp *void* gibt an, ob und wenn ja, welche Informationen zuzückgegeben werden. In diesen Fall bedeutet *void* so viel wie "nichts", wir erhalten dementsprechend keine Informationen über die Ausführung der Methode. *void act()* ist ausschließlich eine ausführende Methode, die keine weiteren Parameter für ihre Ausführung benötigt, weswegen in den Klammern von *act()* kein Inhalt vorhanden ist. Sie wird beim starten des Szenarios, z. B. durch betätigen des *Act-Buttons*, kontinuierlich ausgeführt, bis das Szenario beendet wird. Dabei werden die einzelnen Methoden innerhalb von *act()* der Reihe nach ausgeführt. Wir legen mit dieser Methode das Verhalten der Rakete fest. Hier haben wir mit den Befehlen *setRotation()* und *setLocation()* gearbeitet. Mithilfe von *setRotation* können wir die Neigung der Rakete bestimmen. Zur Steuerung der Rakete verwenden wir "w" für "nach oben" und "s" für "nach unten" oder alternativ die Pfeiltasten "up" und "down". Solange eine der Tasten gedrückt wird soll sich die Rakete mit einer bestimmten, konstanten Geschwindigkeit in die jeweilige Richtung bewegen. Damit dies visuell verdeutlicht wird, soll gleichzeitig während des Tastendrucks die Rakete durch *setRotation* in einer bestimmte Neigung ausgerichtet werden.
@@ -134,7 +139,7 @@ public void act()
 ---
 
 <h3>
-<a id= "Die Asteroiden"> Die Asteroiden</a>
+<a id= "Die Asteroiden"> 2.3 Die Asteroiden</a>
 </h3>
 
 Anschließend haben wir uns um die Programmierung der Asteroiden gekümmert, in die wir bisher am meisten Zeit hineingesteckt haben. Zu Beginn haben wir uns ein Asteroiden Bild in einer angemessenen Größe heruntergeladen und als Bild unserer Asteroiden in Greenfoot verwendet. Die Asteroiden sollen während das der Ausführung des Szenarios zufällig spawnen und sich von rechts nach links mit einem zufälligen Winkel in Richtung der Rakete bewegen. Sobald sie auf den Rand der Welt zufliegen, sollen sie aus dem Szenario entfernt werden. Um diese Anforderungen zu erfüllen benötigen wir eine Methode die in der Lage ist einen Asteroiden zu entfernen, wenn er sich am Rand der Welt befindet. Außerdem brauchen wir eine weitere Methoden, die den Asteroiden eine feste Geschwindigkeit und einen zufälligen Winkel zuweisen. 
@@ -229,7 +234,7 @@ public void act()
 ```
 
 <h3>
-<a id= "Was noch zu tun ist">          Was noch zu tun ist</a>
+<a id= "Was noch zu tun ist"> 3. Was noch zu tun ist</a>
 </h3>
 
 
@@ -244,5 +249,8 @@ Dies ist unser derzeitiger Stand zu unserem Spiel SpaceRocket, dennoch haben wir
 8. Das Einfügen von Sternen in den Hintergrund, die den Eindruck erwecken sollen, dass man mit der Rakete wirklich durch den Weltraum fliegt.
 9. Das Einfügen von Sounds, z.B. bei der Explosion oder beim game-over.
 
-<a id="Quellen"> Quellen</a>
+<h3>
+<a id="Quellen"> 4. Quellen</a>
+</h3>
+
 Michael Kölling: *Einführung in Java mit Greenfoot*. Pearson Education Deutschland GmbH, 2010
