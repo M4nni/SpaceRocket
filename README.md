@@ -2,25 +2,21 @@
 SpaceRocket
 </h1>
 
-test
-
 <h2>
 Ein Informatik-Projekt von Robin Wagner und Finn Westphal
 </h2>
 
 ![alt text](https://raw.githubusercontent.com/M4nni/SpaceRocket-Projekt-Informatik-von-Finn-Westphal-und-Robin-Wagner/master/Screenshot_Greenfoot_SpaceRocket_Szenario.png)
 
-<ol>
-<li><a href= "#Einleitung"> Einleitung: Anforderungen und Elemente des Spiels</a></li>
-<li><a href= "#Umsetzung"> Umsetzung</a></li>
-<ol>
-<li><a href= "#Das Szenario"> Das Szenario</a></li>
-<li><a href= "#Die Rakete"> Die Rakete</a></li>
-<li><a href= "#Die Asteroiden"> Die Asteroiden</a></li>
-</ol>
-<li><a href= "#Was noch zu tun ist"> Was noch zu tun ist</a></li>
-<li><a href= "#Quellen"> Quellen</a></li>
-</ol>
+<dl>
+<dt><a href= "#Einleitung"> 1. Einleitung: Anforderungen und Elemente des Spiels</a></dt>
+<dt><a href= "#Umsetzung"> 2. Umsetzung</a></dt>
+   <dd><a href= "#Das Szenario"> 2.1 Das Szenario</a></dd>
+   <dd><a href= "#Die Rakete"> 2.2 Die Rakete</a></dd>
+   <dd><a href= "#Die Asteroiden"> 2.3 Die Asteroiden</a></dd>
+<dt><a href= "#Was noch zu tun ist"> 3. Was noch zu tun ist</a></dt>
+<dt><a href= "#Quellen"> 4. Quellen</a></dt>
+</dl>
 
 <h2>
 <a id="Einleitung">1. Einleitung: Anforderungen und Elemente des Spiels</a>
