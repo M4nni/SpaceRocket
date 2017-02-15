@@ -1,8 +1,8 @@
 <head>
 <style>
-h1 {color: green; TEXT-DECORATION: UNDERLINE;}
-h2 {color: green; TEXT-DECORATION: UNDERLINE;}
-h3 (color: green; TEXT-DECORATION: UNDERLINE;}
+<h1> {color: green; TEXT-DECORATION: UNDERLINE;}</h1>
+<h2> {color: green; TEXT-DECORATION: UNDERLINE;}</h2>
+<h3> (color: green; TEXT-DECORATION: UNDERLINE;}</h3>
 </style>
 </head>
 
