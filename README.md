@@ -1,3 +1,4 @@
+<!--
 <head>
 <style>
 <h1> {color: green; TEXT-DECORATION: UNDERLINE;}</h1>
@@ -13,6 +14,7 @@ h2 {color: green; TEXT-DECORATION: UNDERLINE;}
 h3 (color: green; TEXT-DECORATION: UNDERLINE;}
 </style>
 </body>
+-->
 
 <h1>
 SpaceRocket
@@ -114,7 +116,7 @@ Um diese Steuerung in Greenfoot umzusetzen, haben wir unnächst festgelegt, dass
 </code></pre>
 
 <p>
-Damit sich die Rakete beim Tastendruck mit konstanter Geschwindigkeit nach unten bewegt, verwenden wir die Methode *setLocation*, die mindestens drei weitere Parameter für ihre Funktion benötigt, welche die aktuelle Position des Objektes in der Welt und die Bewegungsrichtung relativ zu dieser Position ist. Die Rückgabetypen *getX* und *getY* geben die aktuellen Koordinaten des klassenspezifischen Objektes an. Sie werden durch ein Komma getrennt und in den Klammern der Methode *setLocation* integriert. Damit nun bei Tastendruck eine Bewegung vollzogen wird, kann man hinter jedem Rückgabetypen eine natürliche Zahlen addiert bzw. subtrahiert werden. So wird bei jeder Ausführung dieses frames oder Blocks das Objekt um die jeweiligen Koordinaten bewegt. Durch das mehrfache Ausführen dieser Methode resultiert daraus eine lineare Fortbewegungsrichtung. Für unsere Anwendung soll sich unser Objekt, die Rakete, lediglich entlang der y-Achse bewegen, weswegen die x-Koordinate unverändert bleibt. Zur visuellen Verdeutlichung verwenden wir außerdem die Methode *setRoation*, die das Objekt, in diesem Fall unsere Rakete, im einem bestimmten Winkel ausrichtet. Dieser Winkel wird in Klammer an die Methode ergänzt. Durch ausprobieren haben wir herausgefunden, dass eine Rotation von 20° bzw. -20° geeignet für die simulierte Bewegung unser Rakete ist. Die Rakete soll außerdem nur beim Tastdruck ihre Position verändern und nicht in der Lage sein die Welt über ihre Grenzen zu verlassen. Um diese Bedingungen mit der Bewegung der Rakete in Verbindung zu bringen verwenden wir eine *if-Methode*, die die Ausführung einer oder mehrerer Methoden nur zulässt, wenn alle ihre Bedingungsparameter erfüllt werden. Werden die Bedingungen erfüllt so werden die in geschweiften Klammern stehende Methode oder Methoden im Anschluss an die if-Methode ausgeführt. In unserem Fall bestehen unsere Bedinungsparameter aus zwei *Greenfoot.isKeyDown*-Methoden und dem Rückgabetyp *getY()*. Die Methode *Greenfoot.isKeyDown* prüft ständig, ob eine bestimmte Taste auf der Tastatur gedrückt wird. Dabei wird der jeweilige Tastenname in Anführungszeichen in Klammern an die Methode ergänzt. Da die Steuerung optional über die Pfeiltasten "oben" und "unten", sowie über die Tasten "w" und "s" erfolgen soll, verwenden wir *Greenfoot.isKeyDown* zweimal pro if-Methode. Für die Abwärtsbewegung bespielsweise verwenden wir *Greenfoot.isKeyDown("down")* und *Greenfoot.isKeyDown("s")*, die durch zwei senkrechte Striche "||" voneinander getrennt werden. Diese bilden einen Operator, der soviel wie "oder" bedeutet. Damit die Rakete die Welt nicht verlassen kann haben wir den Rückgabetyp *getY()* als kleiner als 540 festgelegt, was der maximalen y-Koordianten unserer Welt entspricht. Er wird mit zwei Et-Zeichen "<span>&amp;&amp;</span>" an die beiden *Greenfoot.isKeyDown* ergänzt. Die beiden Et-Zeichen ergeben ebenfalls einen Operator mit der Bedeutung "und". Daraus folgt, dass die Bedingung der if-Methode nur erfüllt ist, wenn mindestens einer der Tasten "down" oder "s" gedrückt wird und die aktulle Position der Rakete eine kleinere y-Koordinate als 540 aufweist. Werden die Bedingungen erfüllt, bewegt sich die Rakete mit einer Geschwindigkeit von 12 Pixeln pro frame-Ausführung entlang der y-Achse in Richtung der unterm Kante der Welt.
+Damit sich die Rakete beim Tastendruck mit konstanter Geschwindigkeit nach unten bewegt, verwenden wir die Methode *setLocation*, die mindestens drei weitere Parameter für ihre Funktion benötigt, welche die aktuelle Position des Objektes in der Welt und die Bewegungsrichtung relativ zu dieser Position ist. Die Rückgabetypen *getX* und *getY* geben die aktuellen Koordinaten des klassenspezifischen Objektes an. Sie werden durch ein Komma getrennt und in den Klammern der Methode *setLocation* integriert. Damit nun bei Tastendruck eine Bewegung vollzogen wird, kann man hinter jedem Rückgabetypen eine natürliche Zahlen addiert bzw. subtrahiert werden. So wird bei jeder Ausführung dieses frames oder Blocks das Objekt um die jeweiligen Koordinaten bewegt. Durch das mehrfache Ausführen dieser Methode resultiert daraus eine lineare Fortbewegungsrichtung. Für unsere Anwendung soll sich unser Objekt, die Rakete, lediglich entlang der y-Achse bewegen, weswegen die x-Koordinate unverändert bleibt. Zur visuellen Verdeutlichung verwenden wir außerdem die Methode *setRoation*, die das Objekt, in diesem Fall unsere Rakete, im einem bestimmten Winkel ausrichtet. Dieser Winkel wird in Klammer an die Methode ergänzt. Durch ausprobieren haben wir herausgefunden, dass eine Rotation von 20° bzw. -20° geeignet für die simulierte Bewegung unser Rakete ist. Die Rakete soll außerdem nur beim Tastdruck ihre Position verändern und nicht in der Lage sein die Welt über ihre Grenzen zu verlassen. Um diese Bedingungen mit der Bewegung der Rakete in Verbindung zu bringen verwenden wir eine *if-Methode*, die die Ausführung einer oder mehrerer Methoden nur zulässt, wenn alle ihre Bedingungsparameter erfüllt werden. Werden die in runden Klammern stehenden Bedingungen erfüllt, so werden die in geschweiften Klammern stehende Methode oder Methoden im Anschluss an die if-Methode ausgeführt. In unserem Fall bestehen unsere Bedinungsparameter aus zwei *Greenfoot.isKeyDown*-Methoden und dem Rückgabetyp *getY()*. Die Methode *Greenfoot.isKeyDown* prüft ständig, ob eine bestimmte Taste auf der Tastatur gedrückt wird. Dabei wird der jeweilige Tastenname in Anführungszeichen in Klammern an die Methode ergänzt. Da die Steuerung optional über die Pfeiltasten "oben" und "unten", sowie über die Tasten "w" und "s" erfolgen soll, verwenden wir *Greenfoot.isKeyDown* zweimal pro if-Methode. Für die Abwärtsbewegung bespielsweise verwenden wir *Greenfoot.isKeyDown("down")* und *Greenfoot.isKeyDown("s")*, die durch zwei senkrechte Striche "||" voneinander getrennt werden. Diese bilden einen Operator, der soviel wie "oder" bedeutet. Damit die Rakete die Welt nicht verlassen kann haben wir den Rückgabetyp *getY()* als kleiner als 540 festgelegt, was der maximalen y-Koordianten unserer Welt entspricht. Er wird mit zwei Et-Zeichen "<span>&amp;&amp;</span>" an die beiden *Greenfoot.isKeyDown* ergänzt. Die beiden Et-Zeichen ergeben ebenfalls einen Operator mit der Bedeutung "und". Daraus folgt, dass die Bedingung der if-Methode nur erfüllt ist, wenn mindestens einer der Tasten "down" oder "s" gedrückt wird und die aktulle Position der Rakete eine kleinere y-Koordinate als 540 aufweist. Werden die Bedingungen erfüllt, bewegt sich die Rakete mit einer Geschwindigkeit von 12 Pixeln pro frame-Ausführung entlang der y-Achse in Richtung der unterm Kante der Welt.
 </p>
 
 <pre><code>if (Greenfoot.isKeyDown("down") || Greenfoot.isKeyDown("s") <span>&amp;&amp;</span> getY() <span>&gt;=</span> 540)
@@ -184,7 +186,7 @@ int [Name der Variablen] = ...
 ```
 
 <p>
-Da sich die Asteroiden mit einem zufälligen Winkel fortbewegen sollen, verwenden wir die bekannte Methode *Greenfoot.getRandomNumber* für die Winkelvariable names *Angle* (engl. Winkel). Diese Methode generiert jedoch nur natürliche Zahlen. Ohne Weiteres lassen sich also nur Winkel im Uhrzeigersinn erzeugen. Somit sind  die Asteroiden lediglich in der Lage, eine Aufwärtsbewegung zu erfahren. Aus diesem Grund haben wir eine weitere Variable mit der Bezeichnung *TypeOfRotation* festgelegt, deren Funktion später noch genauer erläutert wird. Wir haben die Variable für den Winkel (Angle) gleich *Greenfoot.getRandomNumber(50)* gesetzt wodurch die zufällige Zahl von 0 bis 49 generiert wird. Die Variable *TypeOfRotation* erstellt durch den Grenwert *(2)* zufällig eine 0 oder eine 1. Der Wert dieser Variable kann also nur zwei Zustände annehmen.
+Da sich die Asteroiden mit einem zufälligen Winkel fortbewegen sollen, verwenden wir die bekannte Methode *Greenfoot.getRandomNumber* für die Winkelvariable names *Angle* (engl. Winkel). Diese Methode generiert jedoch nur natürliche Zahlen. Ohne Weiteres lassen sich also nur Winkel im Uhrzeigersinn erzeugen. Somit sind  die Asteroiden lediglich in der Lage, eine Aufwärtsbewegung zu erfahren. Aus diesem Grund haben wir eine weitere Variable mit der Bezeichnung *TypeOfRotation* festgelegt, deren Funktion später noch genauer erläutert wird. Wir haben die Variable für den Winkel (Angle) gleich *Greenfoot.getRandomNumber(50)* gesetzt wodurch die zufällige Zahl von 0 bis 49 generiert wird. Die Variable <i>TypeOfRotation</i> erstellt durch den Grenwert *(2)* zufällig eine 0 oder eine 1. Der Wert dieser Variable kann also nur zwei Zustände annehmen.
 </p>
 
 ```javascript
@@ -194,7 +196,7 @@ int TypeOfRotation = Greenfoot.getRandomNumber(2);
 ```
 
 <p>
-Die Asteroiden sollen entfernt werden, sobald sie die Ränder der Welt erreichen. Es muss also ständig geprüft werden, ob sich ein Asteroid am Rand der Welt befindet. Die Methode *atWorldEdge()* prüft ständig, ob ein Objekt die maximalen bzw. die minimalen Koordinaten und damit die Grenzen der Welt erreicht hat. Diese Methode gibt im Gegensatz zu der bisher verwendeten Methode *act()* zurück. In diesem Fall handelt es sich um die boolesche Ausdrücke *true* und *false*, welche auf deutsch so viel wie *richtig* und *falsch* bedeuten. Dies sind die beiden einzigen Zustände, die die Rückgabetypen von *atWorldEdge* annehmen können. Der Rückgabetyp *richtig* bedeutet in diesem Fall, dass sich das Objekt am Rand der Welt befindet, während *false* das Gegenteil aussagt.
+Die Asteroiden sollen entfernt werden, sobald sie die Ränder der Welt erreichen. Es muss also ständig geprüft werden, ob sich ein Asteroid am Rand der Welt befindet. Dies ist ein sehr spezieller Aufgabentyp für den keine vorfertigte Methode vorhanden ist, weshalb wir eine eigene Methode definieren müssen. Wir haben diese Methode <i>atWorldEdge()</i> genannt, was so viel wie "am Rand der Welt bedeutet". Im Gegensatz zu der bisher verwendeten Objekt-Mehtode <i>act()</i> muss <i>atWorldEdge()</i> über Rückgabetypen verfügen, damit die Methode in Lage ist Informationen zurückzugeben. In diesem soll die Methode angeben, ob sich ein Asteroid am Rand der Welt befindet oder nicht. Da dies Aussagen sind, sind boolesche Rückgabetypen sinnvoll. Boolesche Aussagen können nur zwei Züstände annehmen und zwar <i>true</i> und <i>false</i>, welche auf deutsch so viel wie <i>richtig</i> und <i>falsch</i> bedeuten.
 </p>
 
 ```javascript
@@ -204,7 +206,7 @@ public boolean atWorldEdge()
 ```
 
 <p>
-Damit *atWorldEdge* funktionieren kann, müssen ihre Rückgabetypen definiert werden. Diese werden als Teil der Methode in dessem Block implementiert. Hierfür benötigen wir die Anweisung *return*, die verschiedene Ausdrücke wie z. B. "wahr" oder "falsch" als Rückgabetypen zurückgeben. Dabei wird der Inhalt zwischen *return* und dem Semikolon als Rückgabetyp festgelegt.
+Damit <i>atWorldEdge</i> funktionieren kann, müssen ihre Rückgabetypen definiert werden. Diese werden als Teil der Methode in dessem Block implementiert. Hierfür benötigen wir die Anweisung <i>return</i>, die verschiedene Ausdrücke wie z. B. "wahr" oder "falsch" als Rückgabetypen zurückgeben kann. Dabei wird der Inhalt zwischen *return* und dem Semikolon als Rückgabetyp festgelegt.
 </p>
 
 ```javascribt
@@ -212,7 +214,7 @@ return [Rückgabetyp] ;
 ```
 
 <p>
-In unserem Fall verwenden wir als Rückgabetypen *true* und *false*, die Aufschluss darüber geben, ob sich ein Asteroid am Rand der Welt befindet oder nicht.
+In unserem Fall verwenden wir als Rückgabetypen <i>true</i> und <i>false</i>, die Aufschluss darüber geben sollen, ob sich ein Asteroid am Rand der Welt befindet oder nicht.
 </p>
 
 ```javascript
@@ -222,8 +224,24 @@ public boolean atWorldEdge()
 }
 ```   
 
+<!--
+prüft ständig, ob ein Objekt die maximalen bzw. die minimalen Koordinaten und damit die Grenzen der Welt erreicht hat.
+
+Diese Methode gibt im Gegensatz zu der bisher verwendeten Methode *act()* zurück. In diesem Fall handelt es sich um die boolesche Ausdrücke *true* und *false*, welche auf deutsch so viel wie *richtig* und *falsch* bedeuten. Dies sind die beiden einzigen Zustände, die die Rückgabetypen von *atWorldEdge* annehmen können. Der Rückgabetyp *richtig* bedeutet in diesem Fall, dass sich das Objekt am Rand der Welt befindet, während *false* das Gegenteil aussagt.
+-->
+
+
+
 <p>
-Würde man die obige Programmierzeilen verwenden, so würde die Methode ständig den Rückgabetyp *true* zurückgeben. Die Rückgabetypen "wahr" und "falsch" müssen an Bedingungen verknüpft werden, damit sie sinnvoll eingesetzt werden können. Um herrauszufinden, ob sich ein Asteroid am Rand der Welt befindet, müssen die Positionskoordinaten der Asteroiden bekannt sein. Diese lassen sich mit den Methoden *getX()* und *gety()* abrufen.
+Würde man die obige Programmierzeilen verwenden, so würde die Methode ständig den Rückgabetyp <i>*true</i> zurückgeben. Die Rückgabetypen "wahr" und "falsch" müssen an Bedingungen verknüpft werden, damit sie sinnvoll eingesetzt werden können. Um herrauszufinden, ob sich ein Asteroid am Rand der Welt befindet, müssen die Positionskoordinaten der Asteroiden bekannt sein. Diese lassen sich mit den Methoden <i>getX()</i> und <i>gety()</i> abrufen. Erreicht ein Asteroid z. B. den linken Rand der Welt, so soll <i>atWorldEdge()</i> den Rückgabetyp <i>true</i> zurückgeben. Um den linken Rand zu erreichen muss die y-Koordinate gleich null sein. Der Rückgabetyp der Methode <i>getX()</i> muss also gleich null sein. Im Javascript (siehe Code ) verwenden wir hierfür den Operator "==", der als aritmetischer Ausdruck "ist gleich" bedeutet.
+</p>
+
+<pre><code>Code
+getX() == 0
+</code></pre>
+
+<p>
+Diesen Ausdruck können wir als Bedingung für eine if-Methode verwenden. In den geschweiftern Klammern der if-Methode legen wir fest durch <i>return true</i> fest, dass, wenn ein Asteroid eine Ortkoordinate von x = 0 aufweist, die Methode <i>atWorldEdge()</i> den Ausdruck <i>true</i> zurückschickt.
 </p>
 
 ```javascript
@@ -235,6 +253,20 @@ public boolean atWorldEdge()
    }
 }
 ```   
+
+<p>
+Die Asteroiden sind bisher in Lage, die Welt über den linken Rand zu verlassen, der obere und untere stellen jedoch immer noch eine Barriere für die Asteroiden dar. Äuivalent zum linken Rand wäre es naheliegend, wenn weitere if-Methoden mit den maximalen y-Koordianten (0 und 540) aufgestellt werden und so die Ränder passierbar werden. Hier tauchen jedoch zwei Probleme auf: Erscheinen die Asteroiden in der Welt würden sie direkt als "am Rand der Welt" gekennzeichnet werden, was sie aus der Welt entfernen würde. Wir müssen also zwischen den Asteroiden unterscheiden, die sich auf die Grenzen der Welt zubewegen und denen, die im Begriff sind, sich durch das Szenario zu bewegen. 
+</p>
+
+```javascript
+public boolean atWorldEdge()
+{
+   if(getY() == 0 || getY() == 539)
+   {
+      return true;
+   }
+}
+```
 
 
 
