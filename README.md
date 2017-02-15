@@ -7,6 +7,10 @@ h3 (color: green; TEXT-DECORATION: UNDERLINE;}
 </head>
 
 <body>
+h1 {color: green; TEXT-DECORATION: UNDERLINE;}
+h2 {color: green; TEXT-DECORATION: UNDERLINE;}
+h3 (color: green; TEXT-DECORATION: UNDERLINE;}
+</body>
 
 <h1>
 SpaceRocket
@@ -292,4 +296,3 @@ Dies ist unser derzeitiger Stand zu unserem Spiel SpaceRocket, dennoch haben wir
 <ul>
 <li>Michael Kölling: *Einführung in Java mit Greenfoot*. Pearson Education Deutschland GmbH, 2010</li>
 </ul>
-</body>
