@@ -1,5 +1,3 @@
-<script>
-
 <head>
 <style>
 h1 {color: green; TEXT-DECORATION: UNDERLINE;}
@@ -13,8 +11,6 @@ h1 {color: green; TEXT-DECORATION: UNDERLINE;}
 h2 {color: green; TEXT-DECORATION: UNDERLINE;}
 h3 (color: green; TEXT-DECORATION: UNDERLINE;}
 </style>
-
-</script>
 
 <h1>
 SpaceRocket
