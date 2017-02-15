@@ -1,11 +1,9 @@
 <script>
-<head>
 <style>
 h1 {color: green; TEXT-DECORATION: UNDERLINE;}
 h2 {color: green; TEXT-DECORATION: UNDERLINE;}
 h3 (color: green; TEXT-DECORATION: UNDERLINE;}
 </style>
-</head>
 
 <body>
 h1 {color: green; TEXT-DECORATION: UNDERLINE;}
