@@ -1,6 +1,6 @@
 <head>
 <style>
-H1 { color: green; }
+h1 { color: green; }
 h1 { TEXT-DECORATION: UNDERLINE; }
 </style>
 </head>
