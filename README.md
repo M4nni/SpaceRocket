@@ -14,7 +14,7 @@ h2 {color: green; TEXT-DECORATION: UNDERLINE;}
 h3 (color: green; TEXT-DECORATION: UNDERLINE;}
 </style>
 </body>
-<sript>
+</script>
 
 <h1>
 SpaceRocket
