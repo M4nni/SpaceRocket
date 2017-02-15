@@ -1,3 +1,4 @@
+<script>
 <head>
 <style>
 <h1> {color: green; TEXT-DECORATION: UNDERLINE;}</h1>
@@ -13,6 +14,7 @@ h2 {color: green; TEXT-DECORATION: UNDERLINE;}
 h3 (color: green; TEXT-DECORATION: UNDERLINE;}
 </style>
 </body>
+<sript>
 
 <h1>
 SpaceRocket
