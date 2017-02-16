@@ -56,7 +56,7 @@ Wir programmieren unser Projekt "SpaceRocket" in der Programmierumgebung "Greenf
 </p>
 
 <p>
-Mit dem Konstruktor *public* erstellen wir eine Welt-Klasse names *space_backround_1*, die in der Lage ist, alle nötigen Methoden auszuführen und durch die Methode ```javascript import greenfoot.*```; geben wir an, dass diese Klasse in das Szenario implementiert werden soll. Würde nach dem *import greenfoot.* kein "[Multiplikationszeichen]" stehen, so würde diese Klasse beim Start des Programmes nicht geladen werden. Hinter Jeder Klasse stehen mindestens eine geöffnete und eine geschlossene Klammer, die zusetzliche Parameter enthalten können. Zur Ausführung unserer verwendeten Methoden sind keine weiteren Parameter notwendig, weswegen bei uns nichts zwischen den Klammern steht. Die Referenz *super* sorgt dafür, dass alle Eigenschaften der Super- oder Hauptklasse auf alle anderen Klassen übertragen werden. In diesem Fall ist die Super-Klasse die generierte Welt. Diese Anweisung benötigt weiter Parameter für ihre Funktionalität und zwar die Auflösung der generierten Welt und das Verhältnis zwischen Pixeln und Zellen des Zellen-Koordinatensystems, das deckungsgleich zur generierten Welt erstellt wird. Wir wollen diese Verhältnis auf 1:1 festlegen, sodass eine Zelle einem Pixel entspricht. Um diese Parameter dem Konstruktor zur Verfügung zu stellen schreiben wir nach *super* in Klammern (960, 540, 1, true). Der erste Parameter definert die Anzahl der Pixel entlang der x-Achse, der zweite nach dem Komma die Pixelanzahl in y-Richtung und der dritte Parameter *1* sagt aus das eine Zelle die Größe von einem Pixel in x- und y- Richtung besitzt. Durch das true erreichen wir, dass die Asteroiden und auch die Rakete zunächst nicht aus der Welt verschwinden können, sondern nicht in der Laage sind die Welt an ihrem Rand zu verlassen. Am Ende dieser Zeile steht ein Symikolon, die das Ende einer Methode festlegt. Danach haben wir in Greenfoot einen Hintergrund unserer Welt gesucht, der möglichst zum Spiel passen sollte. Wir haben uns schließlich für den vorgefertigten Greenfoot-Hintergrund *space1* entschieden.
+Mit dem Konstruktor *public* erstellen wir eine Welt-Klasse names *space_backround_1*, die in der Lage ist, alle nötigen Methoden auszuführen und durch die Methode <i>javascript import greenfoot.*;</i> geben wir an, dass diese Klasse in das Szenario implementiert werden soll. Würde nach dem *import greenfoot.* kein "[Multiplikationszeichen]" stehen, so würde diese Klasse beim Start des Programmes nicht geladen werden. Hinter Jeder Klasse stehen mindestens eine geöffnete und eine geschlossene Klammer, die zusetzliche Parameter enthalten können. Zur Ausführung unserer verwendeten Methoden sind keine weiteren Parameter notwendig, weswegen bei uns nichts zwischen den Klammern steht. Die Referenz *super* sorgt dafür, dass alle Eigenschaften der Super- oder Hauptklasse auf alle anderen Klassen übertragen werden. In diesem Fall ist die Super-Klasse die generierte Welt. Diese Anweisung benötigt weiter Parameter für ihre Funktionalität und zwar die Auflösung der generierten Welt und das Verhältnis zwischen Pixeln und Zellen des Zellen-Koordinatensystems, das deckungsgleich zur generierten Welt erstellt wird. Wir wollen diese Verhältnis auf 1:1 festlegen, sodass eine Zelle einem Pixel entspricht. Um diese Parameter dem Konstruktor zur Verfügung zu stellen schreiben wir nach *super* in Klammern (960, 540, 1, true). Der erste Parameter definert die Anzahl der Pixel entlang der x-Achse, der zweite nach dem Komma die Pixelanzahl in y-Richtung und der dritte Parameter *1* sagt aus das eine Zelle die Größe von einem Pixel in x- und y- Richtung besitzt. Durch das true erreichen wir, dass die Asteroiden und auch die Rakete zunächst nicht aus der Welt verschwinden können, sondern nicht in der Laage sind die Welt an ihrem Rand zu verlassen. Am Ende dieser Zeile steht ein Symikolon, die das Ende einer Methode festlegt. Danach haben wir in Greenfoot einen Hintergrund unserer Welt gesucht, der möglichst zum Spiel passen sollte. Wir haben uns schließlich für den vorgefertigten Greenfoot-Hintergrund *space1* entschieden.
 </p>
 
 <pre><code><strong>Code 1.1</strong>
@@ -255,7 +255,7 @@ public boolean atWorldEdge()
 ```   
 
 <p>
-Die Asteroiden sind bisher in Lage, die Welt über den linken Rand zu verlassen, der obere und untere stellen jedoch immer noch eine Barriere für die Asteroiden dar. Äuivalent zum linken Rand wäre es naheliegend, wenn weitere if-Methoden mit den maximalen y-Koordianten (0 und 540) aufgestellt werden und so die Ränder passierbar werden. Hier tauchen jedoch zwei Probleme auf: Erscheinen die Asteroiden in der Welt würden sie direkt als "am Rand der Welt" gekennzeichnet werden, was sie aus der Welt entfernen würde. Wir müssen also zwischen den Asteroiden unterscheiden, die sich auf die Grenzen der Welt zubewegen und denen, die im Begriff sind, sich durch das Szenario zu bewegen. 
+Die Asteroiden sind bisher in Lage, die Welt über den linken Rand zu verlassen, der obere und untere stellen jedoch immer noch eine Barriere für die Asteroiden dar. Äuivalent zum linken Rand wäre es naheliegend, wenn weitere if-Methoden mit den maximalen y-Koordianten (0 und 540) aufgestellt werden und so die Ränder passierbar werden. Hier tauchen jedoch zwei Probleme auf: Erscheinen die Asteroiden beim Start des Szenarios in der Welt würden sie direkt als "am Rand der Welt" gekennzeichnet werden, was sie aus der Welt entfernen würde.
 </p>
 
 ```javascript
@@ -267,6 +267,45 @@ public boolean atWorldEdge()
    }
 }
 ```
+
+<p>
+Wir müssen also zwischen den Asteroiden unterscheiden, die das Szenario betreten und denen die es verlassen. Zur Unterscheidung könnte beispielsweise die Richtung dienen in der sich die Asteroiden relativ zu den Rändern bewegen. Wir können also zwischen den Asteroiden unterscheiden, die sich auf die Grenzen der Welt zubewegen und denen, die im Begriff sind, sich durch das Szenario zu bewegen. Hier kommt wieder Variable <i>TypeOfRotation</i> ins Spiel. Sie soll definieren, ob sich die Asteroiden in einer Aufwärtsbewegung oder einer Abwärtsbewegung befinden. Ihr Wert gibt damit auch Aufschluss darüber, ob sie sich auf den unteren oder oberen Rand der Welt zubewegen. Da sich die Asteroiden mit einer konstanten Geschwindikeit bewegen sollen, können wir die Methode <i>move()</i> verwenden. Sie funktioniert in Verbindung mit <i>act()</i>. Mit dieser Methode lassen sich Objekte entlang der x-Achse bewegen. Sie benötigt einen Parameter, eine Zahl, in ihrem Klammerausdruck. Dabei definiert das Vorzeichen die Richtung in die sich das Objekt bewegt (positiv: von links nach recht, negativ: von rechts nach links) und der Betrag des Zahlenwertes das Tempo mit der sich das Objekt vorbewegt. Druch Ausprobieren haben wir herrausgefunden, dass ein Tempo von 12 geeignet für unser Spiel ist. Das Vorzeichen der Geschwindikeit ist negativ, weil sich die Asteroiden von rechts nach links bewegen sollen.
+</p>
+
+```javascript
+public void act()
+{
+   move(-12)
+}
+```
+
+<p>
+Bisher sind die Asteroiden nur in Lage sich horizontal fortzubewegen
+</p>
+
+```javascript
+import greenfoot.*;
+int Angle = Greenfoot.getRandomNumber(50);
+int TypeOfRotation = Greenfoot.getRandomNumber(2);
+public boolean atWorldEdge()
+{
+   if(getX() == 0)
+   {
+      return true;
+   }
+   if(getY() == 0 && TypeOfRotation == 0 || getY() == 539 && TypeOfRotation == 1)
+   {
+      return true;
+   }
+   else
+   {
+      return false;
+   }    
+}
+```
+
+
+
 
 
 
