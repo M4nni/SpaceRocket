@@ -300,10 +300,26 @@ public boolean atWorldEdge()
 ```
 
 <p>
-Wir müssen also zwischen den Asteroiden unterscheiden, die das Szenario betreten und denen, die es verlassen. Zur Unterscheidung könnte beispielsweise die Richtung dienen in der sich die Asteroiden relativ zu den Rändern bewegen. Wir können also zwischen den Asteroiden unterscheiden, die sich auf die Grenzen der Welt zubewegen und denen, die im Begriff sind, sich durch das Szenario zu bewegen. Hier kommt wieder Variable <i>TypeOfRotation</i> ins Spiel. Sie soll definieren, ob sich die Asteroiden in einer Aufwärtsbewegung oder einer Abwärtsbewegung befinden. Ihr Wert gibt damit auch Aufschluss darüber, ob sie sich auf den unteren oder oberen Rand der Welt zubewegen. 
+Wir müssen also zwischen den Asteroiden unterscheiden, die das Szenario betreten und denen, die es verlassen. Zur Unterscheidung könnte beispielsweise die Richtung dienen in der sich die Asteroiden relativ zu den Rändern bewegen. Wir können also zwischen den Asteroiden unterscheiden, die sich auf die Grenzen der Welt zubewegen und denen, die im Begriff sind, sich durch das Szenario zu bewegen. Hier kommt wieder Variable <i>TypeOfRotation</i> ins Spiel. Sie soll definieren, ob sich die Asteroiden in einer Aufwärtsbewegung oder einer Abwärtsbewegung befinden. Ihr Wert gibt damit auch Aufschluss darüber, auf welchen Rand sich die Asteroiden zubewegen. Ein Asteroid, der eine Aufwärtsbewegung erfährt, bewegt sich auf den oberen Rand zu. Für eine Aufwärtsbewegung muss die Variable <i>TypeOfRotation</i> positiv sein (siehe Code ). Bewegt sich ein Asteroide auf den oberen Rand zu, so erreicht er irgendwann die Koordinaten (x|0). Wenn beide Bedinunngen erfüllt sind, soll der Asteroid entfernt werden. Wir formulieren also als Bedinngung in einer if-Methode, dass, wenn die y-Ortskoordinate gleich 0 ist und die Variable <i>TypeOfRotation</i> gleich 0 ist, der Rückgabetyp <i>true</i> von <i>atWorldEdge</i> zurückgegeben wird. Hierfür verwenden wir arithmetischen Ausdruck "<span>&amp;&amp;</span>", der so viel wie "und" bedeutet. Es müssen beide Bedinungen erfüllt sein, um den Rückgabetyp <i>true</i> zurückzugeben. 
 </p>
 
+```javascript
+public boolean atWorldEdge()
+{
+    if(getX() == 0)
+    {
+        return true;
+    }
+    if(getY() == 0 && TypeOfRotation == 0)
+    {
+        return true;
+    }
+}
+```
 
+<p>
+
+</p>
 
 ```javascript
 import greenfoot.*;
@@ -311,18 +327,18 @@ int Angle = Greenfoot.getRandomNumber(50);
 int TypeOfRotation = Greenfoot.getRandomNumber(2);
 public boolean atWorldEdge()
 {
-   if(getX() == 0)
-   {
-      return true;
-   }
-   if(getY() == 0 && TypeOfRotation == 0 || getY() == 539 && TypeOfRotation == 1)
-   {
-      return true;
-   }
-   else
-   {
-      return false;
-   }    
+    if(getX() == 0)
+    {
+        return true;
+    }
+    if(getY() == 0 && TypeOfRotation == 0 || getY() == 539 && TypeOfRotation == 1)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }    
 }
 ```
 
