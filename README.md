@@ -25,6 +25,8 @@ Ein Informatik-Projekt von Robin Wagner und Finn Westphal
 </h2>
 
 ![alt text](https://raw.githubusercontent.com/M4nni/SpaceRocket-Projekt-Informatik-von-Finn-Westphal-und-Robin-Wagner/master/Screenshot_Greenfoot_SpaceRocket_Szenario.png)
+<p><img src="Screenshot_Greenfoot_SpaceRocket_Szenario.png" alt="Bild1" style="width:1920px;height:1080px;border:0;"></p>
+
 
 <dl>
 <dt><a href= "#Einleitung"> 1. Einleitung: Anforderungen und Elemente des Spiels</a></dt>
