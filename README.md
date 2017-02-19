@@ -1,4 +1,4 @@
-<!--
+!--
 <head>
 <style>
 <h1> {color: green; TEXT-DECORATION: UNDERLINE;}</h1>
@@ -37,7 +37,7 @@ Ein Informatik-Projekt von Robin Wagner und Finn Westphal
    <dd><a href= "#Die Rakete"> 2.5 Die Rakete</a></dd>
    <dd><a href= "#Die Asteroiden"> 2.6 Die Asteroiden</a></dd>
    <dd><a href= "#finn der Goldball"> 2.7 finn der Goldball</a></dd>
-2   <dd><a href= "#Der Score"> 2.8 Der Score</a></dd>
+   <dd><a href= "#Der Score"> 2.8 Der Score</a></dd>
    <dd><a href= "#Game-Over"> 2.9 Game-Over</a></dd>
    <dd><a href= "#Die Counter Klasse"> 2.10 Die Counter Klasse</a></dd>
 <dt><a href= "#Was noch zu tun ist"> 3. Was noch zu tun ist</a></dt>
@@ -188,6 +188,7 @@ public void act()
 
 
 ---
+
 
 <h3>
 <a id= "Die Asteroiden"> 2.6 Die Asteroiden</a>
