@@ -31,8 +31,15 @@ Ein Informatik-Projekt von Robin Wagner und Finn Westphal
 <dt><a href= "#Einleitung"> 1. Einleitung: Anforderungen und Elemente des Spiels</a></dt>
 <dt><a href= "#Umsetzung"> 2. Umsetzung</a></dt>
    <dd><a href= "#Das Szenario"> 2.1 Das Szenario</a></dd>
-   <dd><a href= "#Die Rakete"> 2.2 Die Rakete</a></dd>
-   <dd><a href= "#Die Asteroiden"> 2.3 Die Asteroiden</a></dd>
+   <dd><a href= "#Die Welt"> 2.2 Die Welt und ihre Eigenschaften</a></dd>
+   <dd><a href= "#Das Startbild"> 2.3 Das Startbild</a></dd>
+   <dd><a href= "#Die Klassen"> 2.4 Die Klassen </a></dd>
+   <dd><a href= "#Die Rakete"> 2.5 Die Rakete</a></dd>
+   <dd><a href= "#Die Asteroiden"> 2.6 Die Asteroiden</a></dd>
+   <dd><a href= "#finn der Goldball"> 2.7 finn der Goldball</a></dd>
+2   <dd><a href= "#Der Score"> 2.8 Der Score</a></dd>
+   <dd><a href= "#Game-Over"> 2.9 Game-Over</a></dd>
+   <dd><a href= "#Die Counter Klasse"> 2.10 Die Counter Klasse</a></dd>
 <dt><a href= "#Was noch zu tun ist"> 3. Was noch zu tun ist</a></dt>
 <dt><a href= "#Quellen"> 4. Quellen</a></dt>
 </dl>
@@ -40,7 +47,6 @@ Ein Informatik-Projekt von Robin Wagner und Finn Westphal
 <h2>
 <a id="Einleitung">1. Einleitung: Anforderungen und Elemente des Spiels</a>
 </h2>
-
 Space Rocket ist ein Highscore-Spiel auf Greenfoot-Basis, in dem man mit einer Rakete, die sich am linken Bildschirmrand befindet und sich nur nach oben oder unten bewegen kann, versucht, Asteroiden, die nur von der rechten Bildschirmseite heranfliegen, in einem Asteroidenfeld auszuweichen. Jeder Asteroid verschwindet aus der Welt, wenn er den Rand der Welt erreicht. Man verliert, wenn man mit einem Asteroiden zusammenstößt.
 
 <h2>
@@ -55,6 +61,10 @@ Space Rocket ist ein Highscore-Spiel auf Greenfoot-Basis, in dem man mit einer R
 Wir programmieren unser Projekt "SpaceRocket" in der Programmierumgebung "Greenfoot", die auf der objektorientierten Programmiersprache <i>Java</i> basiert. Zunächst haben wir festgelegt, welche Größe, welches Format und welche Auflösung unsere Welt haben soll. Unser Spiel soll über eine klassische Auflösung und ein klassischen Seitenverhälnis verfügen, damit es auf jedem Computer spielbar ist. Wir haben uns deswegen für das Seitenverhältis von 16/9 und eine Auflösung von 960 * 540 Pixeln entschieden. Diese Bildeigenschaften sind von den meisten aktuellen Displays umsetzbar.
 </p>
 
+<h3>
+<a id= "Die Welt"> 2.2 Die Welt und ihre Eigenschaften</a>
+</h3>
+
 <p>
 Mit dem Konstruktor <i>public</i> erstellen wir eine Welt-Klasse namens <i>space_backround_1</i> und durch die Methode <i>import greenfoot.*;</i> geben wir an, dass diese Klasse in das Szenario implementiert werden soll. Fehlt diese Methode oder wird sie verändert, so würde diese Klasse beim Start des Programmes nicht geladen werden. Hinter jeder Klasse stehen mindestens eine geöffnete und eine geschlossene Klammer, die zusätzliche Parameter enthalten können. Zur Ausführung der Methoden, die wir verwenden, sind keine weiteren Parameter notwendig, weswegen bei uns nichts zwischen den Klammern steht. Die Referenz <i>super</i> sorgt dafür, dass alle Eigenschaften der Super- oder Hauptklasse auf alle anderen Klassen übertragen werden. In diesem Fall ist die Super-Klasse die generierte Welt. Diese Anweisung benötigt weitere Parameter für ihre Funktionalität und zwar die Auflösung der generierten Welt und das Verhältnis zwischen Pixeln und Zellen des Zellen-Koordinatensystems, das deckungsgleich zur generierten Welt erstellt wird. Wir wollen dieses Verhältnis auf 1:1 festlegen, sodass eine Zelle einem Pixel entspricht. Um diese Parameter dem Konstruktor zur Verfügung zu stellen, schreiben wir nach <i>super</i> in Klammern (960, 540, 1, true). Der erste Parameter definert die Anzahl der Pixel entlang der x-Achse, der zweite nach dem Komma die Pixelanzahl in y-Richtung und der dritte Parameter "1" sagt aus, dass eine Zelle die Größe von einem Pixel in x- und y- Richtung besitzt. Das Größenverhältnis zwischen Zellen und Pixeln beträgt also 1:1. Durch den Parameter <i>true</i> erreichen wir, dass die Asteroiden und auch die Rakete zunächst nicht aus der Welt verschwinden können, da die Grenzen der Welt für sie eine Barriere darstellen. Am Ende dieser Zeile steht ein Semikolon, das verschiedene Methoden voneinander trennt. Danach haben wir in Greenfoot einen Hintergrund unserer Welt gesucht, der möglichst zum Spiel passen soll. Wir haben uns schließlich für den vorgefertigten Greenfoot-Hintergrund <i>space1</i> entschieden. Dieser lässt sich per Recht-Klick auf die Klasse unter der Option "Set image..." asuswählen.
 </p>
@@ -68,8 +78,12 @@ public space_backround_1()
     }</code>
 </pre>
 
+<h3>
+<a id= "Das Startbild"> 2.3 Das Startbild</a>
+</h3>
+
 <p>
-Bisher enthält unsere Welt noch keine Objekte, die agieren können und für unser Spiel relevant sind. Wir benötigen in jedem Fall zunächst eine Raketen- und eine Asteroiden-Klasse. Andere Klassen, die wir für unser Spiel später auch brauchen, z.B. eine Score- oder gamve-over Klasse, haben wir vorerst vernachlässigt. Zunächst wollten wir, dass jeweils vor Spielbeginn eine Rakete an einem festen Ort startet und verschiedene Asteroiden an immer anderen Punkten der Welt, allerdings nur an den Rändern der rechten Welthälfte, spawnen. Dazu haben wir, wie in dem folgenden Befehl zu sehen, mithilfe der Methode *addObject* eine Rakete hinzugefügt, die jedes Mal, wenn man das Spiel startet, an der Position x = 150 und y = 270 startet. Die Methode *addObject* benötigt bestimmte Parameter. Zu diesen zählt zum einen die Bezeichnung des zu generierenden Objektes einer Klasse und seine Position in der Welt. Hierzu wird nach *addObject* in Klammern die jeweilige Klasse mit dem Aufdruck *new* davor genannt, welcher als Referenz festlegt, dass ein Objekt dieser Klasse hinzugefügt werden soll und, durch Kommata getrennt, die Koordinaten des jeweiligen Objektes. Diese Koordinaten haben wir so gewählt, dass die Rakete ziemlich weit links, aber nicht am Rand, startet und genau die Hälfte der Höhe besitzt. Weiterhin lassen wir Asteroiden spawnen, die sich an immer anderen Positionen befinden können. Der erste Asteroid hat die x-Koordinate 960 und befindet sich genau am rechten Rand der Welt mit einer y-Koordinate die von 0 bis 540, also von ganz unten bis ganz oben variieren kann. Dies erreichen wir durch die Methode *Greenfoot.getRandomNumber*, die eine zufällige, natürliche Zahl zwischen 0 und dem jeweiligen in Klammern stehenden Grenzwert generiert. Der Grenzwert (hier: 541) ist dabei ausgeschlossen. Der 2. Asteroid kann zwischen den x-Koordinaten 480 und 480 + 480, also maximal 960 entstehen. Das bedeutet, dass er immer zufällig zwischen der Hälfte der Welt und dem rechten Rand spawnt. Die y-Koordinate beträgt 1, weshalb der Asteroid nur am oberen Rand der spawnen kann. Dem 3. Asteroid sind die gleichen x-Koordinaten zugewiesen, er spawnt aber durch die festgelegte y-Koordinate von 540 immer am unteren Rand. Der Counter hat in unserer Welt noch keine Bedeutung, da wir noch keine Counter-Klasse erstellt haben.
+Wir benötigen zunächst eine Raketen- und eine Asteroiden-Klasse. Andere Klassen, die wir für unser Spiel später auch brauchen, z.B. eine Score- oder gamve-over Klasse, haben wir vorerst vernachlässigt. Zunächst wollten wir, dass jeweils vor Spielbeginn eine Rakete an einem festen Ort startet und verschiedene Asteroiden an immer anderen Punkten der Welt, allerdings nur an den Rändern der rechten Welthälfte, spawnen. Dazu haben wir, wie in dem folgenden Befehl zu sehen, mithilfe der Methode *addObject* eine Rakete hinzugefügt, die jedes Mal, wenn man das Spiel startet, an der Position x = 150 und y = 270 startet. Die Methode *addObject* benötigt bestimmte Parameter. Zu diesen zählt zum einen die Bezeichnung des zu generierenden Objektes einer Klasse und seine Position in der Welt. Hierzu wird nach *addObject* in Klammern die jeweilige Klasse mit dem Aufdruck *new* davor genannt, welcher als Referenz festlegt, dass ein Objekt dieser Klasse hinzugefügt werden soll und, durch Kommata getrennt, die Koordinaten des jeweiligen Objektes. Diese Koordinaten haben wir so gewählt, dass die Rakete ziemlich weit links, aber nicht am Rand, startet und genau die Hälfte der Höhe besitzt. Weiterhin lassen wir Asteroiden spawnen, die sich an immer anderen Positionen befinden können. Der erste Asteroid hat die x-Koordinate 960 und befindet sich genau am rechten Rand der Welt mit einer y-Koordinate die von 0 bis 540, also von ganz unten bis ganz oben variieren kann. Dies erreichen wir durch die Methode *Greenfoot.getRandomNumber*, die eine zufällige, natürliche Zahl zwischen 0 und dem jeweiligen in Klammern stehenden Grenzwert generiert. Der Grenzwert (hier: 541) ist dabei ausgeschlossen. Der 2. Asteroid kann zwischen den x-Koordinaten 480 und 480 + 480, also maximal 960 entstehen. Das bedeutet, dass er immer zufällig zwischen der Hälfte der Welt und dem rechten Rand spawnt. Die y-Koordinate beträgt 1, weshalb der Asteroid nur am oberen Rand der spawnen kann. Dem 3. Asteroid sind die gleichen x-Koordinaten zugewiesen, er spawnt aber durch die festgelegte y-Koordinate von 540 immer am unteren Rand. 
 </p>
 
 <pre><code><strong>Code-Script 1.2</strong>
@@ -101,7 +115,11 @@ public space_backround_1()
 ---
 
 <h3>
-<a id= "Die Rakete"> 2.2 Die Rakete</a>
+<a id= "Die Klassen"> 2.4 Die Klassen</a>
+</h3>
+
+<h3>
+<a id= "Die Rakete"> 2.5 Die Rakete</a>
 </h3>
 
 <p>
@@ -152,7 +170,7 @@ public class rocket extends mover
 {
 public void act()
 {
-   setRotation(0);
+6   setRotation(0);
     
    if (Greenfoot.isKeyDown("down") || Greenfoot.isKeyDown("s") <span>&amp;&amp;</span> getY() < 540)
    {
@@ -172,7 +190,7 @@ public void act()
 ---
 
 <h3>
-<a id= "Die Asteroiden"> 2.3 Die Asteroiden</a>
+<a id= "Die Asteroiden"> 2.6 Die Asteroiden</a>
 </h3>
 
 <p>
@@ -369,7 +387,8 @@ import greenfoot.*;
 public class Asteroid extends mover
 {
    int Angle = Greenfoot.getRandomNumber(50);
-   int TypeOfRotation = Greenfoot.getRandomNumber(2);
+
+int TypeOfRotation = Greenfoot.getRandomNumber(2);
    public void act()
    {
        move(-12);
@@ -403,6 +422,22 @@ public class Asteroid extends mover
    }
 }
 ```
+
+<h3>
+<a id= "finn der Goldball"> 2.7 finn der Goldball</a>
+</h3>
+
+<h3>
+<a id= "Der Score"> 2.8 Der Score</a>
+</h3>
+
+<h3>
+<a id= "Game-Over"> 2.9 Game-Over</a>
+</h3>
+
+<h3>
+<a id= "Die Counter Klasse"> 2.10 Die Counter Klasse</a>
+</h3>
 
 <h3>
 <a id= "Was noch zu tun ist"> 3. Was noch zu tun ist</a>
