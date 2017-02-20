@@ -39,7 +39,7 @@ Ein Informatik-Projekt von Robin Wagner und Finn Westphal
     <li><a href= "#Die Rakete"> 2.2 Die Rakete</a></li>
         <ul>
         <li><a href= "#Die Rakete als Actor"> 2.2.1 Die Rakete als Actor</a></li>
-        <li><a href= "#Bewegung und Rotation" 2.2.2 Bewegung und Rotation></a></li>
+        <li><a href= "#Bewegung und Rotation"> 2.2.2 Bewegung und Rotation</a></li>
         <li><a href= "#Steuerung Rakete"> 2.2.3 Steuerung</a></li>
         <li><a href= "#Code-Zusammenfassung Rakete"> 2.2.4 Code-Zusammenfassung</a></li>
         </ul>
@@ -49,12 +49,43 @@ Ein Informatik-Projekt von Robin Wagner und Finn Westphal
         <li><a href= "#Variablen der Asteroiden-Klasse"> 2.3.2 Variablen der Asteroiden-Klasse</a></li>
         <li><a href= "#Zufällige Bewegung der Asteroiden"> 2.3.3 Zufällige Bewegung der Asteroiden</a></li>
         <li><a href= "#Am Rand der Welt"> 2.3.4 Am Rand der Welt</a></li>
-        <li><a href= "#Code-Zusammenfassung Asteroiden" 2.3.5 Code-Zusammenfassung></a></li>
+        <li><a href= "#Code-Zusammenfassung Asteroiden"> 2.3.5 Code-Zusammenfassung</a></li>
         </ul>
     </ul>
 <li><a href= "#Was noch zu tun ist"> 3. Was noch zu tun ist</a></li>
 <li><a href= "#Quellen"> 4. Quellen</a></li>
 </ul>
+
+<ul>
+<li><a href= "#Einleitung"> 1. Einleitung: Anforderungen und Elemente des Spiels</a></li>
+<li><a href= "#Umsetzung"> 2. Umsetzung</a></li>
+    <ul>
+    <li><a href= "#Das Szenario"> 2.1 Das Szenario</a></li>
+        <ul>
+        <li><a href= "#Erstellen einer Welt"> 2.1.1 Erstellen einer Welt</a></li>
+        <li><a href= "#Objekte in der Welt"> 2.1.2 Objekte in der Welt</a></li>
+        <li><a href= "#Die Rakete als Actor"> 2.2.1 Die Rakete als Actor</a></li>
+        </ul>
+    <li><a href= "#Die Rakete"> 2.2 Die Rakete</a></li>
+        <ul>
+        <li><a href= "#Die Rakete als Actor"> 2.2.1 Die Rakete als Actor</a></li>
+        <li><a href= "#Bewegung und Rotation"> 2.2.2 Bewegung und Rotation</a></li>
+        <li><a href= "#Steuerung Rakete"> 2.2.3 Steuerung</a></li>
+        <li><a href= "#Code-Zusammenfassung Rakete"> 2.2.4 Code-Zusammenfassung</a></li>
+        </ul>
+    <li><a href= "#Die Asteroiden"> 2.3 Die Asteroiden</a></li>
+        <ul>
+        <li><a href= "#Anforderungen"> 2.3.1 Anforderungen</a></li>
+        <li><a href= "#Variablen der Asteroiden-Klasse"> 2.3.2 Variablen der Asteroiden-Klasse</a></li>
+        <li><a href= "#Zufällige Bewegung der Asteroiden"> 2.3.3 Zufällige Bewegung der Asteroiden</a></li>
+        <li><a href= "#Am Rand der Welt"> 2.3.4 Am Rand der Welt</a></li>
+        <li><a href= "#Code-Zusammenfassung Asteroiden"> 2.3.5 Code-Zusammenfassung</a></li>
+        </ul>
+    </ul>
+<li><a href= "#Was noch zu tun ist"> 3. Was noch zu tun ist</a></li>
+<li><a href= "#Quellen"> 4. Quellen</a></li>
+</ul>
+
 
 <h2>
 <a id="Einleitung">1. Einleitung: Anforderungen und Elemente des Spiels</a>
@@ -160,8 +191,9 @@ public void act()
 {
 }
 ```
-
-<a id="Bewegung und Rotation" 2.2.2 Bewegung und Rotation></a>
+<h4>
+<a id="Bewegung und Rotation"> 2.2.2 Bewegung und Rotation</a>
+</h4>
 
 <p>
 Hier haben wir mit den Befehlen <i>setRotation()</i> und <i>setLocation()</i> gearbeitet. Mithilfe von <i>setRotation</i> können wir die Neigung der Rakete bestimmen. Zur Steuerung der Rakete verwenden wir "w" für "nach oben" und "s" für "nach unten" oder alternativ die Pfeiltasten "up" und "down". Solange eine der Tasten gedrückt wird, soll sich die Rakete mit einer bestimmten, konstanten Geschwindigkeit in die jeweilige Richtung bewegen. Damit dies visuell verdeutlicht wird, soll gleichzeitig während des Tastendrucks die Rakete durch <i>setRotation</i> in einer bestimmte Neigung ausgerichtet werden.
@@ -471,7 +503,7 @@ public boolean atWorldEdge()
 }
 ```
 
-<a id="Code-Zusammenfassung Asteroiden" 2.3.5 Code-Zusammenfassung></a>
+<a id="Code-Zusammenfassung Asteroiden"> 2.3.5 Code-Zusammenfassung></a>
 
  Fasst man Code-Script 3.05 und 3.14 zusammen, so ergibt sich für den Code der Asteroiden:
 
