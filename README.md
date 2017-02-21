@@ -563,8 +563,7 @@ public class Asteroid extends mover
 {
    int Angle = Greenfoot.getRandomNumber(50);
    int TypeOfRotation = Greenfoot.getRandomNumber(2);
-   public void act()
-   {
+   public void act()   {
        move(-12);
        if (TypeOfRotation == 0)
        {
@@ -596,6 +595,41 @@ public class Asteroid extends mover
    }
 }
 ```
+(((
+Der Score
+
+Anschließend benötigen wir eine Score-Klasse, damit das Spiel auch reizend wird und Spaß macht, da es sonst, wenn man eh keine Punkte einsammeln kann, schnell langweilig wird. Zunächst haben wir die Score Klasse ohne ein Bild als eine neue Klasse zur Welt hinzufegügt.
+Dann haben wir mithilfe von int unseren Score auf 0 festgelegt, das heißt bevor unser Spiel beginnt, zeigt der Score immer einen Punktestand von 0 an. Damit Greenfoot diesen in der Welt überhaupt anzeigt, haben wir zu unserem Score 0 Punkte erst einmal hinzugefügt. Zu diesem Score soll dann mit der Zeit die Punktemenge (amount) hinzugefügt werden, sodass der alte score dann = der neue score und die hinzugefügte Punktemenge ist. Das Bild des Scores, dem wir den Namen robin gegeben haben, ist ein neues Greenfoot Bild mit zunächst der Länge 10 und der Breite 10. Dieses neue Bild wird dann mit dem Befehl .drawString in die Welt mit den Koordinaten x=200 und y=500 in die Welt eingefügt/eingezeichnet mit der Schrift Score: und dann dahinter der entsprechenden Punktezahl. Mithilfe von setImage() lässt sich dieses neu erstellte Objekt robin dann auch in der Welt wiederfinden.
+
+Bei uns jedoch funktioniert der score noch nicht wie gewollt, da Greenfoot noch keine Punkte für ein bestimmtes Objekt zum Score hinzufügt. Dazu haben wir schon eine neue Klasse erstellt, die Goldball Klasse,die wir finn genannt haben. Die Goldbälle sollen sich ähnlich wie die Asteroiden verhalten, allerdings viel seltener spawnen, damit das Spiel nicht zu leicht ist. Für jeden Goldball soll dann eine bestimmte Punktemenge z.B. 20 zum Score hinzugefügt werden. Das versuchen wir in der nächsten Zeit zu programmieren. Hier erst einmal der Code für die Score-Klasse: 
+
+int score = 0;
+  
+public Score() {
+      add(0);
+    }
+  public void add(int amount) {
+  
+      score = score + amount;
+      
+      GreenfootImage robin = new GreenfootImage(10, 10);
+      robin.drawString("Score: " + score, 200, 500);
+      setImage(robin);    
+      
+}
+
+)))
+
+((( Game-Over
+
+Beim Programmieren des Game-Overs sind wir ähnlich vorgegangen wie bei der Programmierung des Scores. Zuerst haben wir die neue Klasse mit dem Namen game-Over mit einem bei Paint selbst erstellten Bild zur Welt hinzugefügt. Das Bild hat einen Weißen Game-Over-Schriftzug mit einem schwarzen Hintergrund und passt somit zum Hintergrund der Welt. Wir haben auch hier das Bild robin genannt und als neues Bild mit der Länge 300 und der Breite 200 identifiziert. Mithilfe von .drawString fügen wir auch dieses neu erstellte Bild in die Welt hinzu und lassen es beim vorher definierten Game-Over, nämlich wenn die Rakete einen Asteroiden crasht, mit den Koordinaten x=100 und y=200 in der Welt erscheinen. Es befindet sich somit recht mittig auf dem Bildschirm. Der Code sieht dann folgendermaßen aus:
+
+public GameOver()  {
+     GreenfootImage robin = new GreenfootImage(300,200);
+     robin.drawString ("Game Over", 100, 200);
+
+
+)))
 
 <h3>
 <a id= "Was noch zu tun ist"> 3. Was noch zu tun ist</a>
