@@ -51,6 +51,9 @@ Ein Informatik-Projekt von Robin Wagner und Finn Westphal
         <li><a href= "#Am Rand der Welt"> 2.3.4 Am Rand der Welt</a></li>
         <li><a href= "#Code-Zusammenfassung Asteroiden"> 2.3.5 Code-Zusammenfassung</a></li>
         </ul>
+      
+        
+        
     </ul>
 <li><a href= "#Was noch zu tun ist"> 3. Was noch zu tun ist</a></li>
 <li><a href= "#Quellen"> 4. Quellen</a></li>
