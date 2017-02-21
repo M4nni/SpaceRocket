@@ -109,14 +109,15 @@ public space_backround_1()
     {
         super(960, 540, 1, true);
         addObject(new rocket(), 150, 270);
-    }
+
+}
 </code></pre>
 
 <p>
 Weiterhin lassen wir Asteroiden spawnen, die sich an immer anderen Positionen befinden können. Der erste Asteroid hat die x-Koordinate 960 und befindet sich genau am rechten Rand der Welt mit einer y-Koordinate die von 0 bis 540, also von ganz unten bis ganz oben entlang der y-Achse variieren kann. Dies erreichen wir durch die Methode <i>Greenfoot.getRandomNumber</i>, die eine zufällige, natürliche Zahl zwischen 0 und dem jeweiligen in Klammern stehenden Grenzwert generiert. Der Grenzwert (hier: 541) ist dabei ausgeschlossen. Der 2. Asteroid kann zwischen den x-Koordinaten 480 und 480 + 480, also maximal 960 entstehen. Das bedeutet, dass er immer zufällig zwischen der Hälfte der Welt und dem rechten Rand spawnt. Die y-Koordinate beträgt 0, weshalb der Asteroid nur am oberen Rand der spawnen kann. Dem 3. Asteroid sind die gleichen x-Koordinaten zugewiesen, er spawnt aber durch die festgelegte y-Koordinate von 540 immer am unteren Rand. Seine x-Koordinate ist ebensfalls variabel, sodass er entland der y-Achse zufällig erscheinen kann. Der Counter hat in unserer Welt noch keine Bedeutung, da wir noch keine Counter-Klasse erstellt haben.
 </p>
 
-<pre><code><strong>Code-Script 1.3</strong>
+u<pre><code><strong>Code-Script 1.3</strong>
 
 addObject(new rocket(), 150, 270);
 addObject(new counter(), 30, 510);
@@ -124,6 +125,44 @@ addObject(new Asteroid(), 960, Greenfoot.getRandomNumber(541) - 0);
 addObject(new Asteroid(), Greenfoot.getRandomNumber(480) + 480, 0);
 addObject(new Asteroid(), Greenfoot.getRandomNumber(480) + 480, 540);
 </code></pre>
+
+(((Weiterhin haben wir in unserer Welt einen Counter hinzugefügt, der bestimmte natürliche Zahlenwerte annehmen kann. Zu Beginn des Spiels soll der Counter noch nicht aktiviert sein, da sich noch keine Objekte in der Welt befinden. Deshalb haben wir den counter mithilfe von int auf 0 festgelegt: 
+
+int counter =0;
+
+Wenn die oben beschriebenen Objekte nun zur Welt hinzugefügt wurden, soll die Welt mit public void act den Counter aktivieren und dieser soll nicht mehr den inaktiven Wert von 0 annehmen können. Wenn der Counter nun zufällige Zahlen annimmt, die größer als 15 sind, spawnen neue Asteroiden, unzwar genau an den zufälligen Orten, wo sie auch zu Beginn in der Welt erscheinen, also etwa am oberen rechten Bildrand, am unteren rechten Bildrand oder an der rechten Seite des Bildes. Dazu legen wir die Koordinaten fest und fügen es mithilfe von addObject() und den bestimmten Koordinaten neu in die Welt hinzu. Grundvorraussetzung dafür ist, dass wir einem Asteroiden einen bestimmten Namen geben (Asteroid robin) und als neuen Asteroiden definieren und das hinzugefügte Object auch diesen Namen besitzt. Wichtig ist, dass der counter danach wieder auf 0 zurückgesetzt wird, weil sonst nicht immer wieder neue Asteroiden spawnen könnten. Je kleiner die benötigte Zahl des Counters ist (in unserem Fall mindestens 15), desto schwieriger wird das Spiel, denn je kleiner die Zahl, desto öfter wird die Zahl überschritten und es spawnen mehr Asteroiden. Für Profis kann die Zahl bis auf 5 reduziert werden, ansonsten ist fast die ganze Welt voller Asteroiden und man hat keine Chance, zu überleben. Ohne diesen counter und das ständige Neuerscheinen der Asteroiden wäre das Spiel auch nicht spielbar.
+
+Nachfolgend der Code des Counters in der Welt space_background_1:
+
+ public void act() {
+    counter++;
+    
+    if(counter >= 15) {
+        Asteroid robin = new Asteroid();
+        int x = 960;
+        int y = Greenfoot.getRandomNumber(541) - 0;
+        addObject(robin, x, y);
+        counter = 0;
+        
+    } 
+     if(counter >= 15) {
+        Asteroid robin = new Asteroid();
+        int x = Greenfoot.getRandomNumber(480) + 480;
+        int y = 1;
+        addObject(robin, x, y);
+        counter = 0;
+        
+    }
+     if(counter >= 15) {
+        Asteroid robin = new Asteroid();
+        int x = Greenfoot.getRandomNumber(480) + 480;
+        int y = 540;
+        addObject(robin, x, y);
+        counter = 0;
+        
+    }
+    
+)))
 
 <p>
 Zusammengefasst ergibt sich für die World-Klasse:
@@ -220,6 +259,27 @@ if (Greenfoot.isKeyDown("up") || Greenfoot.isKeyDown("w") <span>&amp;&amp;</span
 Hier wurden "down" und "s" durch "up" und "w" ersetzt und der der Rückgabewert <i>getY</i> größer gleich 0 gesetzt. Dadurch ist die Bedingung der if-Methode nur erfüllt, wenn die "up"- oder "w"-Taste gedrückt und die aktuelle y-Koordinaten der Rakete größer als 0 ist. Somit kann die Rakete die Welt nicht an der oberen Kante verlassen. Die Neigung der Aufwärtsbewegung ist betragsgleich der Neigung der Abwärtsbewegung, jedoch ist sie negativ, sodass die Rakete gegen dem Uhrzeigersinn sich mit 20° um die eigene Achse rotiert. In der Methode <i>setLocation</i> wird der Rückgabetyp <i>getY</i> mit 12 subtrahiert, sodass sich die Rakete nach oben anstatt nach unten bewegt.
 </p>
 
+(((Desweiteren lassen wir die Rakete einen Klassen-Test durchführen. Wir wollen damit erreichen, dass das Spiel zuende ist, wenn die Rakete einen Asteroiden berührt und die beiden Objekte schließlich auch aus der Welt entfernt werden. Dazu führen wir einen Test durch, der besagt, ob die Rakete ein Object einer Klasse berührt (getOneIntersectingObject).In unserem Fall handelt es sich um die Asteroiden, da man nur verlieren soll, wenn man mit ihnen zusammenkracht. Wenn der Test 0 ist, die Rakete also keinen Asteroiden berührt, läuft das Spiel ganz normal weiter, dazu brauchen wir keinen extra Befehl. Wenn die Rakete allerdings einen Asteroiden berührt, der Test also nicht null ist (!= bedeutet ungleich), fügen wir ein neues GameOver mit dem Namen robin hinzu, wofür wir vorher eine neue Klasse erstellt haben, die unten beschrieben wird. Dieses neue Game Over erscheint, indem das Bild für das GameOver robin mit den Koordinaten der halben länge und halben Breite eingefügt wird. Außerdem gibt es einen einfachen Befehl, um das Spiel zu stoppen: Man sagt Greenfoot.stop();
+
+Actor test = getOneIntersectingObject(Asteroid.class);
+
+if (test != null) {
+    GameOver robin = new GameOver();
+    getWorld().addObject(robin, getWorld(). getWidth()/2, getWorld().getHeight()/2);
+    Greenfoot.stop();
+    
+}
+
+Wenn das Spiel stoppt, sollen gleichzeitig die Rakete und der betreffende Asteroid aus der Welt entfernt werden. Dies geschieht zunächst daduch, dass wir die Klasse Robin als das betreffende Objekt der Asteroiden Klasse identifizieren. Wenn dieses, wie es oben annähernd schon aufgeführt ist, nicht gleich 0 ist, also existiert, dann sucht greenfoot in dieser Welt und entfernt dieses spezielle Objekt Robin. Es funktioniert nicht, zu sagen, dass das Objekt Asteroid entfernt wird, da Greenfoot nicht eine komplette Klasse während des Spiels entfernen kann. 
+
+Actor robin = getOneIntersectingObject(Asteroid.class);
+
+if (robin != null) { 
+    getWorld().removeObject(robin);
+    getWorld().removeObject(this);
+}
+
+)))
 <a id="Code-Zusammenfassung Rakete"> 2.2.4 Code-Zusammenfassung</a>
 
 <p>
