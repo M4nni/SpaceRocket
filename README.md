@@ -260,6 +260,7 @@ Hier wurden "down" und "s" durch "up" und "w" ersetzt und der der Rückgabewert 
 </p>
 
 (((Desweiteren lassen wir die Rakete einen Klassen-Test durchführen. Wir wollen damit erreichen, dass das Spiel zuende ist, wenn die Rakete einen Asteroiden berührt und die beiden Objekte schließlich auch aus der Welt entfernt werden. Dazu führen wir einen Test durch, der besagt, ob die Rakete ein Object einer Klasse berührt (getOneIntersectingObject).In unserem Fall handelt es sich um die Asteroiden, da man nur verlieren soll, wenn man mit ihnen zusammenkracht. Wenn der Test 0 ist, die Rakete also keinen Asteroiden berührt, läuft das Spiel ganz normal weiter, dazu brauchen wir keinen extra Befehl. Wenn die Rakete allerdings einen Asteroiden berührt, der Test also nicht null ist (!= bedeutet ungleich), fügen wir ein neues GameOver mit dem Namen robin hinzu, wofür wir vorher eine neue Klasse erstellt haben, die unten beschrieben wird. Dieses neue Game Over erscheint, indem das Bild für das GameOver robin mit den Koordinaten der halben länge und halben Breite eingefügt wird. Außerdem gibt es einen einfachen Befehl, um das Spiel zu stoppen: Man sagt Greenfoot.stop();
+Der Code sieht dann folgendermaßen aus:
 
 Actor test = getOneIntersectingObject(Asteroid.class);
 
@@ -270,7 +271,8 @@ if (test != null) {
     
 }
 
-Wenn das Spiel stoppt, sollen gleichzeitig die Rakete und der betreffende Asteroid aus der Welt entfernt werden. Dies geschieht zunächst daduch, dass wir die Klasse Robin als das betreffende Objekt der Asteroiden Klasse identifizieren. Wenn dieses, wie es oben annähernd schon aufgeführt ist, nicht gleich 0 ist, also existiert, dann sucht greenfoot in dieser Welt und entfernt dieses spezielle Objekt Robin. Es funktioniert nicht, zu sagen, dass das Objekt Asteroid entfernt wird, da Greenfoot nicht eine komplette Klasse während des Spiels entfernen kann. 
+Wenn das Spiel stoppt, sollen gleichzeitig die Rakete und der betreffende Asteroid aus der Welt entfernt werden. Dies geschieht zunächst daduch, dass wir die Klasse Robin als das betreffende Objekt der Asteroiden Klasse identifizieren. Wenn dieses, wie es oben annähernd schon aufgeführt ist, nicht gleich 0 ist, also existiert, dann sucht greenfoot in dieser Welt und entfernt dieses spezielle Objekt Robin. Es funktioniert nicht, zu sagen, dass das Objekt Asteroid entfernt wird, da Greenfoot nicht eine komplette Klasse während des Spiels aus der Welt entfernen kann. Dafür lässt sich das eigene Objekt mithilfe des Befehls this, was in unserem Fall die Rakete ist, entfernen.
+
 
 Actor robin = getOneIntersectingObject(Asteroid.class);
 
@@ -335,14 +337,14 @@ int [Name der Variablen] = ...
 ```
 
 <p>
-Da sich die Asteroiden mit einem zufälligen Winkel fortbewegen sollen, verwenden wir die bekannte Methode <i>Greenfoot.getRandomNumber</i> für die Winkelvariable names <i>Angle</i> (engl. Winkel). Diese Methode generiert jedoch nur natürliche Zahlen. Ohne Weiteres lassen sich also nur Winkel im Uhrzeigersinn erzeugen. Somit sind  die Asteroiden lediglich in der Lage, eine Aufwärtsbewegung zu erfahren. Aus diesem Grund haben wir eine weitere Variable mit der Bezeichnung <i>TypeOfRotation</i> festgelegt, deren Funktion später noch genauer erläutert wird. Wir haben die Variable für den Winkel (Angle) gleich <i>Greenfoot.getRandomNumber(50)</i> gesetzt, wodurch die zufällige Zahl von 0 bis 49 generiert wird. Die Variable <i>TypeOfRotation</i> erstellt durch den Grenzwert <i>(2)</i> zufällig eine 0 oder eine 1. Der Wert dieser Variable kann also nur zwei Zustände annehmen.
+Da sich die Asteroiden mit einem zufälligen Winkel fortbewegen sollen, verwenden wir die bekannte Methode <i>Greenfoot.getRandomNumber</i> für die Winkelvariable names <i>Angle</i> (engl. Winkel). Diese Methode generiert jedoch nur natürliche Zahlen. Ohne Weiteres lassen sich also nur Winkel im Uhrzeigersinn erzeugen. Somit sind  die Asteroiden lediglich in der Lage, eine Aufwärtsbewegung zu erfahren. Aus diesem Grund haben wir eine weitere Variable mit der Bezeichnung <i>TypeOfRotation</i> festgelegt, deren Funktion später noch genauer erläutert wird. Wir haben die Variable für den Winkel (Angle) gleich <i>Greenfoot.getRandomNumber(10)</i> gesetzt, wodurch die zufällige Zahl von 0 bis 9 generiert wird. Die Variable <i>TypeOfRotation</i> erstellt durch den Grenzwert <i>(2)</i> zufällig eine 0 oder eine 1. Der Wert dieser Variable kann also nur zwei Zustände annehmen.
 </p>
 
 ```javascript
 Code-Script 3.02
 
 import greenfoot.*;
-int Angle = Greenfoot.getRandomNumber(50);
+int Angle = Greenfoot.getRandomNumber(10);
 int TypeOfRotation = Greenfoot.getRandomNumber(2);
 ```
 
@@ -504,7 +506,7 @@ public boolean atWorldEdge()
     }
     if(getY() == 0 && TypeOfRotation == 0 || getY() == 539 && TypeOfRotation == 1)
     {
-        return true;
+     return true;
     }
 }
 ```
@@ -536,9 +538,22 @@ public boolean atWorldEdge()
 }
 ```
 
+((( Wenn ein Objekt der Asteroiden-Klasse nun den Rand der Welt berührt, wird aus dieser Welt genau das Objekt entfernt, welches den Rand gerade berührt. Das Objekt, das sich in der Welt bewegt hat kann sich durch den Ausdruck this sozusagen selbst beim Kollidieren mit dem Rand der Welt entfernen:
+
+
+if (atWorldEdge())
+{
+    getWorld().removeObject(this);
+}
+
+)))
+
+
 <a id="Code-Zusammenfassung Asteroiden"> 2.3.5 Code-Zusammenfassung></a>
 
  Fasst man Code-Script 3.05 und 3.14 zusammen, so ergibt sich für den Code der Asteroiden:
+
+
 
 ```javascript
 Code-Script 3.15
