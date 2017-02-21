@@ -64,32 +64,7 @@ Ein Informatik-Projekt von Robin Wagner und Finn Westphal
 <a id="Einleitung">1. Einleitung: Anforderungen und Elemente des Spiels</a>
 </h2>
 
-<p>
-"Space Rocket" ist ein Highscore-Spiel auf Greenfoot-Basis, in dem man mit einer Rakete versuchen muss, Asteroiden in einem Asteroidenfeld auszuweichen. Dabei befindet sich die Rakete am linken Bildschirmrand, während die Asteroiden von der rechten Bildschirmseite heranfliegen. Jeder Asteroid verschwindet aus der Welt, wenn er den Rand der Welt erreicht. Man verliert, wenn man mit einem Asteroiden zusammenstößt. Punkte werden für jeden Asteroiden vergeben, dem man schafft mit der Rakete auszuweichen.
-</p>
-
-<p>
-In in den folgenden Ausführungen werden wir schrittweise beschreiben, sie wir bei der Programmierung der Spiels vorgegangen sind. Es macht Sinn, sich in der angegeben Reihenfolge mit dem Dokument zu beschäftigen, um unsere Gedankengänge nachzuvollziehen. Dies gilt vor allem für die verwendeten Programmiermethode und Befehle, die wir nicht in jedem Kapitel neu erläutern, sondern nur beim ersten Auftreten detailliert beschreiben und als Wissensgrundlage für weitere Anwendungsfälle vorraussetzen. 
-
-Für einen besseren Überblick sind in der folgenden Tabelle alle verwendeten Methoden und deren Funktion aufgelistet.
-</p>
-
-<a id="Snytax und Funktionsweise von Java">1.2 Snytax und Funktionsweise von Java
-
-<p>
-Die Programmierumgebung <i>Greenfoot</i> basiert auf der objektorientierten Blockprogrammiersprache <i>Java</i>. Ziel dieser Umgebung ist es, mit relativ einfachen Mitteln und ohne Vorkenntnissen objektorientierte Simulationskonzepte zu programmieren. Für das besser Verständnis erklären wir kurz den generellen Aufbau und die Snytax von <i>Java</i>.
-</p>
-
-<p>
-Java ist aus Blöcken aufgebaut, die im Snytax durch eine geöffnete und eine geschlossene Klammer gekennzeichnet werden. Der Inhalt dieser Blöcke kann Anweisung und Befehle enthalten, aber auch weitere Blöcke enthalten. Auf diese Weise ist eine verschachtelte Blockstruktur mit mehreren Ebenen möglich. Der Vorteil einer Block-Programmierung ist, dass Snytax-Fehler leichter indentifiziert werden können, da nur einzelnen Blöcke nicht ordnungsgemäß funktionieren und nicht der gesamte Code defekt ist.
-</p>
-
-```javascript
-Anweisung
-{
-    weitere Anweisungen
-}
-```
+Space Rocket ist ein Highscore-Spiel auf Greenfoot-Basis, in dem man mit einer Rakete, die sich am linken Bildschirmrand befindet und sich nur nach oben oder unten bewegen kann, versucht, Asteroiden, die nur von der rechten Bildschirmseite heranfliegen, in einem Asteroidenfeld auszuweichen. Jeder Asteroid verschwindet aus der Welt, wenn er den Rand der Welt erreicht. Man verliert, wenn man mit einem Asteroiden zusammenstößt.
 
 <h2>
 <a id="Umsetzung"> 2. Umsetzung</a>
@@ -105,9 +80,7 @@ Anweisung
 Wir programmieren unser Projekt "SpaceRocket" in der Programmierumgebung "Greenfoot", die auf der objektorientierten Programmiersprache <i>Java</i> basiert. Zunächst haben wir festgelegt, welche Größe, welches Format und welche Auflösung unsere Welt haben soll. Unser Spiel soll über eine klassische Auflösung und ein klassischen Seitenverhälnis verfügen, damit es auf jedem Computer spielbar ist. Wir haben uns deswegen für das Seitenverhältis von 16/9 und eine Auflösung von 960 * 540 Pixeln entschieden. Diese Bildeigenschaften sind von den meisten aktuellen Displays umsetzbar.
 </p>
 
-<h4>
 <a id= "Erstellen einer Welt"> 2.1.1 Erstellen einer Welt</a>
-</h4>
 
 <p>
 Mit dem Konstruktor <i>public</i> erstellen wir eine Welt-Klasse namens <i>space_backround_1</i> und durch die Methode <i>import greenfoot.*;</i> geben wir an, dass diese Klasse in das Szenario implementiert werden soll. Fehlt diese Methode oder wird sie verändert, so würde diese Klasse beim Start des Programmes nicht geladen werden. Hinter jeder Klasse stehen mindestens eine geöffnete und eine geschlossene Klammer, die zusätzliche Parameter enthalten können. Zur Ausführung der Methoden, die wir verwenden, sind keine weiteren Parameter notwendig, weswegen bei uns nichts zwischen den Klammern steht. Die Referenz <i>super</i> sorgt dafür, dass alle Eigenschaften der Super- oder Hauptklasse auf alle anderen Klassen übertragen werden. In diesem Fall ist die Super-Klasse die generierte Welt. Diese Anweisung benötigt weitere Parameter für ihre Funktionalität und zwar die Auflösung der generierten Welt und das Verhältnis zwischen Pixeln und Zellen des Zellen-Koordinatensystems, das deckungsgleich zur generierten Welt erstellt wird. Wir wollen dieses Verhältnis auf 1:1 festlegen, sodass eine Zelle einem Pixel entspricht. Um diese Parameter dem Konstruktor zur Verfügung zu stellen, schreiben wir nach <i>super</i> in Klammern (960, 540, 1, true). Der erste Parameter definiert die Anzahl der Pixel entlang der x-Achse, der zweite nach dem Komma die Pixelanzahl in y-Richtung und der dritte Parameter "1" sagt aus, dass eine Zelle die Größe von einem Pixel in x- und y- Richtung besitzt. Das Größenverhältnis zwischen Zellen und Pixeln beträgt also 1:1. Durch den Parameter <i>true</i> erreichen wir, dass die Asteroiden und auch die Rakete zunächst nicht aus der Welt verschwinden können, da die Grenzen der Welt für sie eine Barriere darstellen. Am Ende dieser Zeile steht ein Semikolon, das verschiedene Methoden voneinander trennt. Danach haben wir in Greenfoot einen Hintergrund unserer Welt gesucht, der möglichst zum Spiel passen soll. Wir haben uns schließlich für den vorgefertigten Greenfoot-Hintergrund <i>space1</i> entschieden. Dieser lässt sich per Recht-Klick auf die Klasse unter der Option "Set image..." auswählen.
@@ -123,9 +96,7 @@ public space_backround_1()
 </code>
 </pre>
 
-<h4>
 <a id="Objekte in der Welt"> 2.1.2 Objekte in der Welt</a>
-</h4>
 
 <p>
 Bisher enthält unsere Welt noch keine Objekte, die agieren können und für unser Spiel relevant sind. Wir benötigen in jedem Fall zunächst eine Raketen- und eine Asteroiden-Klasse. Andere Klassen, die wir für unser Spiel später auch brauchen, z.B. eine Score- oder gamve-over Klasse, haben wir vorerst vernachlässigt. Zunächst wollten wir, dass jeweils vor Spielbeginn eine Rakete an einem festen Ort startet. Ebensfall sollen verschiedene Asteroiden an immer anderen Punkten der Welt, allerdings nur an den Rändern der rechten Welthälfte, spawnen. Dazu haben wir, wie in dem folgenden Befehl zu sehen (siehe Code-Script 1.2), mithilfe der Methode *addObject* eine Rakete hinzugefügt, die jedes Mal, wenn man das Spiel startet, an der Position x = 150 und y = 270 startet. Die Methode *addObject* benötigt bestimmte Parameter. Zu diesen zählt zum einen die Bezeichnung des zu generierenden Objektes einer Klasse und seine Position in der Welt. Hierzu wird nach <i>addObject</i> in Klammern die jeweilige Klasse mit dem Aufdruck <i>new</i> davor genannt, welcher als Referenz festlegt, dass ein Objekt dieser Klasse hinzugefügt werden soll. Schließlich geben zwei Parameter, durch Kommata getrennt, die Koordinaten des jeweiligen Objektes an. Diese Koordinaten haben wir so gewählt, dass die Rakete ziemlich weit links, aber nicht am Rand, startet und genau die Hälfte der Höhe besitzt.
@@ -216,9 +187,7 @@ public space_backround_1()
 
 <p><img src="images/rocket.png" alt="Rocket"></p>
 
-<h4>
 <a id="Die Rakete als Actor"> 2.2.1 Die Rakete als Actor</a>
-</h4>
 
 <p>
 Danach haben wir uns um die Rakete gekümmert. Diese soll sich zwar nicht nach links und rechts bewegen, da die Asteroiden auf die Rakete zufliegen sollen, aber sie soll sich nach oben und unten bewegen können. Zuerst haben wir ein Bild einer Rakete zur Actor-Klasse Rocket per Rechts-Klick auf die Rocket-Klasse unter der Option "Set image..." hinzugefügt. Mithilfe des Konstruktors *public* erstellten wir eine Klasse, die in der Lage ist, mit anderen Klassen Informationen austauschen. Auf diese Weise ist sie in der Lage mit anderen Klasse zu interagieren. Wir verwenden für die Rakete die Methode <i>void act()</i>. Der Rückgabetyp <i>void</i> gibt an, ob und wenn ja, welche Informationen zurückgegeben werden. In diesen Fall bedeutet <i>void</i> so viel wie "nichts", wir erhalten dementsprechend keine Informationen über die Ausführung der Methode. <i>void act()</i> ist ausschließlich eine ausführende Methode, die keine weiteren Parameter für ihre Ausführung benötigt, weswegen in den Klammern von <i>act()</i> kein Inhalt vorhanden ist. Sie wird beim starten des Szenarios, z. B. durch betätigen des <i>Act-Buttons</i>, kontinuierlich ausgeführt, bis das Szenario beendet wird. Dabei werden die einzelnen Methoden innerhalb von <i>act()</i> der Reihe nach ausgeführt. Wir legen mit dieser Methode das Verhalten der Rakete fest.
@@ -234,7 +203,6 @@ public void act()
 {
 }
 ```
-
 <h4>
 <a id="Bewegung und Rotation"> 2.2.2 Bewegung und Rotation</a>
 </h4>
@@ -263,9 +231,7 @@ setLocation(getX(), getY()+12);
 Zur visuellen Verdeutlichung der Bewegung verwenden wir außerdem die Methode <i>setRoation</i>, die das Objekt, in diesem Fall unsere Rakete, in einem bestimmten Winkel ausrichtet. Dieser Winkel wird in Klammern an die Methode ergänzt. Durch ausprobieren haben wir herausgefunden, dass eine Rotation von 20° bzw. -20° geeignet für die simulierte Bewegung unser Rakete ist.
 </p>
 
-<h4>
 <a id="Steuerung Rakete"> 2.2.3 Steuerung</a>
-</h4>
 
 <p>
 Die Rakete soll außerdem nur beim Tastdruck ihre Position verändern und nicht in der Lage sein die Welt über ihre Grenzen zu verlassen. Um diese Bedingungen mit der Bewegung der Rakete in Verbindung zu bringen, verwenden wir eine <i>if-Methode</i>, die die Ausführung einer oder mehrerer Methoden nur zulässt, wenn alle ihre Bedingungsparameter erfüllt werden. Werden die in runden Klammern stehenden Bedingungen erfüllt, so werden die in geschweiften Klammern stehende Methode oder Methoden im Anschluss an die if-Methode ausgeführt. In unserem Fall bestehen unsere Bedinungsparameter aus zwei <i>Greenfoot.isKeyDown</i>-Methoden und dem Rückgabetyp <i>getY()</i>. Die Methode <i>Greenfoot.isKeyDown</i> prüft ständig, ob eine bestimmte Taste auf der Tastatur gedrückt wird. Dabei wird der jeweilige Tastenname in Anführungszeichen in Klammern an die Methode ergänzt. Da die Steuerung optional über die Pfeiltasten "oben" und "unten", sowie über die Tasten "w" und "s" erfolgen soll, verwenden wir <i>Greenfoot.isKeyDown</i> zweimal pro if-Methode. Für die Abwärtsbewegung bespielsweise verwenden wir <i>Greenfoot.isKeyDown("down")</i> und <i>Greenfoot.isKeyDown("s")</i>, die durch zwei senkrechte Striche "||" voneinander getrennt werden. Diese bilden einen Operator, in diesem Fall einen arithmetischen Ausdruck, der soviel wie "oder" bedeutet. Damit die Rakete die Welt nicht verlassen kann haben wir den Rückgabetyp <i>getY()</i> als kleiner als 540 festgelegt, was der maximalen y-Koordianten unserer Welt entspricht. Er wird mit zwei Et-Zeichen "<span>&amp;&amp;</span>" an die beiden <i>Greenfoot.isKeyDown</i> ergänzt. Die beiden Et-Zeichen ergeben ebenfalls einen Operator mit der Bedeutung "und". Daraus folgt, dass die Bedingung der if-Methode nur erfüllt ist, wenn mindestens einer der Tasten "down" oder "s" gedrückt wird und die aktulle Position der Rakete eine kleinere y-Koordinate als 540 aufweist. Werden die Bedingungen erfüllt, bewegt sich die Rakete mit einer Geschwindigkeit von 12 Pixeln pro frame-Ausführung entlang der y-Achse in Richtung der unteren Kante der Welt.
@@ -316,10 +282,7 @@ if (robin != null) {
 }
 
 )))
-
-<h4>
 <a id="Code-Zusammenfassung Rakete"> 2.2.4 Code-Zusammenfassung</a>
-</h4>
 
 <p>
 Zusammengefasst ergibt sich für den Code der Rakete:
@@ -347,6 +310,7 @@ public void act()
    }
 }
 }
+```
 
 <h3>
 <a id= "Die Asteroiden"> 2.3 Die Asteroiden</a>
@@ -354,17 +318,13 @@ public void act()
 
 <p><img src="images/rock.png" alt="Asteroid"></p>
 
-<h4>
 <a id="Anforderungen"> 2.3.1 Anforderungen</a>
-</h4>
 
 <p>
 Anschließend haben wir uns um die Programmierung der Asteroiden gekümmert, in die wir bisher am meisten Zeit hineingesteckt haben. Zu Beginn haben wir eine Asteroiden-Klasse namens "Asteroid" erstellt und ihr die Bilddatei rock.png zugeortnet, die Greenfoot standardmäßig zur Verfügung stellt. Die Asteroiden sollen während der Ausführung des Szenarios zufällig spawnen und sich von rechts nach links mit einem zufälligen Winkel in Richtung der Rakete bewegen. Sobald sie auf den Rand der Welt zufliegen, sollen sie aus dem Szenario entfernt werden. Um diese Anforderungen zu erfüllen, benötigen wir eine Methode, die in der Lage ist, einen Asteroiden zu entfernen, wenn er sich am Rand der Welt befindet. Außerdem brauchen wir eine weitere Methoden, die den Asteroiden eine feste Geschwindigkeit und einen zufälligen Winkel zuweisen.
 </p>
 
-<h4>
 <a id="Variablen der Asteroiden-Klasse"> 2.3.2 Variablen der Asteroiden-Klasse</a>
-</h4>
 
 <p>
 Bei der Programmierung der Asteroiden haben wir zunächst zwei Variablen definiert, um den Code übersichtlicher zu gestalten. Diese Variablen legen die Richtung fest, in die sich die Asteroiden bewegen. Hierfür verwenden wir den primitiven Datentyp <i>Integer</i>, kurz <i>int</i>, welcher eine 32-Bit-Codierung aufweist. Das Zahlenspektrum dieses Datentyps umfasst 2³² ganze Zahlen von -2.147.483.648 bis 2.147.483.647. Da für die Winkeldefinition in Greenfoot das Winkelmaß Grad verwendet wird, ist dieser Zahlenbereich mehr als ausreichend. Die Snytax für Variablen setzt sich aus der Art des Datentyps und dem Namen der Variablen zusammen, die dem zugeordneten Zahlenwert durch ein Gleichheitszeichen gleichgesetzt werden.
@@ -388,9 +348,7 @@ int Angle = Greenfoot.getRandomNumber(10);
 int TypeOfRotation = Greenfoot.getRandomNumber(2);
 ```
 
-<h4>
 <a id="Zufällige Bewegung der Asteroiden"> 2.3.3 Zufällige Bewegung der Asteroiden</a>
-</h4>
 
 <p>
 Da sich die Asteroiden mit einer konstanten Geschwindikeit bewegen sollen, können wir die Methode <i>move()</i> verwenden. Sie funktioniert in Verbindung mit <i>act()</i>. Mit dieser Methode lassen sich Objekte entlang der x-Achse bewegen. Sie benötigt einen Parameter, eine Zahl, in ihrem Klammerausdruck. Dabei definiert das Vorzeichen die Richtung, in die sich das Objekt bewegt (positiv: von links nach recht, negativ: von rechts nach links) und der Betrag des Zahlenwertes das Tempo mit der sich das Objekt vorbewegt. Durch Ausprobieren haben wir herrausgefunden, dass ein Tempo von 12 geeignet für unser Spiel ist. Das Vorzeichen der Geschwindikeit ist negativ, weil sich die Asteroiden von rechts nach links bewegen sollen.
@@ -436,9 +394,7 @@ public void act()
 }
 ```
 
-<h4>
 <a id="Am Rand der Welt"> 2.3.4 Am Rand der Welt</a>
-</h4>
 
 <p>
 Die Asteroiden sollen entfernt werden, sobald sie die Ränder der Welt erreichen. Es muss also ständig geprüft werden, ob sich ein Asteroid am Rand der Welt befindet. Dies ist ein sehr spezieller Aufgabentyp für den keine vorfertigte Methode vorhanden ist, weshalb wir eine eigene Methode definieren müssen. Wir haben diese Methode <i>atWorldEdge()</i> genannt, was so viel wie "am Rand der Welt bedeutet". Im Gegensatz zu der bisher verwendeten Mehtode <i>act()</i> muss <i>atWorldEdge()</i> über Rückgabetypen verfügen, damit die Methode in Lage ist Informationen zurückzugeben. In diesem soll die Methode angeben, ob sich ein Asteroid am Rand der Welt befindet oder nicht. Da dies binäre Aussagen sind, sind boolesche Rückgabetypen sinnvoll. Boolesche Aussagen (Literale) können nur zwei Züstände annehmen und zwar <i>true</i> und <i>false</i>, welche auf deutsch so viel wie <i>richtig</i> und <i>falsch</i> bedeuten.
@@ -592,9 +548,8 @@ if (atWorldEdge())
 
 )))
 
-<h4>
+
 <a id="Code-Zusammenfassung Asteroiden"> 2.3.5 Code-Zusammenfassung></a>
-</h4>
 
  Fasst man Code-Script 3.05 und 3.14 zusammen, so ergibt sich für den Code der Asteroiden:
 
@@ -608,8 +563,7 @@ public class Asteroid extends mover
 {
    int Angle = Greenfoot.getRandomNumber(50);
    int TypeOfRotation = Greenfoot.getRandomNumber(2);
-   public void act()
-   {
+   public void act()   {
        move(-12);
        if (TypeOfRotation == 0)
        {
@@ -630,7 +584,8 @@ public class Asteroid extends mover
       {
           return true;
       }
-      if(getY() == 0 && TypeOfRotation == 0 || getY() == getWorld().getHeight() - 1 && TypeOfRotation == 1)
+
+if(getY() == 0 && TypeOfRotation == 0 || getY() == getWorld().getHeight() - 1 && TypeOfRotation == 1)
       {
           return true;
       }
@@ -641,23 +596,113 @@ public class Asteroid extends mover
    }
 }
 ```
+(((
+Der Score
+
+Anschließend benötigen wir eine Score-Klasse, damit das Spiel auch reizend wird und Spaß macht, da es sonst, wenn man eh keine Punkte einsammeln kann, schnell langweilig wird. Zunächst haben wir die Score Klasse ohne ein Bild als eine neue Klasse zur Welt hinzufegügt.
+Dann haben wir mithilfe von int unseren Score auf 0 festgelegt, das heißt bevor unser Spiel beginnt, zeigt der Score immer einen Punktestand von 0 an. Damit Greenfoot diesen in der Welt überhaupt anzeigt, haben wir zu unserem Score 0 Punkte erst einmal hinzugefügt. Zu diesem Score soll dann mit der Zeit die Punktemenge (amount) hinzugefügt werden, sodass der alte score dann = der neue score und die hinzugefügte Punktemenge ist. Das Bild des Scores, dem wir den Namen robin gegeben haben, ist ein neues Greenfoot Bild mit zunächst der Länge 10 und der Breite 10. Dieses neue Bild wird dann mit dem Befehl .drawString in die Welt mit den Koordinaten x=200 und y=500 in die Welt eingefügt/eingezeichnet mit der Schrift Score: und dann dahinter der entsprechenden Punktezahl. Mithilfe von setImage() lässt sich dieses neu erstellte Objekt robin dann auch in der Welt wiederfinden.
+
+Bei uns jedoch funktioniert der score noch nicht wie gewollt, da Greenfoot noch keine Punkte für ein bestimmtes Objekt zum Score hinzufügt. Dazu haben wir schon eine neue Klasse erstellt, die Goldball Klasse,die wir finn genannt haben. Die Goldbälle sollen sich ähnlich wie die Asteroiden verhalten, allerdings viel seltener spawnen, damit das Spiel nicht zu leicht ist. Für jeden Goldball soll dann eine bestimmte Punktemenge z.B. 20 zum Score hinzugefügt werden. Das versuchen wir in der nächsten Zeit zu programmieren. Hier erst einmal der Code für die Score-Klasse: 
+
+int score = 0;
+   
+public Score() {
+      add(0);
+    }
+  public void add(int amount) {
+  
+      score = score + amount;
+      
+      GreenfootImage robin = new GreenfootImage(10, 10);
+      robin.drawString("Score: " + score, 200, 500);
+      setImage(robin);    
+      
+}
+
+)))
+
+((( Game-Over
+
+Beim Programmieren des Game-Overs sind wir ähnlich vorgegangen wie bei der Programmierung des Scores. Zuerst haben wir die neue Klasse mit dem Namen game-Over mit einem bei Paint selbst erstellten Bild zur Welt hinzugefügt. Das Bild hat einen Weißen Game-Over-Schriftzug mit einem schwarzen Hintergrund und passt somit zum Hintergrund der Welt. Wir haben auch hier das Bild robin genannt und als neues Bild mit der Länge 300 und der Breite 200 identifiziert. Mithilfe von .drawString fügen wir auch dieses neu erstellte Bild in die Welt hinzu und lassen es beim vorher definierten Game-Over, nämlich wenn die Rakete einen Asteroiden crasht, mit den Koordinaten x=100 und y=200 in der Welt erscheinen. Es befindet sich somit recht mittig auf dem Bildschirm. Der Code sieht dann folgendermaßen aus:
+
+public GameOver()  {
+     GreenfootImage robin = new GreenfootImage(300,200);
+     robin.drawString ("Game Over", 100, 200);
+
+
+)))
 
 <h3>
 <a id= "Was noch zu tun ist"> 3. Was noch zu tun ist</a>
 </h3>
 
+(((
+Der Goldball finn
+
+Wie schon erwähnt, haben wir uns dazu entschlossen, eine Goldball-Klasse zu erstellen, um das Asteroiden Spiel spannender zu machen und einen unterschiedlich hohen Score erreichen zu können, da die einzelnen Goldbälle Punkte geben sollen.
+Zu Beginn haben wir eine neue Klasse namens finn hinzugefügt und dieser das fertige Bild eines Goldballs zugeordnet. 
+Der Programmiercode des Goldballs sieht zwar lang und kompliziert aus, ist im Endeffekt jedoch fast der gleiche wie der der Asteroiden, da diese mit fast den gleichen Eigenschaften durch die Welt fliegen sollen. Die Goldbälle sollen lediglich viel seltener spawnen, als die Asteroiden. Der einzige Unterschied besteht darin, dass wir der Klasse finn ein spezielles Objekt der Raketen-Klasse zuweisen. Da es nur eine Rakete gibt, trifft dies also bei der Rakete zu. Wenn es ein Objekt gibt, finn also nicht gleich 0 ist, existiert ein Zusammenstoß eines Goldballs der Klasse finn mit der Rakete. In diesem Fall wird nicht die Rakete entfernt, sondern der Goldball finn wird selbst aus der Welt herausgenommen. Die Rakete frisst oder schluckt den Goldball sozusagen, da dieser ja "gut" für den Spieler sein und ihm Punkte bringen soll.
+
+
+int Angle = Greenfoot.getRandomNumber(10);
+    int TypeOfRotation = Greenfoot.getRandomNumber(2);
+  
+    
+    public boolean atWorldEdge()    {
+        if(getX() == 0)
+        {
+            return true;
+        }
+        if(getY() == 0 || getY() > getWorld().getHeight() - 2 && TypeOfRotation == 1)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    
+public void act()
+{
+    move(-12);
+  
+    if (TypeOfRotation == 0)
+{
+    setRotation(Angle);
+}
+    if (TypeOfRotation == 1)
+{
+    setRotation(-Angle);
+}
+
+    if (atWorldEdge())
+{
+    getWorld().removeObject(this);
+}
+
+
+
+Actor finn = getOneIntersectingObject(rocket.class);
+if (finn != null) { 
+   getWorld().removeObject(this);
+}
+
+    } 
+
+)))
+
 <p>
-Dies ist unser derzeitiger Stand zu unserem Spiel SpaceRocket, dennoch haben wir das Projekt noch längst nicht fertiggestellt da uns noch viele Dinge fehlen, die wir geplant haben:
+Dies ist unser derzeitiger Stand zu unserem Spiel SpaceRocket, dennoch haben wir das Projekt noch nicht fertiggestellt da uns noch viele Dinge fehlen, die wir geplant haben:
 </p>
-1. Es sollen während des Spiel neue Asteroiden spawnen, die aber nur auf der rechten Hälfte entstehen können.
-2. Wenn die Rakete einen Asteroiden berührt, soll es eine Explosion geben und der Spieler soll verlieren (game-over).
-3. Das game-over, das erscheint, wenn man verliert, fehlt noch.
-4. Das Einfügen und Programmieren eines Scores, der den Punktestand abhängig von der überlebten Zeit zählt und beim game-over angezeigt wird.
-5. Das Hinzufügen anderer Objekte, wie z.B. Bomben, die explodieren können und sich ähnlich wie die Asteroiden verhalten
-6. Das Einfügen einer Bullet-Klasse (und Programmieren), denn die Rakete soll später in bestimmten Abständen und mit bestimmter Munition schießen können.
-7. Das Einfügen und Programmieren einer Counter-Klasse.
-8. Das Einfügen von Sternen in den Hintergrund, die den Eindruck erwecken sollen, dass man mit der Rakete wirklich durch den Weltraum fliegt.
-9. Das Einfügen von Sounds, z.B. bei der Explosion oder beim game-over.
+
+
+1. Das Einfügen und Programmieren eines Scores, der den Punktestand abhängig von den eingesammelten Goldbällen zählt und beim game-over angezeigt wird.
+2. Das Hinzufügen von Bomben, die explodieren können und sich ähnlich wie die Asteroiden verhalten
+3. Das Einfügen einer Bullet-Klasse (und Programmieren), denn die Rakete soll später in bestimmten Abständen und mit bestimmter Munition schießen können.
+4. Das Einfügen von Sternen in den Hintergrund, die den Eindruck erwecken sollen, dass man mit der Rakete wirklich durch den Weltraum fliegt.
+5. Das Einfügen von Sounds, z.B. bei der Explosion oder beim Game-Over.
+6. Goldbälle sollen während des Spiels genau wie die Asteroiden neu spawnen und Punkte einbringen.
 
 <h3>
 <a id="Quellen"> 4. Quellen</a>
