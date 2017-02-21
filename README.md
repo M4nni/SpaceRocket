@@ -87,7 +87,7 @@ Mit dem Konstruktor <i>public</i> erstellen wir eine Welt-Klasse namens <i>space
 </p>
 
 <pre><code><strong>Code-Script 1.1</strong>
-
+D
 import greenfoot.*;
 public space_backround_1()
     {
@@ -126,7 +126,7 @@ addObject(new Asteroid(), Greenfoot.getRandomNumber(480) + 480, 0);
 addObject(new Asteroid(), Greenfoot.getRandomNumber(480) + 480, 540);
 </code></pre>
 
-(((Weiterhin haben wir in unserer Welt einen Counter hinzugefügt, der bestimmte natürliche Zahlenwerte annehmen kann. Zu Beginn des Spiels soll der Counter noch nicht aktiviert sein, da sich noch keine Objekte in der Welt befinden. Deshalb haben wir den counter mithilfe von int auf 0 festgelegt: 
+(((Weiterhin haben wir in unserer Welt einen Counter hinzugefügt, der bestimmte natürliche Zahlenwerte annehmen kann. Gleichzeitig haben wir auch eine Counter-Klasse ohne Bild erstellt, da Greenfoot diese sonst nicht erkennen würde. Wir haben die Counter Klasse aber nur in der Welt space_background_1verwendet. Zu Beginn des Spiels soll der Counter noch nicht aktiviert sein, da sich noch keine Objekte in der Welt befinden. Deshalb haben wir den counter mithilfe von int auf 0 festgelegt: 
 
 int counter =0;
 
