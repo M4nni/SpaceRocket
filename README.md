@@ -26,14 +26,14 @@ Ein Informatik-Projekt von Robin Wagner und Finn Westphal
 
 <p><img src="Screenshot_Greenfoot_SpaceRocket_Szenario.png" alt="Projekt"></p>
 
-<ul>
-<li><a href= "#Einleitung"> 1. Einleitung: Anforderungen und Elemente des Spiels</a></li>
     <ul>
+    <li><a href= "#Einleitung"> 1. Einleitung: Anforderungen und Elemente des Spiels</a></li>
+        <ul>
     <li><a href= "#Das Spiel und die Dokumentation"> 1.1 Das Spiel und die Dokumentation</a></li>
-    <li><a href= "#Snytax und Funktionsweise von Java"> 1.2 Snytax und Funktionsweise von Java</a></li>
-   </ul>
-<li><a href= "#Umsetzung"> 2. Umsetzung</a></li>
-    <ul>
+        <li><a href= "#Snytax und Funktionsweise von Java"> 1.2 Snytax und Funktionsweise von Java</a></li>
+        </ul>
+    <li><a href= "#Umsetzung"> 2. Umsetzung</a></li>
+        <ul>
     <li><a href= "#Das Szenario"> 2.1 Das Szenario</a></li>
         <ul>
         <li><a href= "#Erstellen einer Welt"> 2.1.1 Erstellen einer Welt</a></li>
@@ -78,7 +78,7 @@ Ein Informatik-Projekt von Robin Wagner und Finn Westphal
 </p>		
 		
 <p>		
-In in den folgenden Ausführungen werden wir schrittweise beschreiben, wie wir bei der Programmierung der Spiels vorgegangen sind. Es macht Sinn, sich in der angegeben Reihenfolge mit dem Dokument zu beschäftigen, um unsere Gedankengänge nachzuvollziehen. Dies gilt vor allem für die verwendeten Programmiermethode und Befehle, die wir nicht in jedem Kapitel neu erläutern, sondern nur beim ersten Auftreten detailliert beschreiben und als Wissensgrundlage für weitere Anwendungsfälle vorraussetzen.
+In den folgenden Ausführungen werden wir schrittweise beschreiben, wie wir bei der Programmierung der Spiels vorgegangen sind. Es macht Sinn, sich in der angegeben Reihenfolge mit dem Dokument zu beschäftigen, um unsere Gedankengänge nachzuvollziehen. Dies gilt vor allem für die verwendeten Programmiermethoden und Befehle, die wir nicht in jedem Kapitel neu erläutern, sondern nur beim ersten Auftreten detailliert beschreiben und als Wissensgrundlage für weitere Anwendungsfälle vorraussetzen.
 </p>
 
 <h3>
@@ -86,11 +86,11 @@ In in den folgenden Ausführungen werden wir schrittweise beschreiben, wie wir b
 </h3>
 
 <p>
-Die Programmierumgebung <i>Greenfoot</i> basiert auf der objektorientierten Blockprogrammiersprache <i>Java</i>. Ziel dieser Umgebung ist es, mit relativ einfachen Mitteln und ohne Vorkenntnissen objektorientierte Simulationskonzepte zu programmieren. Für das besser Verständnis erklären wir kurz den generellen Aufbau und die Snytax von <i>Java</i>.		
+Die Programmierumgebung <i>Greenfoot</i> basiert auf der objektorientierten Blockprogrammiersprache <i>Java</i>. Ziel dieser Umgebung ist es, mit relativ einfachen Mitteln und ohne Vorkenntnissen objektorientierte Simulationskonzepte zu programmieren. Für das bessere Verständnis erklären wir kurz den generellen Aufbau und die Snytax von <i>Java</i>.		
 </p>		
  		
 <p>		
-Java ist aus Blöcken aufgebaut, die im Snytax durch geschweifte Klammern gekennzeichnet werden. Der Inhalt dieser Blöcke kann Anweisung und Befehle enthalten, aber auch weitere Blöcke enthalten. Auf diese Weise ist eine verschachtelte Blockstruktur mit mehreren Ebenen möglich. Der Vorteil einer Block-Programmierung ist, dass Snytax-Fehler leichter indentifiziert werden können, da nur einzelnen Blöcke nicht ordnungsgemäß funktionieren und nicht der gesamte Code defekt ist.		
+Java ist aus Blöcken aufgebaut, die im Snytax durch geschweifte Klammern gekennzeichnet werden. Der Inhalt dieser Blöcke kann Anweisungen und Befehle, aber auch weitere Blöcke enthalten. Auf diese Weise ist eine verschachtelte Blockstruktur mit mehreren Ebenen möglich. Der Vorteil einer Block-Programmierung ist, dass Snytax-Fehler leichter indentifiziert werden können, da nur einzelne Blöcke nicht ordnungsgemäß funktionieren und nicht der gesamte Code defekt ist.		
 </p>		
  		
 ```javascript
@@ -140,7 +140,7 @@ public space_backround_1()
 </h4>
 
 <p>
-Bisher enthält unsere Welt noch keine Objekte, die agieren können und für unser Spiel relevant sind. Wir benötigen in jedem Fall zunächst eine Raketen- und eine Asteroiden-Klasse. Zunächst wollten wir, dass jeweils vor Spielbeginn eine Rakete an einem festen Ort startet. Ebensfall sollen verschiedene Asteroiden an immer anderen Punkten der Welt, allerdings nur an den Rändern der rechten Welthälfte, spawnen. Dazu haben wir, wie in dem folgenden Befehl zu sehen (siehe Code-Script 1.2), mithilfe der Methode <i>addObject</i> eine Rakete hinzugefügt, die jedes Mal, wenn man das Spiel startet, an der Position x = 150 und y = 270 startet. Die Methode <i>addObject</i> benötigt bestimmte Parameter für ihre Funktionalität. Zu diesen zählt zum einen die Bezeichnung des zu generierenden Objektes einer Klasse und seine Position in der Welt. Hierzu wird nach <i>addObject</i> in Klammern die jeweilige Klasse mit dem Aufdruck <i>new</i> davor genannt, welcher als Referenz festlegt, dass ein Objekt dieser Klasse hinzugefügt werden soll. Schließlich geben zwei Parameter, durch Kommata getrennt, die Koordinaten des jeweiligen Objektes an. Diese Koordinaten haben wir so gewählt, dass die Rakete ziemlich weit links, aber nicht am Rand startet und genau die Hälfte der Höhe besitzt.
+Bisher enthält unsere Welt noch keine Objekte, die agieren können und für unser Spiel relevant sind. Wir benötigen in jedem Fall zunächst eine Raketen- und eine Asteroiden-Klasse. Zunächst wollen wir, dass jeweils vor Spielbeginn eine Rakete an einem festen Ort startet. Ebenfalls sollen verschiedene Asteroiden an immer anderen Punkten der Welt, allerdings nur an den Rändern der rechten Welthälfte, spawnen. Dazu haben wir, wie in dem folgenden Befehl zu sehen (siehe Code-Script 1.2), mithilfe der Methode <i>addObject</i> eine Rakete hinzugefügt, die jedes Mal, wenn man das Spiel startet, an der Position x = 150 und y = 270, startet. Die Methode <i>addObject</i> benötigt bestimmte Parameter für ihre Funktionalität. Zu diesen zählt zum Einen die Bezeichnung des zu generierenden Objektes einer Klasse und seine Position in der Welt. Hierzu wird nach <i>addObject</i> in Klammern die jeweilige Klasse mit dem Aufdruck <i>new</i> davor genannt, welcher als Referenz festlegt, dass ein Objekt dieser Klasse hinzugefügt werden soll. Schließlich geben zwei Parameter, durch Kommata getrennt, die Koordinaten des jeweiligen Objektes an. Diese Koordinaten haben wir so gewählt, dass die Rakete ziemlich weit links, aber nicht am Rand startet und genau die Hälfte der Höhe besitzt.
 </p>
 
 ```javascript
@@ -155,7 +155,7 @@ public space_backround_1()
 ```
 
 <p>
-Weiterhin lassen wir Asteroiden spawnen, die sich an immer anderen Positionen befinden können. Der erste Asteroid hat die x-Koordinate 960 und befindet sich genau am rechten Rand der Welt mit einer y-Koordinate die von 0 bis 540, also von ganz unten bis ganz oben entlang der y-Achse variieren kann. Dies erreichen wir durch die Methode <i>Greenfoot.getRandomNumber</i>, die eine zufällige, natürliche Zahl zwischen 0 und dem jeweiligen in Klammern stehenden Grenzwert generiert. Der Grenzwert (hier: 541) ist dabei ausgeschlossen. Der 2. Asteroid kann zwischen den x-Koordinaten 480 und 480 + 480, also maximal 960 entstehen. Das bedeutet, dass er immer zufällig zwischen der Hälfte der Welt und dem rechten Rand spawnt. Die y-Koordinate beträgt 0, weshalb der Asteroid nur am oberen Rand der Welt spawnen kann. Dem 3. Asteroid sind die gleichen x-Koordinaten zugewiesen, er spawnt aber durch die festgelegte y-Koordinate von 540 immer am unteren Rand. Seine x-Koordinate ist ebenfalls variabel, sodass er entlang der y-Achse zufällig erscheinen kann. 
+Weiterhin lassen wir Asteroiden spawnen, die sich an immer anderen Positionen befinden können. Der erste Asteroid hat die x-Koordinate 960 und befindet sich genau am rechten Rand der Welt mit einer y-Koordinate, die von 0 bis 540, also von ganz unten bis ganz oben entlang der y-Achse variieren kann. Dies erreichen wir durch die Methode <i>Greenfoot.getRandomNumber</i>, die eine zufällige, natürliche Zahl zwischen 0 und dem jeweiligen in Klammern stehenden Grenzwert generiert. Der Grenzwert (hier: 541) ist dabei ausgeschlossen. Der 2. Asteroid kann zwischen den x-Koordinaten 480 und 480 + 480, also maximal 960 entstehen. Das bedeutet, dass er immer zufällig zwischen der Hälfte der Welt und dem rechten Rand spawnt. Die y-Koordinate beträgt 0, weshalb der Asteroid nur am oberen Rand der Welt spawnen kann. Dem 3. Asteroid sind die gleichen x-Koordinaten zugewiesen, er spawnt aber durch die festgelegte y-Koordinate von 540 immer am unteren Rand. Seine x-Koordinate ist ebenfalls variabel, sodass er entlang der y-Achse zufällig erscheinen kann. 
 </p>
 
 ```javascript
@@ -181,11 +181,11 @@ int counter = 0;
 ```
 
 <p>
-Die Referenz "++" sorgt dafür, dass einer Variable natürliche Zahlenwerte wie "1" bei jeder Ausführung addiert werden. Auf diese Weise erhöht sich der Betrag der Variable in natürlichen Zahlenabschnitten. Wir können nun festlegen, was passieren soll, wenn die Variable einen bestimmten Wert angenommen hat. Unser Ziel ist es, weitere Asteroiden in regelmäßigen Abständen erscheinen zu lassen. Da der <i>counter</i> eine gewisse Zeit braucht, um bestimmte Werte zu erreichen ergibt sich daraus eine Verzögerung. Diese Zeitspanne können wir als Zeitperoide zwischen zwei nacheinander hinzugefügten Asteroiden festlegen und somit die Frequenz der Asteroiden festlegen. Dadurch erscheinen in regelmäßigen Abständen immer neue Asteroiden in der Welt.
+Die Referenz "++" sorgt dafür, dass einer Variable natürliche Zahlenwerte wie "1" bei jeder Ausführung addiert werden. Auf diese Weise erhöht sich der Betrag der Variable in natürlichen Zahlenabschnitten. Wir können nun festlegen, was passieren soll, wenn die Variable einen bestimmten Wert angenommen hat. Unser Ziel ist es, weitere Asteroiden in regelmäßigen Abständen erscheinen zu lassen. Da der <i>counter</i> eine gewisse Zeit braucht, um bestimmte Werte zu erreichen, ergibt sich daraus eine Verzögerung. Diese Zeitspanne können wir als Zeitperoide zwischen zwei nacheinander hinzugefügten Asteroiden festlegen und somit die Frequenz der Asteroiden festlegen. Dadurch erscheinen in regelmäßigen Abständen immer neue Asteroiden in der Welt.
 </p>
 
 <p>
-Diese Ansätze lassen sich mithilfe einer if-Methode in Greenfoot umsetzen. Der counter fängt bei 0 an, zu zählen. Wir können festlegen, dass Asteroiden hinzugefügt werden sollen, wenn der counter einen bestimmten Zahlenwert erreicht hat. Je größer die Differenz zwischen dem Startwert 0 und dem Bedingungswert in der if-Methode ist, desto größer ist die Verzögerung zwischen zwei Asteroiden. Wir legen in Code-Script 1.5 fest, dass die Bedingen der if-Methode erfüllt ist, wenn der counter Werte von mehr als 10 annimmt
+Diese Ansätze lassen sich mithilfe einer if-Methode in Greenfoot umsetzen. Der counter fängt bei 0 an, zu zählen. Wir können festlegen, dass Asteroiden hinzugefügt werden sollen, wenn der counter einen bestimmten Zahlenwert erreicht hat. Je größer die Differenz zwischen dem Startwert 0 und dem Bedingungswert in der if-Methode ist, desto größer ist die Verzögerung zwischen zwei Asteroiden. Wir legen in Code-Script 1.5 fest, dass die Bedingungen der if-Methode erfüllt ist, wenn der counter Werte von mehr als 10 annimmt.
 </p>
 
 ```javascript
@@ -195,7 +195,7 @@ if(counter >= 10)
 ```
 
 <p>
-Um neue Asteroiden hinzuzufügen, verwenden wir die bekannte Methode <i>addObject</i>, die wir in die if-Methode implementieren. Diese benötigt die Ortskoordinaten der Asteroiden als Parameter, um festlegen, wo die Asteroiden erscheinen sollen. Hierfür haben wir die breits oben genannten, zufälligen Koordinaten verwendet. Wir haben die Koordianten innerhalb der if-Methoden als Variablen definiert, damit der Code übersichtlich bleibt.
+Um neue Asteroiden hinzuzufügen, verwenden wir die bekannte Methode <i>addObject</i>, die wir in die if-Methode implementieren. Diese benötigt die Ortskoordinaten der Asteroiden als Parameter, um festzulegen, wo die Asteroiden erscheinen sollen. Hierfür haben wir die breits oben genannten, zufälligen Koordinaten verwendet. Wir haben die Koordianten innerhalb der if-Methoden als Variablen definiert, damit der Code übersichtlich bleibt.
 </p>
 
 ```javascript
@@ -217,11 +217,11 @@ int y = 540;
 ```
 
 <p>
-Für alle drei Ränder der Welt stellen wir jeweils eine if-Methode mit den entsprechenden Koordinaten auf. In den <i>addObject</i>-Methoden geben wir durch Asteroiden-Klasse <i>Asteroid()</i> und der Referenz <i>new</i> an, dass ein neuer Asteroid hinzugefügt werden soll. Als Orts-Parameter verwenden wir die Variablen <i>x</i> und <i>y</i>, die die jeweiligen definierten Werte annehmen. Essentiell ist außerdem, dass der <i>counter</i>, sobald die if-Methode ausgeführt wurde, auf 0 den Startwert zurückgesetzt, damit der <i>counter</i> wieder bei 0 anfängt zu zählen. Ansonsten würden die Anweisungen innerhalb der if-Methode nur einmal ausgeführt werden, weil ohne Zurücksetzen der Bedingungswert erreicht und weiter überschritten wird. Erst das erneute Erreichen des Bedingungswertes sorgt für ein erneutes Ausführen der if-Methode und somit für neue Asteroiden.
+Für alle drei Ränder der Welt stellen wir jeweils eine if-Methode mit den entsprechenden Koordinaten auf. In den <i>addObject</i>-Methoden geben wir durch Asteroiden-Klasse <i>Asteroid()</i> und der Referenz <i>new</i> an, dass ein neuer Asteroid hinzugefügt werden soll. Als Orts-Parameter verwenden wir die Variablen <i>x</i> und <i>y</i>, die die jeweiligen definierten Werte annehmen. Essentiell ist außerdem, dass der <i>counter</i>, sobald die if-Methode ausgeführt wurde, auf 0 den Startwert zurückgesetzt wird, damit der <i>counter</i> wieder bei 0 anfängt, zu zählen. Ansonsten würden die Anweisungen innerhalb der if-Methode nur einmal ausgeführt werden, weil ohne Zurücksetzen der Bedingungswert erreicht und weiter überschritten wird. Erst das erneute Erreichen des Bedingungswertes sorgt für ein erneutes Ausführen der if-Methode und somit für neue Asteroiden.
 </p>
 
 <p>
-Wenn die oben beschriebenen Objekte nun zur Welt hinzugefügt wurden, soll die Welt mit public void act den Counter aktivieren und dieser soll nicht mehr den inaktiven Wert von 0 annehmen können. Wenn der Counter nun zufällige Zahlen annimmt, die größer als 10 sind, spawnen neue Asteroiden, unzwar genau an den zufälligen Orten, wo sie auch zu Beginn in der Welt erscheinen, also etwa am oberen rechten Bildrand, am unteren rechten Bildrand oder an der rechten Seite des Bildes. Dazu legen wir die Koordinaten fest und fügen es mithilfe von addObject() und den bestimmten Koordinaten neu in die Welt hinzu. Grundvorraussetzung dafür ist, dass wir einem Asteroiden einen bestimmten Namen geben (Asteroid robin) und als neuen Asteroiden definieren und das hinzugefügte Object auch diesen Namen besitzt. Wichtig ist, dass der counter danach wieder auf 0 zurückgesetzt wird, weil sonst nicht immer wieder neue Asteroiden spawnen könnten. Je kleiner die benötigte Zahl des Counters ist (in unserem Fall mindestens 10), desto schwieriger wird das Spiel, denn je kleiner die Zahl, desto öfter wird die Zahl überschritten und es spawnen mehr Asteroiden. Für Profis kann die Zahl bis auf 5 reduziert werden, ansonsten ist fast die ganze Welt voller Asteroiden und man hat keine Chance, zu überleben. Ohne diesen counter und das ständige Neuerscheinen der Asteroiden wäre das Spiel auch nicht spielbar.
+Wenn die oben beschriebenen Objekte nun zur Welt hinzugefügt wurden, soll die Welt mit public void act den Counter aktivieren und dieser soll nicht mehr den inaktiven Wert von 0 annehmen können. Je kleiner die benötigte Zahl des Counters ist (in unserem Fall mindestens 10), desto schwieriger wird das Spiel, denn je kleiner die Zahl, desto öfter wird die Zahl überschritten und es spawnen mehr Asteroiden. Für Profis kann die Zahl bis auf 5 reduziert werden, ansonsten ist fast die ganze Welt voller Asteroiden und man hat keine Chance, zu überleben. Ohne diesen counter und das ständige Neuerscheinen der Asteroiden wäre das Spiel auch nicht spielbar.
 </p>
 
 Nachfolgend der Code des Counters in der Welt space_background_1:
@@ -314,7 +314,7 @@ public void act()
 </h4>
 
 <p>
-Danach haben wir uns um die Rakete gekümmert. Diese soll sich zwar nicht nach links und rechts bewegen, da die Asteroiden auf die Rakete zufliegen sollen, aber sie soll sich nach oben und unten bewegen können. Zuerst haben wir ein Bild einer Rakete zur Actor-Klasse Rocket per Rechts-Klick auf die Rocket-Klasse unter der Option "Set image..." hinzugefügt. Mithilfe des Konstruktors *public* erstellten wir eine Klasse, die in der Lage ist, mit anderen Klassen Informationen austauschen. Auf diese Weise ist sie in der Lage, mit anderen Klassen zu interagieren. Wir verwenden für die Rakete die Methode <i>void act()</i>. Der Rückgabetyp <i>void</i> gibt an, ob und wenn ja, welche Informationen zurückgegeben werden. In diesen Fall bedeutet <i>void</i> so viel wie "nichts", wir erhalten dementsprechend keine Informationen über die Ausführung der Methode. <i>void act()</i> ist ausschließlich eine ausführende Methode, die keine weiteren Parameter für ihre Ausführung benötigt, weswegen in den Klammern von <i>act()</i> kein Inhalt vorhanden ist. Sie wird beim starten des Szenarios, z. B. durch betätigen des <i>Act-Buttons</i>, kontinuierlich ausgeführt, bis das Szenario beendet wird. Dabei werden die einzelnen Methoden innerhalb von <i>act()</i> der Reihe nach ausgeführt. Wir legen mit dieser Methode das Verhalten der Rakete fest.
+Danach haben wir uns um die Rakete gekümmert. Diese soll sich zwar nicht nach links und rechts bewegen, da die Asteroiden auf die Rakete zufliegen sollen, aber sie soll sich nach oben und unten bewegen können. Zuerst haben wir ein Bild einer Rakete zur Actor-Klasse Rocket per Rechts-Klick auf die Rocket-Klasse unter der Option "Set image..." hinzugefügt. Mithilfe des Konstruktors *public* erstellten wir eine Klasse, die in der Lage ist, mit anderen Klassen Informationen austauschen. Auf diese Weise ist sie in der Lage, mit anderen Klassen zu interagieren. Wir verwenden für die Rakete die Methode <i>void act()</i>. Der Rückgabetyp <i>void</i> gibt an, ob und wenn ja, welche Informationen zurückgegeben werden. In diesen Fall bedeutet <i>void</i> so viel wie "nichts", wir erhalten dementsprechend keine Informationen über die Ausführung der Methode. <i>void act()</i> ist ausschließlich eine ausführende Methode, die keine weiteren Parameter für ihre Ausführung benötigt, weswegen in den Klammern von <i>act()</i> kein Inhalt vorhanden ist. Sie wird beim Starten des Szenarios, z. B. durch Betätigen des <i>Act-Buttons</i>, kontinuierlich ausgeführt, bis das Szenario beendet wird. Dabei werden die einzelnen Methoden innerhalb von <i>act()</i> der Reihe nach ausgeführt. Wir legen mit dieser Methode das Verhalten der Rakete fest.
 </p>
 
 ```javascript
@@ -346,7 +346,7 @@ Code-Script 2.2
 ```
 
 <p>
-Damit sich die Rakete beim Tastendruck mit konstanter Geschwindigkeit nach unten bewegt, verwenden wir die Methode <i>setLocation</i>, die mindestens drei weitere Parameter für ihre Funktion benötigt, welche die aktuelle Position des Objektes in der Welt und die Bewegungsrichtung relativ zu dieser Position sind. Die Rückgabetypen <i>getX</i> und <i>getY</i> geben die aktuellen Koordinaten des klassenspezifischen Objektes an. Sie werden durch ein Komma getrennt und in den Klammern der Methode <i>setLocation</i> integriert. Damit nun beim Tastendruck eine Bewegung vollzogen wird, kann hinter jedem Rückgabetypen eine natürliche Zahlen addiert bzw. subtrahiert werden. So wird bei jeder Ausführung dieses frames oder Blocks das Objekt um die jeweiligen addierten bzw. subtrahierten Koordinaten bewegt. Durch das mehrfache Ausführen dieser Methode resultiert daraus eine lineare Fortbewegungsrichtung. Für unsere Anwendung soll sich unser Objekt, die Rakete, lediglich entlang der y-Achse bewegen, weswegen die x-Koordinate unverändert bleibt.
+Damit sich die Rakete beim Tastendruck mit konstanter Geschwindigkeit nach unten bewegt, verwenden wir die Methode <i>setLocation</i>, die mindestens drei weitere Parameter für ihre Funktion benötigt, welche die aktuelle Position des Objektes in der Welt und die Bewegungsrichtung relativ zu dieser Position sind. Die Rückgabetypen <i>getX</i> und <i>getY</i> geben die aktuellen Koordinaten des klassenspezifischen Objektes an. Sie werden durch ein Komma getrennt und in den Klammern der Methode <i>setLocation</i> integriert. Damit nun beim Tastendruck eine Bewegung vollzogen wird, kann hinter jedem Rückgabetypen eine natürliche Zahl addiert bzw. subtrahiert werden. So wird bei jeder Ausführung dieses Frames oder Blocks das Objekt um die jeweiligen addierten bzw. subtrahierten Koordinaten bewegt. Durch das mehrfache Ausführen dieser Methode resultiert daraus eine lineare Fortbewegungsrichtung. Für unsere Anwendung soll sich unser Objekt, die Rakete, lediglich entlang der y-Achse bewegen, weswegen die x-Koordinate unverändert bleibt.
 </p>
 
 ```javascript
@@ -356,7 +356,7 @@ setLocation(getX(), getY()+12);
 ```
 
 <p>
-Zur visuellen Verdeutlichung der Bewegung verwenden wir außerdem die Methode <i>setRoation</i>, die das Objekt, in diesem Fall unsere Rakete, in einem bestimmten Winkel ausrichtet. Dieser Winkel wird in Klammern an die Methode ergänzt. Durch ausprobieren haben wir herausgefunden, dass eine Rotation von 20° bzw. -20° geeignet für die simulierte Bewegung unser Rakete ist.
+Zur visuellen Verdeutlichung der Bewegung verwenden wir außerdem die Methode <i>setRotation</i>, die das Objekt, in diesem Fall unsere Rakete, in einem bestimmten Winkel ausrichtet. Dieser Winkel wird in Klammern an die Methode ergänzt. Durch ausprobieren haben wir herausgefunden, dass eine Rotation von 20° bzw. -20° geeignet für die simulierte Bewegung unser Rakete ist.
 </p>
 
 <h4>
@@ -364,7 +364,7 @@ Zur visuellen Verdeutlichung der Bewegung verwenden wir außerdem die Methode <i
 </h4>
 
 <p>
-Die Rakete soll außerdem nur beim Tastdruck ihre Position verändern und nicht in der Lage sein, die Welt über ihre Grenzen zu verlassen. Um diese Bedingungen mit der Bewegung der Rakete in Verbindung zu bringen, verwenden wir eine <i>if-Methode</i>, die die Ausführung einer oder mehrerer Methoden nur zulässt, wenn alle ihre Bedingungsparameter erfüllt werden. Werden die in runden Klammern stehenden Bedingungen erfüllt, so werden die in geschweiften Klammern stehende Methoden im Anschluss an die if-Methode ausgeführt. In unserem Fall bestehen unsere Bedinungsparameter aus zwei <i>Greenfoot.isKeyDown</i>-Methoden und dem Rückgabetyp <i>getY()</i>. Die Methode <i>Greenfoot.isKeyDown</i> prüft ständig, ob eine bestimmte Taste auf der Tastatur gedrückt wird. Dabei wird der jeweilige Tastenname in Anführungszeichen in Klammern an die Methode ergänzt. Da die Steuerung optional über die Pfeiltasten "oben" und "unten", sowie über die Tasten "w" und "s" erfolgen soll, verwenden wir <i>Greenfoot.isKeyDown</i> zweimal pro if-Methode. Für die Abwärtsbewegung bespielsweise verwenden wir <i>Greenfoot.isKeyDown("down")</i> und <i>Greenfoot.isKeyDown("s")</i>, die durch zwei senkrechte Striche "||" voneinander getrennt werden. Diese bilden einen Operator, in diesem Fall einen arithmetischen Ausdruck, der soviel wie "oder" bedeutet. Damit die Rakete die Welt nicht verlassen kann, haben wir den Rückgabetyp <i>getY()</i> als kleiner 540 festgelegt, was der maximalen y-Koordiante unserer Welt entspricht. Er wird mit zwei Et-Zeichen "<span>&amp;&amp;</span>" an die beiden <i>Greenfoot.isKeyDown</i> ergänzt. Die beiden Et-Zeichen ergeben ebenfalls einen Operator mit der Bedeutung "und". Daraus folgt, dass die Bedingung der if-Methode nur erfüllt ist, wenn mindestens einer der Tasten "down" oder "s" gedrückt wird und die aktulle Position der Rakete eine kleinere y-Koordinate als 540 aufweist. Werden die Bedingungen erfüllt, bewegt sich die Rakete mit einer Geschwindigkeit von 12 Pixeln pro frame-Ausführung entlang der y-Achse in Richtung der unteren Kante der Welt.
+Die Rakete soll außerdem nur beim Tastdruck ihre Position verändern und nicht in der Lage sein, die Welt über ihre Grenzen zu verlassen. Um diese Bedingungen mit der Bewegung der Rakete in Verbindung zu bringen, verwenden wir eine <i>if-Methode</i>, die die Ausführung einer oder mehrerer Methoden nur zulässt, wenn alle ihre Bedingungsparameter erfüllt werden. Werden die in runden Klammern stehenden Bedingungen erfüllt, so werden die in geschweiften Klammern stehende Methoden im Anschluss an die if-Methode ausgeführt. In unserem Fall bestehen unsere Bedinungsparameter aus zwei <i>Greenfoot.isKeyDown</i>-Methoden und dem Rückgabetyp <i>getY()</i>. Die Methode <i>Greenfoot.isKeyDown</i> prüft ständig, ob eine bestimmte Taste auf der Tastatur gedrückt wird. Dabei wird der jeweilige Tastenname in Anführungszeichen in Klammern an die Methode ergänzt. Da die Steuerung optional über die Pfeiltasten "oben" und "unten", sowie über die Tasten "w" und "s" erfolgen soll, verwenden wir <i>Greenfoot.isKeyDown</i> zweimal pro if-Methode. Für die Abwärtsbewegung bespielsweise verwenden wir <i>Greenfoot.isKeyDown("down")</i> und <i>Greenfoot.isKeyDown("s")</i>, die durch zwei senkrechte Striche "||" voneinander getrennt werden. Diese bilden einen Operator, in diesem Fall einen arithmetischen Ausdruck, der soviel wie "oder" bedeutet. Damit die Rakete die Welt nicht verlassen kann, haben wir den Rückgabetyp <i>getY()</i> als kleiner 540 festgelegt, was der maximalen y-Koordiante unserer Welt entspricht. Er wird mit zwei Et-Zeichen "<span>&amp;&amp;</span>" an die beiden <i>Greenfoot.isKeyDown</i> ergänzt. Die beiden Et-Zeichen ergeben ebenfalls einen Operator mit der Bedeutung "und". Daraus folgt, dass die Bedingung der if-Methode nur erfüllt ist, wenn mindestens eine der Tasten "down" oder "s" gedrückt wird und die aktulle Position der Rakete eine kleinere y-Koordinate als 540 aufweist. Werden die Bedingungen erfüllt, bewegt sich die Rakete mit einer Geschwindigkeit von 12 Pixeln pro frame-Ausführung entlang der y-Achse in Richtung der unteren Kante der Welt.
 </p>
 
 ```javascript
@@ -399,7 +399,7 @@ Hier wurden "down" und "s" durch "up" und "w" ersetzt und der der Rückgabewert 
 </h4>
 
 <p>
-Desweiteren lassen wir die Rakete einen Klassen-Test durchführen. Wir wollen damit erreichen, dass das Spiel zuende ist, wenn die Rakete einen Asteroiden berührt und die beiden Objekte schließlich auch aus der Welt entfernt werden. Dazu führen wir einen Test durch, der überprüft, ob die Rakete ein Object einer Klasse berührt (getOneIntersectingObject). In unserem Fall handelt es sich um die Asteroiden, da man nur verlieren soll, wenn man mit ihnen zusammenkracht. Wenn der Test den Rückgabetyp "null" zurückgibt, die Rakete also keinen Asteroiden berührt, läuft das Spiel ganz normal weiter. Wenn die Rakete allerdings einen Asteroiden berührt, der Test also nicht null ist (!= bedeutet ungleich), fügen wir ein neues GameOver mit dem Namen <i>robin</i> hinzu, wofür wir vorher eine neue Klasse erstellt haben, die unten beschrieben wird. Der Schriftzug "Game Over" erscheint, indem das Bild für das GameOver() robin mit den Koordinaten der halben länge und halben Breite eingefügt wird. Auf diese Weise erscheint der Schriftzug genau in der Mitte des Szenarios. Außerdem gibt es einen einfachen Befehl, um das Spiel zu stoppen: Man sagt Greenfoot.stop();
+Desweiteren lassen wir die Rakete einen Klassen-Test durchführen. Wir wollen damit erreichen, dass das Spiel zuende ist, wenn die Rakete einen Asteroiden berührt und die beiden Objekte schließlich auch aus der Welt entfernt werden. Dazu führen wir einen Test durch, der überprüft, ob die Rakete ein Objekt einer Klasse berührt (getOneIntersectingObject). In unserem Fall handelt es sich um die Asteroiden, da man nur verlieren soll, wenn man mit ihnen zusammenkracht. Wenn der Test den Rückgabetyp "null" zurückgibt, die Rakete also keinen Asteroiden berührt, läuft das Spiel ganz normal weiter. Wenn die Rakete allerdings einen Asteroiden berührt, der Test also nicht null ist (!= bedeutet ungleich), fügen wir ein neues GameOver mit dem Namen <i>robin</i> hinzu, wofür wir vorher eine neue Klasse erstellt haben, die unten beschrieben wird. Der Schriftzug "Game Over" erscheint, indem das Bild für das GameOver() robin mit den Koordinaten der halben Länge und halben Breite eingefügt wird. Auf diese Weise erscheint der Schriftzug genau in der Mitte des Szenarios. Außerdem gibt es einen einfachen Befehl, um das Spiel zu stoppen: Man sagt Greenfoot.stop();
 Der Code sieht dann folgendermaßen aus:
 </p>
 
@@ -422,7 +422,7 @@ getWorld().addObject(robin, getWorld(). getWidth()/2, getWorld().getHeight()/2);
 </h3>
 
 <p>
-Wenn das Spiel stoppt, sollen gleichzeitig die Rakete und der betreffende Asteroid aus der Welt entfernt werden. Dies geschieht zunächst daduch, dass wir die Klasse <i>Robin</i> als das betroffende Objekt der Asteroiden-Klasse identifizieren. Wenn dieses, wie es oben annähernd schon aufgeführt ist, nicht gleich 0 ist, also existiert, dann sucht greenfoot in dieser Welt und entfernt dieses spezielle Objekt Robin. Es funktioniert nicht, zu sagen, dass das Objekt Asteroid entfernt wird, da Greenfoot nicht eine komplette Klasse während des Spiels aus der Welt entfernen kann. Dafür lässt sich das betroffene Objekt einer Klasse mit dem Rückgabetyp <i>this</i> identifizieren, was in unserem Fall die Rakete ist, entfernen. Somit wird nur ein spezielles Objekt einer Klasse und nicht die gesamte Klasse entfernt.
+Wenn das Spiel stoppt, sollen gleichzeitig die Rakete und der betreffende Asteroid aus der Welt entfernt werden. Dies geschieht zunächst dadurch, dass wir die Klasse <i>Robin</i> als das betroffene Objekt der Asteroiden-Klasse identifizieren. Wenn dieses, wie es oben annähernd schon aufgeführt ist, nicht gleich 0 ist, also existiert, dann sucht Greenfoot in dieser Welt und entfernt dieses spezielle Objekt Robin. Es funktioniert nicht, zu sagen, dass das Objekt Asteroid entfernt wird, da Greenfoot nicht eine komplette Klasse während des Spiels aus der Welt entfernen kann. Dafür lässt sich das betroffene Objekt einer Klasse mit dem Rückgabetyp <i>this</i> identifizieren, was in unserem Fall die Rakete ist und somit entfernen. Damit wird nur ein spezielles Objekt einer Klasse und nicht die gesamte Klasse entfernt.
 </p>
 
 ```javascript
@@ -515,7 +515,7 @@ int [Name der Variablen] = ...
 ```
 
 <p>
-Da sich die Asteroiden mit einem zufälligen Winkel fortbewegen sollen, verwenden wir die bekannte Methode <i>Greenfoot.getRandomNumber</i> für die Winkelvariable names <i>Angle</i> (engl. Winkel). Diese Methode generiert jedoch nur natürliche Zahlen. Ohne Weiteres lassen sich also nur Winkel im Uhrzeigersinn erzeugen. Somit sind  die Asteroiden lediglich in der Lage, eine Aufwärtsbewegung zu erfahren. Aus diesem Grund haben wir eine weitere Variable mit der Bezeichnung <i>TypeOfRotation</i> festgelegt, deren Funktion später noch genauer erläutert wird. Wir haben die Variable für den Winkel (Angle) gleich <i>Greenfoot.getRandomNumber(10)</i> gesetzt, wodurch die zufällige Zahl von 0 bis 9 generiert wird. Die Variable <i>TypeOfRotation</i> erstellt durch den Grenzwert <i>(2)</i> zufällig eine 0 oder eine 1. Der Wert dieser Variable kann also nur zwei Zustände annehmen.
+Da sich die Asteroiden mit einem zufälligen Winkel fortbewegen sollen, verwenden wir die bekannte Methode <i>Greenfoot.getRandomNumber</i> für die Winkelvariable namens <i>Angle</i> (engl. Winkel). Diese Methode generiert jedoch nur natürliche Zahlen. Ohne Weiteres lassen sich also nur Winkel im Uhrzeigersinn erzeugen. Somit sind  die Asteroiden lediglich in der Lage, eine Aufwärtsbewegung zu erfahren. Aus diesem Grund haben wir eine weitere Variable mit der Bezeichnung <i>TypeOfRotation</i> festgelegt, deren Funktion später noch genauer erläutert wird. Wir haben die Variable für den Winkel (Angle) gleich <i>Greenfoot.getRandomNumber(10)</i> gesetzt, wodurch die zufällige Zahl von 0 bis 9 generiert wird. Die Variable <i>TypeOfRotation</i> erstellt durch den Grenzwert <i>(2)</i> zufällig eine 0 oder eine 1. Der Wert dieser Variable kann also nur zwei Zustände annehmen.
 </p>
 
 ```javascript
@@ -531,7 +531,7 @@ int TypeOfRotation = Greenfoot.getRandomNumber(2);
 </h4>
 
 <p>
-Da sich die Asteroiden mit einer konstanten Geschwindikeit bewegen sollen, können wir die Methode <i>move()</i> verwenden. Sie funktioniert in Verbindung mit <i>act()</i>. Mit dieser Methode lassen sich Objekte entlang der x-Achse bewegen. Sie benötigt einen Parameter, eine Zahl, in ihrem Klammerausdruck. Dabei definiert das Vorzeichen die Richtung, in die sich das Objekt bewegt (positiv: von links nach rechts, negativ: von rechts nach links) und der Betrag des Zahlenwertes das Tempo, mit der sich das Objekt vorbewegt. Durch Ausprobieren haben wir herrausgefunden, dass ein Tempo von 12 geeignet für unser Spiel ist. Das Vorzeichen der Geschwindikeit ist negativ, weil sich die Asteroiden von rechts nach links bewegen sollen.
+Da sich die Asteroiden mit einer konstanten Geschwindikeit bewegen sollen, können wir die Methode <i>move()</i> verwenden. Sie funktioniert in Verbindung mit <i>act()</i>. Mit dieser Methode lassen sich Objekte entlang der x-Achse bewegen. Sie benötigt einen Parameter, eine Zahl, in ihrem Klammerausdruck. Dabei definiert das Vorzeichen die Richtung, in die sich das Objekt bewegt (positiv: von links nach rechts, negativ: von rechts nach links) und der Betrag des Zahlenwertes das Tempo, mit der sich das Objekt fortbewegt. Durch Ausprobieren haben wir herrausgefunden, dass ein Tempo von 12 geeignet für unser Spiel ist. Das Vorzeichen der Geschwindikeit ist negativ, weil sich die Asteroiden von rechts nach links bewegen sollen.
 </p>
 
 ```javascript
@@ -554,7 +554,7 @@ setRotation(Angle)
 ```
 
 <p>
-Jetzt können die Asteroiden nur eine horizontale Bewegung oder eine Aufwärtsbewegung erfahren, weil nur Winkeleinstellungen gegen den Uhrzeigersinn möglich sind. Hier kommt die Variable <i>TypeOfRotation</i> ins Spiel. Sie kann nur zwei Zustände (0 und 1) annehmen. Dies können wir uns zu nutzen machen, indem wir über diese Variable das Vorzeichen des Winkels bestimmen. Auf diese Weise lässt sich eine Winkeleinstellung mit und gegen den Uhrzeigersinn vornehmen, indem wir die beiden Zustände von <i>TypeOfRotation</i> mit Bedingungen verknüpfen. Wir können z. B. festlegen, dass der Winkel positiv (mit dem Uhrzeigersinn ausgrichtet) ist, wenn <i>TypeOfRotation</i> den Wert 0 annimmt. Äquivalent wäre der Winkel mit einem negativen Vorzeichen versehen, wenn <i>TypeOfRotation</i> 1 ist. Der Winkel würde sie dadurch gegen den Uhrzeigersinn ausrichten. Diese Bedingungen lassen sich mit der bekannten if-Methode definieren. Dabei sind die Bedingungen, dass <i>TypeOfRotation</i> 0 bzw. 1 ist. Die Werte 0 und 1 werden durch den aritmetischer Ausdruck "==" gleichgesetzt, welcher so viel wie "ist gleich" bedeutet. Die ausgeführten Anweisungen sind dementsprechend die Methoden <i>setRotation</i> mit positivem bzw. nagativem Vorzeichen. Da eine der Bedingungen (0 oder 1) immer erfüllt ist, bewegen sich die Asteroiden immmer mit einem zufälligen Winkel. Somit haben wir die Bewegung der Asteroiden charakterisiert.
+Jetzt können die Asteroiden nur eine horizontale Bewegung oder eine Aufwärtsbewegung erfahren, weil nur Winkeleinstellungen gegen den Uhrzeigersinn möglich sind. Hier kommt die Variable <i>TypeOfRotation</i> ins Spiel. Sie kann nur zwei Zustände (0 und 1) annehmen. Dies können wir uns zu Nutzen machen, indem wir über diese Variable das Vorzeichen des Winkels bestimmen. Auf diese Weise lässt sich eine Winkeleinstellung mit und gegen den Uhrzeigersinn vornehmen, indem wir die beiden Zustände von <i>TypeOfRotation</i> mit Bedingungen verknüpfen. Wir können z. B. festlegen, dass der Winkel positiv (mit dem Uhrzeigersinn ausgrichtet) ist, wenn <i>TypeOfRotation</i> den Wert 0 annimmt. Äquivalent wäre der Winkel mit einem negativen Vorzeichen versehen, wenn <i>TypeOfRotation</i> 1 ist. Der Winkel würde sie dadurch gegen den Uhrzeigersinn ausrichten. Diese Bedingungen lassen sich mit der bekannten if-Methode definieren. Dabei sind die Bedingungen, dass <i>TypeOfRotation</i> 0 bzw. 1 ist. Die Werte 0 und 1 werden durch den arithmetischen Ausdruck "==" gleichgesetzt, welcher so viel wie "ist gleich" bedeutet. Die ausgeführten Anweisungen sind dementsprechend die Methoden <i>setRotation</i> mit positivem bzw. negativem Vorzeichen. Da eine der Bedingungen (0 oder 1) immer erfüllt ist, bewegen sich die Asteroiden immmer mit einem zufälligen Winkel. Somit haben wir die Bewegung der Asteroiden charakterisiert.
 </p>
 
 ```javascript
@@ -579,7 +579,7 @@ public void act()
 </h4>
 
 <p>
-Die Asteroiden sollen entfernt werden, sobald sie die Ränder der Welt erreichen. Es muss also ständig geprüft werden, ob sich ein Asteroid am Rand der Welt befindet. Dies ist ein sehr spezieller Aufgabentyp für den keine vorfertigte Methode vorhanden ist, weshalb wir eine eigene Methode definieren müssen. Wir haben diese Methode <i>atWorldEdge()</i> genannt, was so viel wie "am Rand der Welt bedeutet". Im Gegensatz zu der bisher verwendeten Mehtode <i>act()</i> muss <i>atWorldEdge()</i> über Rückgabetypen verfügen, damit die Methode in Lage ist Informationen zurückzugeben. In diesem soll die Methode angeben, ob sich ein Asteroid am Rand der Welt befindet oder nicht. Da dies binäre Aussagen sind, sind boolesche Rückgabetypen sinnvoll. Boolesche Aussagen (Literale) können nur zwei Züstände annehmen und zwar <i>true</i> und <i>false</i>, welche auf deutsch so viel wie <i>richtig</i> und <i>falsch</i> bedeuten.
+Die Asteroiden sollen entfernt werden, sobald sie die Ränder der Welt erreichen. Es muss also ständig geprüft werden, ob sich ein Asteroid am Rand der Welt befindet. Dies ist ein sehr spezieller Aufgabentyp für den keine vorfertigte Methode vorhanden ist, weshalb wir eine eigene Methode definieren müssen. Wir haben diese Methode <i>atWorldEdge()</i> genannt, was so viel wie "am Rand der Welt bedeutet". Im Gegensatz zu der bisher verwendeten Methode <i>act()</i> muss <i>atWorldEdge()</i> über Rückgabetypen verfügen, damit die Methode in der Lage, ist Informationen zurückzugeben. In diesem soll die Methode angeben, ob sich ein Asteroid am Rand der Welt befindet oder nicht. Da dies binäre Aussagen sind, sind boolesche Rückgabetypen sinnvoll. Boolesche Aussagen (Literale) können nur zwei Zustände annehmen und zwar <i>true</i> und <i>false</i>, welche auf deutsch so viel wie <i>richtig</i> und <i>falsch</i> bedeuten.
 </p>
 
 ```javascript
@@ -591,7 +591,7 @@ public boolean atWorldEdge()
 ```
 
 <p>
-Damit <i>atWorldEdge</i> funktionieren kann, müssen ihre Rückgabetypen definiert werden. Diese werden als Teil der Methode in dessem Block implementiert. Hierfür benötigen wir die Anweisung <i>return</i>, die verschiedene Ausdrücke wie z. B. "wahr" oder "falsch" als Rückgabetypen zurückgeben kann. Dabei wird der Inhalt zwischen <i>return</i> und dem Semikolon als Rückgabetyp festgelegt.
+Damit <i>atWorldEdge</i> funktionieren kann, müssen ihre Rückgabetypen definiert werden. Diese werden als Teil der Methode in dessen Block implementiert. Hierfür benötigen wir die Anweisung <i>return</i>, die verschiedene Ausdrücke wie z. B. "wahr" oder "falsch" als Rückgabetypen zurückgeben kann. Dabei wird der Inhalt zwischen <i>return</i> und dem Semikolon als Rückgabetyp festgelegt.
 </p>
 
 ```javascript
@@ -614,7 +614,7 @@ public boolean atWorldEdge()
 ```
 
 <p>
-Würde man die obige Programmierzeilen verwenden, so würde die Methode ständig den Rückgabetyp <i>true</i> zurückgeben. Die Rückgabetypen "wahr" und "falsch" müssen an Bedingungen verknüpft werden, damit sie sinnvoll eingesetzt werden können. Um herrauszufinden, ob sich ein Asteroid am Rand der Welt befindet, müssen die Positionskoordinaten der Asteroiden bekannt sein. Diese lassen sich mit den Methoden <i>getX()</i> und <i>getY()</i> abrufen. Erreicht ein Asteroid z. B. den linken Rand der Welt, so soll <i>atWorldEdge()</i> den Rückgabetyp <i>true</i> zurückgeben. Um den linken Rand zu erreichen muss die x-Koordinate gleich null sein. Der Rückgabetyp der Methode <i>getX()</i> muss also gleich null sein. Im Javascript (siehe Code ) verwenden wir hierfür den Operator "==", der als aritmetischer Ausdruck "ist gleich" bedeutet.
+Würde man die obigen Programmierzeilen verwenden, so würde die Methode ständig den Rückgabetyp <i>true</i> zurückgeben. Die Rückgabetypen "wahr" und "falsch" müssen an Bedingungen verknüpft werden, damit sie sinnvoll eingesetzt werden können. Um herauszufinden, ob sich ein Asteroid am Rand der Welt befindet, müssen die Positionskoordinaten der Asteroiden bekannt sein. Diese lassen sich mit den Methoden <i>getX()</i> und <i>getY()</i> abrufen. Erreicht ein Asteroid z. B. den linken Rand der Welt, so soll <i>atWorldEdge()</i> den Rückgabetyp <i>true</i> zurückgeben. Um den linken Rand zu erreichen, muss die x-Koordinate gleich null sein. Der Rückgabetyp der Methode <i>getX()</i> muss also gleich null sein. Im Javascript (siehe Code ) verwenden wir hierfür den Operator "==", der als aritmetischer Ausdruck "ist gleich" bedeutet.
 </p>
 
 ```javascript
@@ -624,7 +624,7 @@ getX() == 0
 ```
 
 <p>
-Diesen Ausdruck können wir als Bedingung für eine if-Methode verwenden. In den geschweiftern Klammern der if-Methode legen wir fest durch <i>return true</i> fest, dass, wenn ein Asteroid eine Ortkoordinate von x = 0 aufweist, die Methode <i>atWorldEdge()</i> den Ausdruck <i>true</i> zurückschickt.
+Diesen Ausdruck können wir als Bedingung für eine if-Methode verwenden. In den geschweiftern Klammern der if-Methode legen wir durch <i>return true</i> fest, dass, wenn ein Asteroid eine Ortkoordinate von x = 0 aufweist, die Methode <i>atWorldEdge()</i> den Ausdruck <i>true</i> zurückschickt.
 </p>
 
 ```javascript
@@ -640,7 +640,7 @@ public boolean atWorldEdge()
 ```   
 
 <p>
-Die Asteroiden sind bisher in Lage, die Welt über den linken Rand zu verlassen, der obere und untere stellen jedoch immer noch eine Barriere für die Asteroiden dar. Äquivalent zum linken Rand wäre es naheliegend, wenn weitere if-Methoden mit den maximalen y-Koordianten (0 und 540) aufgestellt werden und so die Ränder passierbar gemacht werden. Hier taucht jedoch ein Problem auf: Erscheinen die Asteroiden beim Start des Szenarios in der Welt würden sie direkt als "am Rand der Welt" gekennzeichnet werden, was sie aus der Welt entfernen würde. Das liegt daran, dass die Asteroiden die Welt an den gleichen y-Koordinaten betreten und verlassen.
+Die Asteroiden sind bisher in Lage, die Welt über den linken Rand zu verlassen, der obere und untere stellen jedoch immer noch eine Barriere für die Asteroiden dar. Äquivalent zum linken Rand wäre es naheliegend, wenn weitere if-Methoden mit den maximalen y-Koordianten (0 und 540) aufgestellt werden und so die Ränder passierbar gemacht werden. Hier taucht jedoch ein Problem auf: Erscheinen die Asteroiden beim Start des Szenarios in der Welt, würden sie direkt als "am Rand der Welt" gekennzeichnet werden, was sie aus der Welt entfernen würde. Das liegt daran, dass die Asteroiden die Welt an den gleichen y-Koordinaten betreten und verlassen.
 </p>
 
 ```javascript
@@ -656,7 +656,7 @@ public boolean atWorldEdge()
 ```
 
 <p>
-Wir müssen also zwischen den Asteroiden unterscheiden, die das Szenario betreten und denen, die es verlassen. Zur Unterscheidung könnte beispielsweise die Richtung dienen in der sich die Asteroiden relativ zu den Rändern bewegen. Wir können also zwischen den Asteroiden unterscheiden, die sich auf die Grenzen der Welt zubewegen und denen, die im Begriff sind, sich durch das Szenario zu bewegen. Hier kommt wieder Variable <i>TypeOfRotation</i> ins Spiel. Sie legt fest, ob sich die Asteroiden in einer Aufwärtsbewegung oder einer Abwärtsbewegung befinden. Ihr Wert gibt damit auch Aufschluss darüber, auf welchen Rand sich die Asteroiden zubewegen. Ein Asteroid, der eine Aufwärtsbewegung erfährt, bewegt sich auf den oberen Rand zu. Für eine Aufwärtsbewegung muss die Variable <i>TypeOfRotation</i> positiv sein (siehe Code-Script 3.05). Bewegt sich ein Asteroide auf den oberen Rand zu, so erreicht er irgendwann die Koordinaten (x|0). Wenn beide Bedinunngen erfüllt sind, soll der Asteroid entfernt werden. Wir formulieren also als Bedingung in einer if-Methode, dass, wenn die y-Ortskoordinate gleich 0 ist und die Variable <i>TypeOfRotation</i> gleich 0 ist, der Rückgabetyp <i>true</i> von <i>atWorldEdge</i> zurückgegeben wird. Hierfür verwenden wir arithmetischen Ausdruck "<span>&amp;&amp;</span>", der so viel wie "und" bedeutet. Es müssen beide Bedingungen erfüllt sein, um den Rückgabetyp <i>true</i> zurückzugeben. 
+Wir müssen also zwischen den Asteroiden unterscheiden, die das Szenario betreten und denen, die es verlassen. Zur Unterscheidung könnte beispielsweise die Richtung dienen, in der sich die Asteroiden relativ zu den Rändern bewegen. Wir können also zwischen den Asteroiden unterscheiden, die sich auf die Grenzen der Welt zubewegen und denen, die im Begriff sind, sich durch das Szenario zu bewegen. Hier kommt wieder die Variable <i>TypeOfRotation</i> ins Spiel. Sie legt fest, ob sich die Asteroiden in einer Aufwärtsbewegung oder einer Abwärtsbewegung befinden. Ihr Wert gibt damit auch Aufschluss darüber, auf welchen Rand sich die Asteroiden zubewegen. Ein Asteroid, der eine Aufwärtsbewegung erfährt, bewegt sich auf den oberen Rand zu. Für eine Aufwärtsbewegung muss die Variable <i>TypeOfRotation</i> positiv sein (siehe Code-Script 3.05). Bewegt sich ein Asteroid auf den oberen Rand zu, so erreicht er irgendwann die Koordinaten (x|0). Wenn beide Bedingungen erfüllt sind, soll der Asteroid entfernt werden. Wir formulieren also als Bedingung in einer if-Methode, dass, wenn die y-Ortskoordinate gleich 0 ist und die Variable <i>TypeOfRotation</i> gleich 0 ist, der Rückgabetyp <i>true</i> von <i>atWorldEdge</i> zurückgegeben wird. Hierfür verwenden wir den arithmetischen Ausdruck "<span>&amp;&amp;</span>", der so viel wie "und" bedeutet. Es müssen beide Bedingungen erfüllt sein, um den Rückgabetyp <i>true</i> zurückzugeben. 
 </p>
 
 ```javascript
@@ -676,7 +676,7 @@ public boolean atWorldEdge()
 ```
 
 <p>
-Äquivalent zur Aufwärtsbewegung gilt für den unteren Rand, dass die Variable <i>TypeOfRotation</i> gleich 1 sein muss und dass die y-Koordinate der maximalen y-Koordiante des Szenarios entsprechen muss. Unser Szenrio hat eine Abmessungen von 960*540 Pixeln. Sowohl die x- als auch die y-Koordiantenachsen fangen bei 0 an. Das Pixel in der linken oberen Ecke weist die Koordinaten (0|0) auf. Da die Welt nur über 960*540 Pixel verfügt, hat das Pixel in der gegenüberliegenden, rechten unteren Ecke die Koordnaten (959|539). Dies sind gleichzeitig auch die betragsmaximalen Koordinaten der Welt. Daraus folgt, dass die Asteroiden entlang der y-Achse maximal die Ortskoordinaten (x|539) erreichen können. Deshalb muss die Methode <i>getY()</i> in der if-Bedingung gleich 539 gesetzt werden. Mithilfe des arithmetischen Ausdrucks "||" können wir die Bedinugnen für die Aufwärtsbewegung (<i>TypeOfRotation</i> ist gleich 0, <i>getY()</i> ist gleich 0 und die Abwärtsbewegung (<i>TypeOfRotation</i> ist gleich 1, <i>getY()</i> ist gleich 539) verbinden und in einer Bedingung zusammenfassen. Daraus ergibt sich:
+Äquivalent zur Aufwärtsbewegung gilt für den unteren Rand, dass die Variable <i>TypeOfRotation</i> gleich 1 sein muss und dass die y-Koordinate der maximalen y-Koordiante des Szenarios entsprechen muss. Unser Szenrio hat eine Abmessung von 960*540 Pixeln. Sowohl die x- als auch die y-Koordinatenachsen fangen bei 0 an. Das Pixel in der linken oberen Ecke weist die Koordinaten (0|0) auf. Da die Welt nur über 960*540 Pixel verfügt, hat das Pixel in der gegenüberliegenden, rechten unteren Ecke die Koordnaten (959|539). Dies sind gleichzeitig auch die betragsmaximalen Koordinaten der Welt. Daraus folgt, dass die Asteroiden entlang der y-Achse maximal die Ortskoordinaten (x|539) erreichen können. Deshalb muss die Methode <i>getY()</i> in der if-Bedingung gleich 539 gesetzt werden. Mithilfe des arithmetischen Ausdrucks "||" können wir die Bedinugnen für die Aufwärtsbewegung (<i>TypeOfRotation</i> ist gleich 0, <i>getY()</i> ist gleich 0 und die Abwärtsbewegung (<i>TypeOfRotation</i> ist gleich 1, <i>getY()</i> ist gleich 539) verbinden und in einer Bedingung zusammenfassen. Daraus ergibt sich:
 </p>
 
 ```javascript
@@ -696,7 +696,7 @@ public boolean atWorldEdge()
 ```
 
 <p>
-Befinden sich die Asterioden nicht am Rand der Welt soll der Rückgabetyp <i>false</i> zugeschickt werden. Die lässt sich mit einer else-Anweisung um umsetzen. Sind die if-Bedingungen innerhalb einer Methoden nicht erfüllt, so werden stattdessen die Anweisungen der else-Methode umgesetzt.
+Befinden sich die Asterioden nicht am Rand der Welt, soll der Rückgabetyp <i>false</i> zugeschickt werden. Dieser lässt sich mit einer else-Anweisung umsetzen. Sind die if-Bedingungen innerhalb einer Methoden nicht erfüllt, so werden stattdessen die Anweisungen der else-Methode umgesetzt.
 </p>
 
 ```javascript
@@ -722,7 +722,7 @@ public boolean atWorldEdge()
 }
 ```
 
-Wenn ein Objekt der Asteroiden-Klasse nun den Rand der Welt berührt, wird aus dieser Welt genau das Objekt entfernt, welches den Rand gerade berührt. Das Objekt, das sich in der Welt bewegt hat kann sich durch den Ausdruck this sozusagen selbst beim Kollidieren mit dem Rand der Welt entfernen:
+Wenn ein Objekt der Asteroiden-Klasse nun den Rand der Welt berührt, wird aus dieser Welt genau das Objekt entfernt, welches den Rand gerade berührt. Das Objekt, welches sich in der Welt bewegt hat, kann sich durch den Ausdruck this sozusagen selbst beim Kollidieren mit dem Rand der Welt entfernen:
 
 
 ```javascript
@@ -789,10 +789,10 @@ if(getY() == 0 && TypeOfRotation == 0 || getY() == getWorld().getHeight() - 1 &&
 <a id="Der Score"> 2.4 Der Score</a>
 </h4>
 
-Anschließend benötigen wir eine Score-Klasse, damit das Spiel auch reizend wird und Spaß macht, da es sonst, wenn man eh keine Punkte einsammeln kann, schnell langweilig wird. Zunächst haben wir die Score Klasse ohne ein Bild als eine neue Klasse zur Welt hinzufegügt.
-Dann haben wir mithilfe von int unseren Score auf 0 festgelegt, das heißt bevor unser Spiel beginnt, zeigt der Score immer einen Punktestand von 0 an. Damit Greenfoot diesen in der Welt überhaupt anzeigt, haben wir zu unserem Score 0 Punkte erst einmal hinzugefügt. Zu diesem Score soll dann mit der Zeit die Punktemenge (amount) hinzugefügt werden, sodass der alte score dann = der neue score und die hinzugefügte Punktemenge ist. Das Bild des Scores, dem wir den Namen robin gegeben haben, ist ein neues Greenfoot Bild mit zunächst der Länge 10 und der Breite 10. Dieses neue Bild wird dann mit dem Befehl .drawString in die Welt mit den Koordinaten x=200 und y=500 in die Welt eingefügt/eingezeichnet mit der Schrift Score: und dann dahinter der entsprechenden Punktezahl. Mithilfe von setImage() lässt sich dieses neu erstellte Objekt robin dann auch in der Welt wiederfinden.
+Anschließend benötigen wir eine Score-Klasse, damit das Spiel auch reizend wird und Spaß macht, da es sonst, wenn man eh keine Punkte einsammeln kann, schnell langweilig wird. Zunächst haben wir die Score Klasse ohne ein Bild als eine neue Klasse zur Welt hinzugefügt.
+Dann haben wir mithilfe von int unseren Score auf 0 festgelegt, das heißt bevor unser Spiel beginnt, zeigt der Score immer einen Punktestand von 0 an. Damit Greenfoot diesen in der Welt überhaupt anzeigt, haben wir zu unserem Score 0 Punkte erst einmal hinzugefügt. Zu diesem Score soll dann mit der Zeit die Punktemenge (amount) hinzugefügt werden, sodass der alte score dann gleich der neue score und die hinzugefügte Punktemenge ist. Das Bild des Scores, dem wir den Namen robin gegeben haben, ist ein neues Greenfoot Bild mit zunächst der Länge 10 und der Breite 10. Dieses neue Bild wird dann mit dem Befehl .drawString in die Welt mit den Koordinaten x=200 und y=500 in die Welt eingefügt/eingezeichnet mit der Schrift Score: und dann dahinter der entsprechenden Punktezahl. Mithilfe von setImage() lässt sich dieses neu erstellte Objekt robin dann auch in der Welt wiederfinden.
 
-Bei uns jedoch funktioniert der score noch nicht wie gewollt, da Greenfoot noch keine Punkte für ein bestimmtes Objekt zum Score hinzufügt. Dazu haben wir schon eine neue Klasse erstellt, die Goldball Klasse,die wir finn genannt haben. Die Goldbälle sollen sich ähnlich wie die Asteroiden verhalten, allerdings viel seltener spawnen, damit das Spiel nicht zu leicht ist. Für jeden Goldball soll dann eine bestimmte Punktemenge z.B. 20 zum Score hinzugefügt werden. Das versuchen wir in der nächsten Zeit zu programmieren. Hier erst einmal der Code für die Score-Klasse: 
+Bei uns jedoch funktioniert der score noch nicht wie gewollt, da Greenfoot noch keine Punkte für ein bestimmtes Objekt zum Score hinzufügt. Dazu haben wir schon eine neue Klasse erstellt, die Goldball Klasse, die wir finn genannt haben. Die Goldbälle sollen sich ähnlich wie die Asteroiden verhalten, allerdings viel seltener spawnen, damit das Spiel nicht zu leicht ist. Für jeden Goldball soll dann eine bestimmte Punktemenge z.B. 20 zum Score hinzugefügt werden. Das versuchen wir in der nächsten Zeit zu programmieren. Hier erst einmal der Code für die Score-Klasse: 
 
 ```javascript
 Code-Script 4.0
@@ -837,7 +837,7 @@ public GameOver()
 
 Wie schon erwähnt, haben wir uns dazu entschlossen, eine Goldball-Klasse zu erstellen, um das Asteroiden Spiel spannender zu machen und einen unterschiedlich hohen Score erreichen zu können, da die einzelnen Goldbälle Punkte geben sollen.
 Zu Beginn haben wir eine neue Klasse namens finn hinzugefügt und dieser das fertige Bild eines Goldballs zugeordnet. 
-Der Programmiercode des Goldballs sieht zwar lang und kompliziert aus, ist im Endeffekt jedoch fast der gleiche wie der der Asteroiden, da diese mit fast den gleichen Eigenschaften durch die Welt fliegen sollen. Die Goldbälle sollen lediglich viel seltener spawnen, als die Asteroiden. Der einzige Unterschied besteht darin, dass der Goldball beim Kollidieren mit der Rakete nicht aus der Welt entfernt wird, sondern weiterhin in der Welt existiert. Der Goldball hat jedoch noch keine große Funktion, da er noch nicht, wie die Asteroiden, ständig neu spawnt und Punkte einbringen. Dies versuchen wir in der nächsten Zeit zum Laufen zu bringen.
+Der Programmiercode des Goldballs sieht zwar lang und kompliziert aus, ist im Endeffekt jedoch fast der Gleiche wie der der Asteroiden, da diese mit fast den gleichen Eigenschaften durch die Welt fliegen sollen. Die Goldbälle sollen lediglich viel seltener spawnen, als die Asteroiden. Der einzige Unterschied besteht darin, dass der Goldball beim Kollidieren mit der Rakete nicht aus der Welt entfernt wird, sondern weiterhin in der Welt existiert. Der Goldball hat jedoch noch keine große Funktion, da er noch nicht, wie die Asteroiden, ständig neu spawnt und Punkte einbringen. Dies versuchen wir in der nächsten Zeit zum Laufen zu bringen.
 
 ```javascript
 Code-Script 6.0
@@ -883,7 +883,7 @@ public void act()
 <p><img src="images/Screenshot_SpaceRocket_while_playing_extract.png" alt="Projekt"></p>
 
 <p>
-Dies ist unser derzeitiger Stand zu unserem Spiel SpaceRocket, dennoch haben wir das Projekt noch nicht fertiggestellt da uns noch viele Dinge fehlen, die wir geplant haben:
+Dies ist unser derzeitiger Stand zu unserem Spiel SpaceRocket, dennoch haben wir das Projekt noch nicht fertiggestellt, da uns noch viele Dinge fehlen, die wir geplant haben:
 </p>
 
 <h3>
