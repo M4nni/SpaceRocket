@@ -95,7 +95,7 @@ Ein Informatik-Projekt von Robin Wagner und Finn Westphal
 </p>		
 		
 <p>		
-In in den folgenden Ausführungen werden wir schrittweise beschreiben, sie wir bei der Programmierung der Spiels vorgegangen sind. Es macht Sinn, sich in der angegeben Reihenfolge mit dem Dokument zu beschäftigen, um unsere Gedankengänge nachzuvollziehen. Dies gilt vor allem für die verwendeten Programmiermethode und Befehle, die wir nicht in jedem Kapitel neu erläutern, sondern nur beim ersten Auftreten detailliert beschreiben und als Wissensgrundlage für weitere Anwendungsfälle vorraussetzen.
+In in den folgenden Ausführungen werden wir schrittweise beschreiben, wie wir bei der Programmierung der Spiels vorgegangen sind. Es macht Sinn, sich in der angegeben Reihenfolge mit dem Dokument zu beschäftigen, um unsere Gedankengänge nachzuvollziehen. Dies gilt vor allem für die verwendeten Programmiermethode und Befehle, die wir nicht in jedem Kapitel neu erläutern, sondern nur beim ersten Auftreten detailliert beschreiben und als Wissensgrundlage für weitere Anwendungsfälle vorraussetzen.
 </p>
 
 <h3>
