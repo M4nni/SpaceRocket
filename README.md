@@ -91,7 +91,7 @@ Ein Informatik-Projekt von Robin Wagner und Finn Westphal
 </h3>
 
 <p>
-"Space Rocket" ist ein Highscore-Spiel auf Greenfoot-Basis, in dem man mit einer Rakete versuchen muss, Asteroiden in einem Asteroidenfeld auszuweichen. Dabei befindet sich die Rakete am linken Bildschirmrand, während die Asteroiden von der rechten Bildschirmseite heranfliegen. Jeder Asteroid verschwindet aus der Welt, wenn er den Rand der Welt erreicht. Man verliert, wenn man mit einem Asteroiden zusammenstößt. Punkte werden für jeden Asteroiden vergeben, dem man schafft mit der Rakete auszuweichen.		
+"Space Rocket" ist ein Highscore-Spiel auf Greenfoot-Basis, in dem man mit einer Rakete versuchen muss, Asteroiden in einem Asteroidenfeld auszuweichen. Dabei befindet sich die Rakete am linken Bildschirmrand, während die Asteroiden von der rechten Bildschirmseite heranfliegen. Jeder Asteroid verschwindet aus der Welt, wenn er den Rand der Welt erreicht. Man verliert, wenn man mit einem Asteroiden zusammenstößt. 		
 </p>		
 		
 <p>		
