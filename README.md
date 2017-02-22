@@ -16,10 +16,6 @@ h3 (color: green; TEXT-DECORATION: UNDERLINE;}
 </body>
 -->
 
-```javascript
-test
-```
-
 <h1>
 SpaceRocket
 </h1>
@@ -69,10 +65,6 @@ Ein Informatik-Projekt von Robin Wagner und Finn Westphal
 <li><a href= "#Quellen"> 4. Quellen</a></li>
 </ul>
 
-```javascript
-test
-```
-
 <h2>
 <a id="Einleitung">1. Einleitung</a>
 </h2>
@@ -119,7 +111,7 @@ Anweisung
 <a id= "Das Szenario"> 2.1 Das Szenario</a>
 </h3>
 
-<p><img src="images/Szenario.png" alt="Szenario">
+<p><img src="images/Szenario.png" alt="Szenario"></p>
 
 <p>
 Wir programmieren unser Projekt "SpaceRocket" in der Programmierumgebung "Greenfoot", die auf der objektorientierten Programmiersprache <i>Java</i> basiert. Zunächst haben wir festgelegt, welche Größe, welches Format und welche Auflösung unsere Welt haben soll. Unser Spiel soll über eine klassische Auflösung und ein klassisches Seitenverhälnis verfügen, damit es auf jedem Computer spielbar ist. Wir haben uns deswegen für das Seitenverhältis von 16/9 und eine Auflösung von 960 * 540 Pixeln entschieden. Diese Bildeigenschaften sind von den meisten aktuellen Displays umsetzbar.
