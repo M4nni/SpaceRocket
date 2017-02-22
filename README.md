@@ -253,6 +253,7 @@ public void act()
         addObject(new Asteriod(), x, y);
         counter = 0;     
     }
+}
 ```
     
 <p>
