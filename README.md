@@ -189,6 +189,8 @@ Diese Ansätze lassen sich mithilfe einer if-Methode in Greenfoot umsetzen. Der 
 </p>
 
 ```javascript
+Code-Script 1.5
+
 if(counter >= 10)
 ```
 
@@ -197,6 +199,8 @@ Um neue Asteroiden hinzuzufügen, verwenden wir die bekannte Methode <i>addObjec
 </p>
 
 ```javascript
+Code-Script 1.6
+
 Asteroiden rechter Rand:
 
 int x = 960;
@@ -223,7 +227,7 @@ Wenn die oben beschriebenen Objekte nun zur Welt hinzugefügt wurden, soll die W
 Nachfolgend der Code des Counters in der Welt space_background_1:
 
 ```javascipt
-Code-Script 1.6
+Code-Script 1.7
 
 public void act()
 {
@@ -256,7 +260,7 @@ Zusammengefasst ergibt sich für die World-Klasse:
 </p>
 
 ```javascript
-Code-Script 1.6
+Code-Script 1.8
 
 import greenfoot.*;
 int counter =0;
@@ -369,7 +373,10 @@ if (Greenfoot.isKeyDown("down") || Greenfoot.isKeyDown("s") <span>&amp;&amp;</sp
     setRotation(20);
     setLocation(getX(), getY()+12);
 }
+```
 
+```javascript
+Code-Script 2.5
 
 Äquivalent dazu ergibt sich für die Aufwärtsbewegung:
 
@@ -396,6 +403,8 @@ Der Code sieht dann folgendermaßen aus:
 </p>
 
 ```javascript
+Code-Script 2.6
+
 Actor test = getOneIntersectingObject(Asteroid.class);
 
 if (test != null) {
@@ -416,6 +425,8 @@ Wenn das Spiel stoppt, sollen gleichzeitig die Rakete und der betreffende Astero
 </p>
 
 ```javascript
+Code-Script 2.7
+
 Actor robin = getOneIntersectingObject(Asteroid.class);
 
 if (robin != null)
@@ -435,7 +446,7 @@ Zusammengefasst ergibt sich für den Code der Rakete:
 </p>
 
 ```javascript
-Code-Script 2.6
+Code-Script 2.8
 
 import greenfoot.*;
 public class rocket extends mover
@@ -605,9 +616,12 @@ public boolean atWorldEdge()
 Würde man die obige Programmierzeilen verwenden, so würde die Methode ständig den Rückgabetyp <i>true</i> zurückgeben. Die Rückgabetypen "wahr" und "falsch" müssen an Bedingungen verknüpft werden, damit sie sinnvoll eingesetzt werden können. Um herrauszufinden, ob sich ein Asteroid am Rand der Welt befindet, müssen die Positionskoordinaten der Asteroiden bekannt sein. Diese lassen sich mit den Methoden <i>getX()</i> und <i>getY()</i> abrufen. Erreicht ein Asteroid z. B. den linken Rand der Welt, so soll <i>atWorldEdge()</i> den Rückgabetyp <i>true</i> zurückgeben. Um den linken Rand zu erreichen muss die x-Koordinate gleich null sein. Der Rückgabetyp der Methode <i>getX()</i> muss also gleich null sein. Im Javascript (siehe Code ) verwenden wir hierfür den Operator "==", der als aritmetischer Ausdruck "ist gleich" bedeutet.
 </p>
 
-<pre><code>Code-Script 3.09
+```javascript
+Code-Script 3.09
+
 getX() == 0
 </code></pre>
+```
 
 <p>
 Diesen Ausdruck können wir als Bedingung für eine if-Methode verwenden. In den geschweiftern Klammern der if-Methode legen wir fest durch <i>return true</i> fest, dass, wenn ein Asteroid eine Ortkoordinate von x = 0 aufweist, die Methode <i>atWorldEdge()</i> den Ausdruck <i>true</i> zurückschickt.
@@ -708,10 +722,12 @@ public boolean atWorldEdge()
 }
 ```
 
- Wenn ein Objekt der Asteroiden-Klasse nun den Rand der Welt berührt, wird aus dieser Welt genau das Objekt entfernt, welches den Rand gerade berührt. Das Objekt, das sich in der Welt bewegt hat kann sich durch den Ausdruck this sozusagen selbst beim Kollidieren mit dem Rand der Welt entfernen:
+Wenn ein Objekt der Asteroiden-Klasse nun den Rand der Welt berührt, wird aus dieser Welt genau das Objekt entfernt, welches den Rand gerade berührt. Das Objekt, das sich in der Welt bewegt hat kann sich durch den Ausdruck this sozusagen selbst beim Kollidieren mit dem Rand der Welt entfernen:
 
 
 ```javascript
+Code-Script 3.15
+
 if (atWorldEdge())
 {
     getWorld().removeObject(this);
@@ -727,7 +743,7 @@ if (atWorldEdge())
 
 
 ```javascript
-Code-Script 3.15
+Code-Script 3.16
 
 import greenfoot.*;
 public class Asteroid extends mover
@@ -782,7 +798,6 @@ Bei uns jedoch funktioniert der score noch nicht wie gewollt, da Greenfoot noch 
 Code-Script 4.0
 
 int score = 0;
-
 public Score()
 {
       add(0);
