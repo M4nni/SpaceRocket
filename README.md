@@ -51,9 +51,6 @@ Ein Informatik-Projekt von Robin Wagner und Finn Westphal
         <li><a href= "#Am Rand der Welt"> 2.3.4 Am Rand der Welt</a></li>
         <li><a href= "#Code-Zusammenfassung Asteroiden"> 2.3.5 Code-Zusammenfassung</a></li>
         </ul>
-      
-        
-        
     </ul>
 <li><a href= "#Was noch zu tun ist"> 3. Was noch zu tun ist</a></li>
 <li><a href= "#Quellen"> 4. Quellen</a></li>
@@ -72,9 +69,11 @@ Ein Informatik-Projekt von Robin Wagner und Finn Westphal
 In in den folgenden Ausführungen werden wir schrittweise beschreiben, sie wir bei der Programmierung der Spiels vorgegangen sind. Es macht Sinn, sich in der angegeben Reihenfolge mit dem Dokument zu beschäftigen, um unsere Gedankengänge nachzuvollziehen. Dies gilt vor allem für die verwendeten Programmiermethode und Befehle, die wir nicht in jedem Kapitel neu erläutern, sondern nur beim ersten Auftreten detailliert beschreiben und als Wissensgrundlage für weitere Anwendungsfälle vorraussetzen.
 </p>
 
-<a id="Snytax und Funktionsweise von Java">1.2 Snytax und Funktionsweise von Java		
+<h4>
+<a id="Snytax und Funktionsweise von Java"> 1.2 Snytax und Funktionsweise von Java</a>
+</h4>
 
-<p>		
+<p>
 Die Programmierumgebung <i>Greenfoot</i> basiert auf der objektorientierten Blockprogrammiersprache <i>Java</i>. Ziel dieser Umgebung ist es, mit relativ einfachen Mitteln und ohne Vorkenntnissen objektorientierte Simulationskonzepte zu programmieren. Für das besser Verständnis erklären wir kurz den generellen Aufbau und die Snytax von <i>Java</i>.		
 </p>		
  		
@@ -82,7 +81,7 @@ Die Programmierumgebung <i>Greenfoot</i> basiert auf der objektorientierten Bloc
 Java ist aus Blöcken aufgebaut, die im Snytax durch eine geöffnete und eine geschlossene Klammer gekennzeichnet werden. Der Inhalt dieser Blöcke kann Anweisung und Befehle enthalten, aber auch weitere Blöcke enthalten. Auf diese Weise ist eine verschachtelte Blockstruktur mit mehreren Ebenen möglich. Der Vorteil einer Block-Programmierung ist, dass Snytax-Fehler leichter indentifiziert werden können, da nur einzelnen Blöcke nicht ordnungsgemäß funktionieren und nicht der gesamte Code defekt ist.		
 </p>		
  		
-```javascript	
+```javascript
 Anweisung	
 {
     weitere Anweisungen		
