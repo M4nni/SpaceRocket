@@ -226,7 +226,7 @@ Wenn die oben beschriebenen Objekte nun zur Welt hinzugefügt wurden, soll die W
 
 Nachfolgend der Code des Counters in der Welt space_background_1:
 
-```javascipt
+```javascript
 Code-Script 1.7
 
 public void act()
@@ -620,7 +620,6 @@ Würde man die obige Programmierzeilen verwenden, so würde die Methode ständig
 Code-Script 3.09
 
 getX() == 0
-</code></pre>
 ```
 
 <p>
