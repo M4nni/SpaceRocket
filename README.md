@@ -1,3 +1,4 @@
+
 <!--
 <head>
 <style>
@@ -29,9 +30,11 @@ Ein Informatik-Projekt von Robin Wagner und Finn Westphal
 <ul>
 <li><a href= "#Einleitung"> 1. Einleitung: Anforderungen und Elemente des Spiels</a></li>
     <ul>
+    
+    <li><a href= "Das Spiel und die Dokumentation"> 1.1 Das Spiel und die Dokumentation</a>
     <li><a href= "Snytax und Funktionsweise von Java"> 1.2 Snytax und Funktionsweise von Java</a>
    
-    </ul>
+   </ul>
 <li><a href= "#Umsetzung"> 2. Umsetzung</a></li>
     <ul>
     <li><a href= "#Das Szenario"> 2.1 Das Szenario</a></li>
@@ -66,7 +69,7 @@ Ein Informatik-Projekt von Robin Wagner und Finn Westphal
 </h2>
 
 <h3>
-<a id="Das Spiel und die Dukumentation"> 1.1 Das Spiel und die Dukumentation</a>
+<a id="Das Spiel und die Dokumentation"> 1.1 Das Spiel und die Dokumentation</a>
 </h3>
 
 <p>
