@@ -28,6 +28,10 @@ Ein Informatik-Projekt von Robin Wagner und Finn Westphal
 
 <ul>
 <li><a href= "#Einleitung"> 1. Einleitung: Anforderungen und Elemente des Spiels</a></li>
+    <ul>
+    <li><a href= "Snytax und Funktionsweise von Java"> 1.2 Snytax und Funktionsweise von Java</a>
+    <li><a href= ></a>
+    </ul>
 <li><a href= "#Umsetzung"> 2. Umsetzung</a></li>
     <ul>
     <li><a href= "#Das Szenario"> 2.1 Das Szenario</a></li>
@@ -58,8 +62,12 @@ Ein Informatik-Projekt von Robin Wagner und Finn Westphal
 
 
 <h2>
-<a id="Einleitung">1. Einleitung: Anforderungen und Elemente des Spiels</a>
+<a id="Einleitung">1. Einleitung</a>
 </h2>
+
+<h3>
+<a id="Das Spiel und die Dukumentation"> 1.1 Das Spiel und die Dukumentation</a>
+</h3>
 
 <p>
 "Space Rocket" ist ein Highscore-Spiel auf Greenfoot-Basis, in dem man mit einer Rakete versuchen muss, Asteroiden in einem Asteroidenfeld auszuweichen. Dabei befindet sich die Rakete am linken Bildschirmrand, während die Asteroiden von der rechten Bildschirmseite heranfliegen. Jeder Asteroid verschwindet aus der Welt, wenn er den Rand der Welt erreicht. Man verliert, wenn man mit einem Asteroiden zusammenstößt. Punkte werden für jeden Asteroiden vergeben, dem man schafft mit der Rakete auszuweichen.		
@@ -69,9 +77,9 @@ Ein Informatik-Projekt von Robin Wagner und Finn Westphal
 In in den folgenden Ausführungen werden wir schrittweise beschreiben, sie wir bei der Programmierung der Spiels vorgegangen sind. Es macht Sinn, sich in der angegeben Reihenfolge mit dem Dokument zu beschäftigen, um unsere Gedankengänge nachzuvollziehen. Dies gilt vor allem für die verwendeten Programmiermethode und Befehle, die wir nicht in jedem Kapitel neu erläutern, sondern nur beim ersten Auftreten detailliert beschreiben und als Wissensgrundlage für weitere Anwendungsfälle vorraussetzen.
 </p>
 
-<h4>
+<h3>
 <a id="Snytax und Funktionsweise von Java"> 1.2 Snytax und Funktionsweise von Java</a>
-</h4>
+</h3>
 
 <p>
 Die Programmierumgebung <i>Greenfoot</i> basiert auf der objektorientierten Blockprogrammiersprache <i>Java</i>. Ziel dieser Umgebung ist es, mit relativ einfachen Mitteln und ohne Vorkenntnissen objektorientierte Simulationskonzepte zu programmieren. Für das besser Verständnis erklären wir kurz den generellen Aufbau und die Snytax von <i>Java</i>.		
@@ -85,7 +93,7 @@ Java ist aus Blöcken aufgebaut, die im Snytax durch eine geöffnete und eine ge
 Anweisung	
 {
     weitere Anweisungen		
-}		
+}
 ```
 
 <h2>
@@ -160,6 +168,7 @@ Wenn die oben beschriebenen Objekte nun zur Welt hinzugefügt wurden, soll die W
 
 Nachfolgend der Code des Counters in der Welt space_background_1:
 
+```javascipt
  public void act() {
     counter++;
     
@@ -187,6 +196,7 @@ Nachfolgend der Code des Counters in der Welt space_background_1:
         counter = 0;
         
     }
+```
     
 )))
 
@@ -597,7 +607,6 @@ if (atWorldEdge())
  Fasst man Code-Script 3.05 und 3.14 zusammen, so ergibt sich für den Code der Asteroiden:
 
 
-
 ```javascript
 Code-Script 3.15
 
@@ -639,6 +648,7 @@ if(getY() == 0 && TypeOfRotation == 0 || getY() == getWorld().getHeight() - 1 &&
    }
 }
 ```
+
 (((
 Der Score
 
