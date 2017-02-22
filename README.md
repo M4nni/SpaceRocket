@@ -63,6 +63,19 @@ Ein Informatik-Projekt von Robin Wagner und Finn Westphal
         <li><a href= "#Am Rand der Welt"> 2.3.4 Am Rand der Welt</a></li>
         <li><a href= "#Code-Zusammenfassung Asteroiden"> 2.3.5 Code-Zusammenfassung</a></li>
         </ul>
+	
+	</ul>
+	<li><a href= "#Der Score"> 2.4 Der Score</a></li>
+	<ul>
+	
+	</ul>
+	<li><a href= "#Game-Over"> 2.5 Game-Over</a></li>
+	<ul>
+	
+	</ul>
+	<li><a href= "#Der Goldball finn"> 2.6 Der Goldball finn</a></li>
+	<ul>
+	
     </ul>
 <li><a href= "#Was noch zu tun ist"> 3. Was noch zu tun ist</a></li>
 <li><a href= "#Quellen"> 4. Quellen</a></li>
@@ -176,7 +189,7 @@ Weiterhin haben wir in unserer Welt einen Counter hinzugefügt, der bestimmte na
 
 int counter =0;
 
-Wenn die oben beschriebenen Objekte nun zur Welt hinzugefügt wurden, soll die Welt mit public void act den Counter aktivieren und dieser soll nicht mehr den inaktiven Wert von 0 annehmen können. Wenn der Counter nun zufällige Zahlen annimmt, die größer als 15 sind, spawnen neue Asteroiden, unzwar genau an den zufälligen Orten, wo sie auch zu Beginn in der Welt erscheinen, also etwa am oberen rechten Bildrand, am unteren rechten Bildrand oder an der rechten Seite des Bildes. Dazu legen wir die Koordinaten fest und fügen es mithilfe von addObject() und den bestimmten Koordinaten neu in die Welt hinzu. Grundvorraussetzung dafür ist, dass wir einem Asteroiden einen bestimmten Namen geben (Asteroid robin) und als neuen Asteroiden definieren und das hinzugefügte Object auch diesen Namen besitzt. Wichtig ist, dass der counter danach wieder auf 0 zurückgesetzt wird, weil sonst nicht immer wieder neue Asteroiden spawnen könnten. Je kleiner die benötigte Zahl des Counters ist (in unserem Fall mindestens 15), desto schwieriger wird das Spiel, denn je kleiner die Zahl, desto öfter wird die Zahl überschritten und es spawnen mehr Asteroiden. Für Profis kann die Zahl bis auf 5 reduziert werden, ansonsten ist fast die ganze Welt voller Asteroiden und man hat keine Chance, zu überleben. Ohne diesen counter und das ständige Neuerscheinen der Asteroiden wäre das Spiel auch nicht spielbar.
+Wenn die oben beschriebenen Objekte nun zur Welt hinzugefügt wurden, soll die Welt mit public void act den Counter aktivieren und dieser soll nicht mehr den inaktiven Wert von 0 annehmen können. Wenn der Counter nun zufällige Zahlen annimmt, die größer als 10 sind, spawnen neue Asteroiden, unzwar genau an den zufälligen Orten, wo sie auch zu Beginn in der Welt erscheinen, also etwa am oberen rechten Bildrand, am unteren rechten Bildrand oder an der rechten Seite des Bildes. Dazu legen wir die Koordinaten fest und fügen es mithilfe von addObject() und den bestimmten Koordinaten neu in die Welt hinzu. Grundvorraussetzung dafür ist, dass wir einem Asteroiden einen bestimmten Namen geben (Asteroid robin) und als neuen Asteroiden definieren und das hinzugefügte Object auch diesen Namen besitzt. Wichtig ist, dass der counter danach wieder auf 0 zurückgesetzt wird, weil sonst nicht immer wieder neue Asteroiden spawnen könnten. Je kleiner die benötigte Zahl des Counters ist (in unserem Fall mindestens 10), desto schwieriger wird das Spiel, denn je kleiner die Zahl, desto öfter wird die Zahl überschritten und es spawnen mehr Asteroiden. Für Profis kann die Zahl bis auf 5 reduziert werden, ansonsten ist fast die ganze Welt voller Asteroiden und man hat keine Chance, zu überleben. Ohne diesen counter und das ständige Neuerscheinen der Asteroiden wäre das Spiel auch nicht spielbar.
 
 Nachfolgend der Code des Counters in der Welt space_background_1:
 
@@ -184,7 +197,7 @@ Nachfolgend der Code des Counters in der Welt space_background_1:
  public void act() {
     counter++;
     
-    if(counter >= 15) {
+    if(counter >= 10) {
         Asteroid robin = new Asteroid();
         int x = 960;
         int y = Greenfoot.getRandomNumber(541) - 0;
@@ -192,7 +205,7 @@ Nachfolgend der Code des Counters in der Welt space_background_1:
         counter = 0;
         
     } 
-     if(counter >= 15) {
+     if(counter >= 10) {
         Asteroid robin = new Asteroid();
         int x = Greenfoot.getRandomNumber(480) + 480;
         int y = 1;
@@ -200,7 +213,7 @@ Nachfolgend der Code des Counters in der Welt space_background_1:
         counter = 0;
         
     }
-     if(counter >= 15) {
+     if(counter >= 10) {
         Asteroid robin = new Asteroid();
         int x = Greenfoot.getRandomNumber(480) + 480;
         int y = 540;
@@ -719,13 +732,16 @@ if(getY() == 0 && TypeOfRotation == 0 || getY() == getWorld().getHeight() - 1 &&
 ```
 
 
-Der Score
+<h4>
+<a id="Der Score"> 2.4 Der Score</a>
+</h4>
 
 Anschließend benötigen wir eine Score-Klasse, damit das Spiel auch reizend wird und Spaß macht, da es sonst, wenn man eh keine Punkte einsammeln kann, schnell langweilig wird. Zunächst haben wir die Score Klasse ohne ein Bild als eine neue Klasse zur Welt hinzufegügt.
 Dann haben wir mithilfe von int unseren Score auf 0 festgelegt, das heißt bevor unser Spiel beginnt, zeigt der Score immer einen Punktestand von 0 an. Damit Greenfoot diesen in der Welt überhaupt anzeigt, haben wir zu unserem Score 0 Punkte erst einmal hinzugefügt. Zu diesem Score soll dann mit der Zeit die Punktemenge (amount) hinzugefügt werden, sodass der alte score dann = der neue score und die hinzugefügte Punktemenge ist. Das Bild des Scores, dem wir den Namen robin gegeben haben, ist ein neues Greenfoot Bild mit zunächst der Länge 10 und der Breite 10. Dieses neue Bild wird dann mit dem Befehl .drawString in die Welt mit den Koordinaten x=200 und y=500 in die Welt eingefügt/eingezeichnet mit der Schrift Score: und dann dahinter der entsprechenden Punktezahl. Mithilfe von setImage() lässt sich dieses neu erstellte Objekt robin dann auch in der Welt wiederfinden.
 
 Bei uns jedoch funktioniert der score noch nicht wie gewollt, da Greenfoot noch keine Punkte für ein bestimmtes Objekt zum Score hinzufügt. Dazu haben wir schon eine neue Klasse erstellt, die Goldball Klasse,die wir finn genannt haben. Die Goldbälle sollen sich ähnlich wie die Asteroiden verhalten, allerdings viel seltener spawnen, damit das Spiel nicht zu leicht ist. Für jeden Goldball soll dann eine bestimmte Punktemenge z.B. 20 zum Score hinzugefügt werden. Das versuchen wir in der nächsten Zeit zu programmieren. Hier erst einmal der Code für die Score-Klasse: 
 
+```javascript
 int score = 0;
    
 public Score() {
@@ -740,32 +756,31 @@ public Score() {
       setImage(robin);    
       
 }
+```
 
-)))
-
-((( Game-Over
+<h4>
+<a id="Game-Over"> 2.5 Game-Over</a>
+</h4>
+ 
 
 Beim Programmieren des Game-Overs sind wir ähnlich vorgegangen wie bei der Programmierung des Scores. Zuerst haben wir die neue Klasse mit dem Namen game-Over mit einem bei Paint selbst erstellten Bild zur Welt hinzugefügt. Das Bild hat einen Weißen Game-Over-Schriftzug mit einem schwarzen Hintergrund und passt somit zum Hintergrund der Welt. Wir haben auch hier das Bild robin genannt und als neues Bild mit der Länge 300 und der Breite 200 identifiziert. Mithilfe von .drawString fügen wir auch dieses neu erstellte Bild in die Welt hinzu und lassen es beim vorher definierten Game-Over, nämlich wenn die Rakete einen Asteroiden crasht, mit den Koordinaten x=100 und y=200 in der Welt erscheinen. Es befindet sich somit recht mittig auf dem Bildschirm. Der Code sieht dann folgendermaßen aus:
 
+```javascript
 public GameOver()  {
      GreenfootImage robin = new GreenfootImage(300,200);
      robin.drawString ("Game Over", 100, 200);
+```
 
 
-)))
-
-<h3>
-<a id= "Was noch zu tun ist"> 3. Was noch zu tun ist</a>
-</h3>
-
-(((
-Der Goldball finn
+<h4>
+<a id="Der Goldball finn">2.6 Der Goldball finn</a>
+</h4>
 
 Wie schon erwähnt, haben wir uns dazu entschlossen, eine Goldball-Klasse zu erstellen, um das Asteroiden Spiel spannender zu machen und einen unterschiedlich hohen Score erreichen zu können, da die einzelnen Goldbälle Punkte geben sollen.
 Zu Beginn haben wir eine neue Klasse namens finn hinzugefügt und dieser das fertige Bild eines Goldballs zugeordnet. 
-Der Programmiercode des Goldballs sieht zwar lang und kompliziert aus, ist im Endeffekt jedoch fast der gleiche wie der der Asteroiden, da diese mit fast den gleichen Eigenschaften durch die Welt fliegen sollen. Die Goldbälle sollen lediglich viel seltener spawnen, als die Asteroiden. Der einzige Unterschied besteht darin, dass wir der Klasse finn ein spezielles Objekt der Raketen-Klasse zuweisen. Da es nur eine Rakete gibt, trifft dies also bei der Rakete zu. Wenn es ein Objekt gibt, finn also nicht gleich 0 ist, existiert ein Zusammenstoß eines Goldballs der Klasse finn mit der Rakete. In diesem Fall wird nicht die Rakete entfernt, sondern der Goldball finn wird selbst aus der Welt herausgenommen. Die Rakete frisst oder schluckt den Goldball sozusagen, da dieser ja "gut" für den Spieler sein und ihm Punkte bringen soll.
+Der Programmiercode des Goldballs sieht zwar lang und kompliziert aus, ist im Endeffekt jedoch fast der gleiche wie der der Asteroiden, da diese mit fast den gleichen Eigenschaften durch die Welt fliegen sollen. Die Goldbälle sollen lediglich viel seltener spawnen, als die Asteroiden. Der einzige Unterschied besteht darin, dass der Goldball beim Kollidieren mit der Rakete nicht aus der Welt entfernt wird, sondern weiterhin in der Welt existiert. Der Goldball hat jedoch noch keine große Funktion, da er noch nicht, wie die Asteroiden, ständig neu spawnt und Punkte einbringen. Dies versuchen wir in der nächsten Zeit zum Laufen zu bringen.
 
-
+```javascript
 int Angle = Greenfoot.getRandomNumber(10);
     int TypeOfRotation = Greenfoot.getRandomNumber(2);
   
@@ -802,22 +817,15 @@ public void act()
 {
     getWorld().removeObject(this);
 }
-
-
-
-Actor finn = getOneIntersectingObject(rocket.class);
-if (finn != null) { 
-   getWorld().removeObject(this);
-}
-
-    } 
-
-)))
+```
 
 <p>
 Dies ist unser derzeitiger Stand zu unserem Spiel SpaceRocket, dennoch haben wir das Projekt noch nicht fertiggestellt da uns noch viele Dinge fehlen, die wir geplant haben:
 </p>
 
+<h3>
+<a id= "Was noch zu tun ist"> 3. Was noch zu tun ist</a>
+</h3>
 
 1. Das Einfügen und Programmieren eines Scores, der den Punktestand abhängig von den eingesammelten Goldbällen zählt und beim game-over angezeigt wird.
 2. Das Hinzufügen von Bomben, die explodieren können und sich ähnlich wie die Asteroiden verhalten
