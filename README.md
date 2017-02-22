@@ -16,9 +16,9 @@ h3 (color: green; TEXT-DECORATION: UNDERLINE;}
 </body>
 -->
 
-````javascript
+```javascript
 test
-````
+```
 
 <h1>
 SpaceRocket
