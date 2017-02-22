@@ -722,7 +722,7 @@ if (atWorldEdge())
 
 
 <h4>
-<a id="Code-Zusammenfassung Asteroiden"> 2.3.5 Code-Zusammenfassung></a>
+<a id="Code-Zusammenfassung Asteroiden"> 2.3.5 Code-Zusammenfassung</a>
 </h4>
 
  Fasst man Code-Script 3.05 und 3.14 zusammen, so ergibt sich für den Code der Asteroiden:
