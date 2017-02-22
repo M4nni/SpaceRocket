@@ -339,7 +339,7 @@ Um diese Steuerung in Greenfoot umzusetzen, haben wir zunächst festgelegt, dass
 </code></pre>
 
 <p>
-Damit sich die Rakete beim Tastendruck mit konstanter Geschwindigkeit nach unten bewegt, verwenden wir die Methode <i>setLocation</i>, die mindestens drei weitere Parameter für ihre Funktion benötigt, welche die aktuelle Position des Objektes in der Welt und die Bewegungsrichtung relativ zu dieser Position ist. Die Rückgabetypen <i>getX</i> und <i>getY</i> geben die aktuellen Koordinaten des klassenspezifischen Objektes an. Sie werden durch ein Komma getrennt und in den Klammern der Methode <i>setLocation</i> integriert. Damit nun beim Tastendruck eine Bewegung vollzogen wird, kann hinter jedem Rückgabetypen eine natürliche Zahlen addiert bzw. subtrahiert werden. So wird bei jeder Ausführung dieses frames oder Blocks das Objekt um die jeweiligen addierten bzw. subtrahierten Koordinaten bewegt. Durch das mehrfache Ausführen dieser Methode resultiert daraus eine lineare Fortbewegungsrichtung. Für unsere Anwendung soll sich unser Objekt, die Rakete, lediglich entlang der y-Achse bewegen, weswegen die x-Koordinate unverändert bleibt.
+Damit sich die Rakete beim Tastendruck mit konstanter Geschwindigkeit nach unten bewegt, verwenden wir die Methode <i>setLocation</i>, die mindestens drei weitere Parameter für ihre Funktion benötigt, welche die aktuelle Position des Objektes in der Welt und die Bewegungsrichtung relativ zu dieser Position sind. Die Rückgabetypen <i>getX</i> und <i>getY</i> geben die aktuellen Koordinaten des klassenspezifischen Objektes an. Sie werden durch ein Komma getrennt und in den Klammern der Methode <i>setLocation</i> integriert. Damit nun beim Tastendruck eine Bewegung vollzogen wird, kann hinter jedem Rückgabetypen eine natürliche Zahlen addiert bzw. subtrahiert werden. So wird bei jeder Ausführung dieses frames oder Blocks das Objekt um die jeweiligen addierten bzw. subtrahierten Koordinaten bewegt. Durch das mehrfache Ausführen dieser Methode resultiert daraus eine lineare Fortbewegungsrichtung. Für unsere Anwendung soll sich unser Objekt, die Rakete, lediglich entlang der y-Achse bewegen, weswegen die x-Koordinate unverändert bleibt.
 </p>
 
 <pre><code>Code-Script 2.3
@@ -374,18 +374,20 @@ if (Greenfoot.isKeyDown("up") || Greenfoot.isKeyDown("w") <span>&amp;&amp;</span
    setRotation(-20);
    setLocation(getX(), getY()-12);
    }
-```javascript</code></pre>
+</code></pre>
 
 <p>
 Hier wurden "down" und "s" durch "up" und "w" ersetzt und der der Rückgabewert <i>getY</i> größer gleich 0 gesetzt. Dadurch ist die Bedingung der if-Methode nur erfüllt, wenn die "up"- oder "w"-Taste gedrückt und die aktuelle y-Koordinaten der Rakete größer als 0 ist. Somit kann die Rakete die Welt nicht an der oberen Kante verlassen. Die Neigung der Aufwärtsbewegung ist betragsgleich der Neigung der Abwärtsbewegung, jedoch ist sie negativ, sodass die Rakete gegen dem Uhrzeigersinn sich mit 20° um die eigene Achse rotiert. In der Methode <i>setLocation</i> wird der Rückgabetyp <i>getY</i> mit 12 subtrahiert, sodass sich die Rakete nach oben anstatt nach unten bewegt.
 </p>
 
-<h3>
+<h4>
 <a id="Das Spielende"> 2.2.5 Das Spielende</a>
-</h3>
+</h4>
 
-Desweiteren lassen wir die Rakete einen Klassen-Test durchführen. Wir wollen damit erreichen, dass das Spiel zuende ist, wenn die Rakete einen Asteroiden berührt und die beiden Objekte schließlich auch aus der Welt entfernt werden. Dazu führen wir einen Test durch, der besagt, ob die Rakete ein Object einer Klasse berührt (getOneIntersectingObject).In unserem Fall handelt es sich um die Asteroiden, da man nur verlieren soll, wenn man mit ihnen zusammenkracht. Wenn der Test 0 ist, die Rakete also keinen Asteroiden berührt, läuft das Spiel ganz normal weiter, dazu brauchen wir keinen extra Befehl. Wenn die Rakete allerdings einen Asteroiden berührt, der Test also nicht null ist (!= bedeutet ungleich), fügen wir ein neues GameOver mit dem Namen robin hinzu, wofür wir vorher eine neue Klasse erstellt haben, die unten beschrieben wird. Dieses neue Game Over erscheint, indem das Bild für das GameOver robin mit den Koordinaten der halben länge und halben Breite eingefügt wird. Außerdem gibt es einen einfachen Befehl, um das Spiel zu stoppen: Man sagt Greenfoot.stop();
+<p>
+Desweiteren lassen wir die Rakete einen Klassen-Test durchführen. Wir wollen damit erreichen, dass das Spiel zuende ist, wenn die Rakete einen Asteroiden berührt und die beiden Objekte schließlich auch aus der Welt entfernt werden. Dazu führen wir einen Test durch, der überprüft, ob die Rakete ein Object einer Klasse berührt (getOneIntersectingObject). In unserem Fall handelt es sich um die Asteroiden, da man nur verlieren soll, wenn man mit ihnen zusammenkracht. Wenn der Test den Rückgabetyp "null" zurückgibt, die Rakete also keinen Asteroiden berührt, läuft das Spiel ganz normal weiter. Wenn die Rakete allerdings einen Asteroiden berührt, der Test also nicht null ist (!= bedeutet ungleich), fügen wir ein neues GameOver mit dem Namen <i>robin</i> hinzu, wofür wir vorher eine neue Klasse erstellt haben, die unten beschrieben wird. Der Schriftzug "Game Over" erscheint, indem das Bild für das GameOver() robin mit den Koordinaten der halben länge und halben Breite eingefügt wird. Auf diese Weise erscheint der Schriftzug genau in der Mitte des Szenarios. Außerdem gibt es einen einfachen Befehl, um das Spiel zu stoppen: Man sagt Greenfoot.stop();
 Der Code sieht dann folgendermaßen aus:
+</p>
 
 ```javascript
 Actor test = getOneIntersectingObject(Asteroid.class);
@@ -403,12 +405,15 @@ getWorld().addObject(robin, getWorld(). getWidth()/2, getWorld().getHeight()/2);
 <a id="Objekte aus der Welt entfernen"> 2.2.6 Objekte aus der Welt entfernen</a>
 </h3>
 
-Wenn das Spiel stoppt, sollen gleichzeitig die Rakete und der betreffende Asteroid aus der Welt entfernt werden. Dies geschieht zunächst daduch, dass wir die Klasse Robin als das betreffende Objekt der Asteroiden Klasse identifizieren. Wenn dieses, wie es oben annähernd schon aufgeführt ist, nicht gleich 0 ist, also existiert, dann sucht greenfoot in dieser Welt und entfernt dieses spezielle Objekt Robin. Es funktioniert nicht, zu sagen, dass das Objekt Asteroid entfernt wird, da Greenfoot nicht eine komplette Klasse während des Spiels aus der Welt entfernen kann. Dafür lässt sich das eigene Objekt mithilfe des Befehls this, was in unserem Fall die Rakete ist, entfernen.
+<p>
+Wenn das Spiel stoppt, sollen gleichzeitig die Rakete und der betreffende Asteroid aus der Welt entfernt werden. Dies geschieht zunächst daduch, dass wir die Klasse <i>Robin</i> als das betroffende Objekt der Asteroiden-Klasse identifizieren. Wenn dieses, wie es oben annähernd schon aufgeführt ist, nicht gleich 0 ist, also existiert, dann sucht greenfoot in dieser Welt und entfernt dieses spezielle Objekt Robin. Es funktioniert nicht, zu sagen, dass das Objekt Asteroid entfernt wird, da Greenfoot nicht eine komplette Klasse während des Spiels aus der Welt entfernen kann. Dafür lässt sich das betroffene Objekt einer Klasse mit dem Rückgabetyp <i>this</i> identifizieren, was in unserem Fall die Rakete ist, entfernen. Somit wird nur ein spezielles Objekt einer Klasse und nicht die gesamte Klasse entfernt.
+</p>
 
 ```javascript
 Actor robin = getOneIntersectingObject(Asteroid.class);
 
-if (robin != null) { 
+if (robin != null)
+{ 
     getWorld().removeObject(robin);
     getWorld().removeObject(this);
 }
@@ -458,7 +463,7 @@ Actor robin = getOneIntersectingObject(Asteroid.class);
 if (robin != null) { 
     getWorld().removeObject(robin);
     getWorld().removeObject(this);
-}   
+}
 }
 }
 ```
