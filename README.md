@@ -29,10 +29,8 @@ Ein Informatik-Projekt von Robin Wagner und Finn Westphal
 <ul>
 <li><a href= "#Einleitung"> 1. Einleitung: Anforderungen und Elemente des Spiels</a></li>
     <ul>
-    
     <li><a href= "#Das Spiel und die Dokumentation"> 1.1 Das Spiel und die Dokumentation</a>
     <li><a href= "#Snytax und Funktionsweise von Java"> 1.2 Snytax und Funktionsweise von Java</a>
-   
    </ul>
 <li><a href= "#Umsetzung"> 2. Umsetzung</a></li>
     <ul>
@@ -40,9 +38,7 @@ Ein Informatik-Projekt von Robin Wagner und Finn Westphal
         <ul>
         <li><a href= "#Erstellen einer Welt"> 2.1.1 Erstellen einer Welt</a></li>
         <li><a href= "#Objekte in der Welt"> 2.1.2 Objekte in der Welt</a></li>
-        <li><a href= "#Der Counter"> 2.1.3 Der Counter</a></li>
-	
-	
+	<li><a href= "#Der Counter"> 2.1.3 Der Counter</a></li>
         </ul>
     <li><a href= "#Die Rakete"> 2.2 Die Rakete</a></li>
         <ul>
@@ -62,19 +58,9 @@ Ein Informatik-Projekt von Robin Wagner und Finn Westphal
         <li><a href= "#Am Rand der Welt"> 2.3.4 Am Rand der Welt</a></li>
         <li><a href= "#Code-Zusammenfassung Asteroiden"> 2.3.5 Code-Zusammenfassung</a></li>
         </ul>
-	
-	</ul>
-	<li><a href= "#Der Score"> 2.4 Der Score</a></li>
-	<ul>
-	
-	</ul>
-	<li><a href= "#Game-Over"> 2.5 Game-Over</a></li>
-	<ul>
-	
-	</ul>
-	<li><a href= "#Der Goldball finn"> 2.6 Der Goldball finn</a></li>
-	<ul>
-	
+    <li><a href= "#Der Score"> 2.4 Der Score</a></li>
+    <li><a href= "#Game-Over"> 2.5 Game-Over</a></li>
+    <li><a href= "#Der Goldball finn"> 2.6 Der Goldball finn</a></li>
     </ul>
 <li><a href= "#Was noch zu tun ist"> 3. Was noch zu tun ist</a></li>
 <li><a href= "#Quellen"> 4. Quellen</a></li>
