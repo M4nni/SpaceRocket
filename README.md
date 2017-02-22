@@ -125,29 +125,26 @@ Wir programmieren unser Projekt "SpaceRocket" in der Programmierumgebung "Greenf
 Mit dem Konstruktor <i>public</i> erstellen wir eine Welt-Klasse namens <i>space_backround_1</i> und durch die Methode <i>import greenfoot.*;</i> geben wir an, dass diese Klasse in das Szenario implementiert werden soll. Fehlt diese Methode oder wird sie verändert, so würde diese Klasse beim Start des Programmes nicht geladen werden. Hinter jeder Klasse stehen mindestens eine geöffnete und eine geschlossene Klammer, die zusätzliche Parameter enthalten können. Zur Ausführung der Methoden, die wir verwenden, sind keine weiteren Parameter notwendig, weswegen bei uns nichts zwischen den Klammern steht. Die Referenz <i>super</i> sorgt dafür, dass alle Eigenschaften der Super- oder Hauptklasse auf alle anderen Klassen übertragen werden. In diesem Fall ist die Super-Klasse die generierte Welt. Diese Anweisung benötigt weitere Parameter für ihre Funktionalität und zwar die Auflösung der generierten Welt und das Verhältnis zwischen Pixeln und Zellen des Zellen-Koordinatensystems, das deckungsgleich zur generierten Welt erstellt wird. Wir wollen dieses Verhältnis auf 1:1 festlegen, sodass eine Zelle einem Pixel entspricht. Um diese Parameter dem Konstruktor zur Verfügung zu stellen, schreiben wir nach <i>super</i> in Klammern (960, 540, 1, true). Der erste Parameter definiert die Anzahl der Pixel entlang der x-Achse, der zweite nach dem Komma die Pixelanzahl in y-Richtung und der dritte Parameter "1" sagt aus, dass eine Zelle die Größe von einem Pixel in x- und y- Richtung besitzt. Das Größenverhältnis zwischen Zellen und Pixeln beträgt also 1:1. Durch den Parameter <i>true</i> erreichen wir, dass die Asteroiden und auch die Rakete zunächst nicht aus der Welt verschwinden können, da die Grenzen der Welt für sie eine Barriere darstellen. Am Ende dieser Zeile steht ein Semikolon, das verschiedene Methoden voneinander trennt. Danach haben wir in Greenfoot einen Hintergrund unserer Welt gesucht, der möglichst zum Spiel passen soll. Wir haben uns schließlich für den vorgefertigten Greenfoot-Hintergrund <i>space1</i> entschieden. Dieser lässt sich per Recht-Klick auf die Klasse unter der Option "Set image..." auswählen.
 </p>
 
-<pre><code><strong>Code-Script 1.1</strong>
+```javascript
+Code-Script 1.1
 
 import greenfoot.*;
 public space_backround_1()
     {
         super(960, 540, 1, true);
     }
-</code>
-</pre>
+```
 
 <h4>
 <a id="Objekte in der Welt"> 2.1.2 Objekte in der Welt</a>
 </h4>
 
-```javascript
-test
-```
-
 <p>
 Bisher enthält unsere Welt noch keine Objekte, die agieren können und für unser Spiel relevant sind. Wir benötigen in jedem Fall zunächst eine Raketen- und eine Asteroiden-Klasse. Zunächst wollten wir, dass jeweils vor Spielbeginn eine Rakete an einem festen Ort startet. Ebensfall sollen verschiedene Asteroiden an immer anderen Punkten der Welt, allerdings nur an den Rändern der rechten Welthälfte, spawnen. Dazu haben wir, wie in dem folgenden Befehl zu sehen (siehe Code-Script 1.2), mithilfe der Methode <i>addObject</i> eine Rakete hinzugefügt, die jedes Mal, wenn man das Spiel startet, an der Position x = 150 und y = 270 startet. Die Methode <i>addObject</i> benötigt bestimmte Parameter für ihre Funktionalität. Zu diesen zählt zum einen die Bezeichnung des zu generierenden Objektes einer Klasse und seine Position in der Welt. Hierzu wird nach <i>addObject</i> in Klammern die jeweilige Klasse mit dem Aufdruck <i>new</i> davor genannt, welcher als Referenz festlegt, dass ein Objekt dieser Klasse hinzugefügt werden soll. Schließlich geben zwei Parameter, durch Kommata getrennt, die Koordinaten des jeweiligen Objektes an. Diese Koordinaten haben wir so gewählt, dass die Rakete ziemlich weit links, aber nicht am Rand startet und genau die Hälfte der Höhe besitzt.
 </p>
 
-<pre><code><strong>Code-Script 1.2</strong>
+```javascript
+Code-Script 1.2
 
 import greenfoot.*;
 public space_backround_1()
@@ -155,20 +152,21 @@ public space_backround_1()
     super(960, 540, 1, true);
     addObject(new rocket(), 150, 270);
 }
-</code></pre>
+```
 
 <p>
 Weiterhin lassen wir Asteroiden spawnen, die sich an immer anderen Positionen befinden können. Der erste Asteroid hat die x-Koordinate 960 und befindet sich genau am rechten Rand der Welt mit einer y-Koordinate die von 0 bis 540, also von ganz unten bis ganz oben entlang der y-Achse variieren kann. Dies erreichen wir durch die Methode <i>Greenfoot.getRandomNumber</i>, die eine zufällige, natürliche Zahl zwischen 0 und dem jeweiligen in Klammern stehenden Grenzwert generiert. Der Grenzwert (hier: 541) ist dabei ausgeschlossen. Der 2. Asteroid kann zwischen den x-Koordinaten 480 und 480 + 480, also maximal 960 entstehen. Das bedeutet, dass er immer zufällig zwischen der Hälfte der Welt und dem rechten Rand spawnt. Die y-Koordinate beträgt 0, weshalb der Asteroid nur am oberen Rand der Welt spawnen kann. Dem 3. Asteroid sind die gleichen x-Koordinaten zugewiesen, er spawnt aber durch die festgelegte y-Koordinate von 540 immer am unteren Rand. Seine x-Koordinate ist ebenfalls variabel, sodass er entlang der y-Achse zufällig erscheinen kann. 
 </p>
 
-<pre><code><strong>Code-Script 1.3</strong>
+```javascript
+Code-Script 1.3
 
 addObject(new rocket(), 150, 270);
 addObject(new counter(), 30, 510);
 addObject(new Asteroid(), 960, Greenfoot.getRandomNumber(541) - 0);
 addObject(new Asteroid(), Greenfoot.getRandomNumber(480) + 480, 0);
 addObject(new Asteroid(), Greenfoot.getRandomNumber(480) + 480, 540);
-</code></pre>
+```
 
 <h3>
 <a id="Der Counter"> 2.1.3 Der Counter</a>
@@ -257,49 +255,48 @@ public void act()
 Zusammengefasst ergibt sich für die World-Klasse:
 </p>
 
-<pre><code><strong>Code-Script 1.6</strong>
+```javascript
+Code-Script 1.6
+
 import greenfoot.*;
 int counter =0;
 public space_backround_1()
-    {
-        super(960, 540, 1, true);
-        addObject(new rocket(), 150, 270);
-        addObject(new counter(), 30, 510);
-        addObject(new Asteroid(), 960, Greenfoot.getRandomNumber(541) - 0);
-        addObject(new Asteroid(), Greenfoot.getRandomNumber(480) + 480, 1);
-        addObject(new Asteroid(), Greenfoot.getRandomNumber(480) + 480, 540);
-	
-	   public void act() {
+{
+    super(960, 540, 1, true);
+    addObject(new rocket(), 150, 270);
+    addObject(new counter(), 30, 510);
+    addObject(new Asteroid(), 960, Greenfoot.getRandomNumber(541) - 0);
+    addObject(new Asteroid(), Greenfoot.getRandomNumber(480) + 480, 1);
+    addObject(new Asteroid(), Greenfoot.getRandomNumber(480) + 480, 540);
+}
+
+public void act()
+{
     counter++;
-    if(counter >= 10 ) {
-        Asteroid robin = new Asteroid();
+    if(counter >= 10 )
+    {
         int x = 960;
         int y = Greenfoot.getRandomNumber(541) - 0;
-        addObject(robin, x, y);
+        addObject(new Asteriod(), x, y);
         counter = 0;
-        
     }
-     if(counter >= 10 ) {
-        Asteroid robin = new Asteroid();
+    if(counter >= 10 )
+    {
         int x = Greenfoot.getRandomNumber(480) + 480;
         int y = 1;
-        addObject(robin, x, y);
+        addObject(new Asteriod(), x, y);
         counter = 0;
-        
     }
-     if(counter >= 10)
+    if(counter >= 10)
     {
         Asteroid robin = new Asteroid();
         int x = Greenfoot.getRandomNumber(480) + 480;
         int y = 540;
-        addObject(robin, x, y);
+        addObject(new Asteriod(), x, y);
         counter = 0;
-        
-    }
-    
     }
 }
-</code></pre>
+```
 
 <h3>
 <a id= "Die Rakete"> 2.2 Die Rakete</a>
@@ -335,20 +332,23 @@ Hier haben wir mit den Befehlen <i>setRotation()</i> und <i>setLocation()</i> ge
 Um diese Steuerung in Greenfoot umzusetzen, haben wir zunächst festgelegt, dass die Rakete horizontal ausgerichtet ist, weswegen wir zuerst in der Methode <i>setRotation</i> den Parameter für den Rotationswinkel gleich null gesetzt haben.
 </p>
 
-<pre>
-<code><strong>Code-Script 2.2</strong>
+```javascript
+Code-Script 2.2
+
    {
       setRotation(0);
    }
-</code></pre>
+```
 
 <p>
 Damit sich die Rakete beim Tastendruck mit konstanter Geschwindigkeit nach unten bewegt, verwenden wir die Methode <i>setLocation</i>, die mindestens drei weitere Parameter für ihre Funktion benötigt, welche die aktuelle Position des Objektes in der Welt und die Bewegungsrichtung relativ zu dieser Position sind. Die Rückgabetypen <i>getX</i> und <i>getY</i> geben die aktuellen Koordinaten des klassenspezifischen Objektes an. Sie werden durch ein Komma getrennt und in den Klammern der Methode <i>setLocation</i> integriert. Damit nun beim Tastendruck eine Bewegung vollzogen wird, kann hinter jedem Rückgabetypen eine natürliche Zahlen addiert bzw. subtrahiert werden. So wird bei jeder Ausführung dieses frames oder Blocks das Objekt um die jeweiligen addierten bzw. subtrahierten Koordinaten bewegt. Durch das mehrfache Ausführen dieser Methode resultiert daraus eine lineare Fortbewegungsrichtung. Für unsere Anwendung soll sich unser Objekt, die Rakete, lediglich entlang der y-Achse bewegen, weswegen die x-Koordinate unverändert bleibt.
 </p>
 
-<pre><code>Code-Script 2.3
+```javascript
+Code-Script 2.3
+
 setLocation(getX(), getY()+12);
-</code></pre>
+```
 
 <p>
 Zur visuellen Verdeutlichung der Bewegung verwenden wir außerdem die Methode <i>setRoation</i>, die das Objekt, in diesem Fall unsere Rakete, in einem bestimmten Winkel ausrichtet. Dieser Winkel wird in Klammern an die Methode ergänzt. Durch ausprobieren haben wir herausgefunden, dass eine Rotation von 20° bzw. -20° geeignet für die simulierte Bewegung unser Rakete ist.
@@ -362,23 +362,25 @@ Zur visuellen Verdeutlichung der Bewegung verwenden wir außerdem die Methode <i
 Die Rakete soll außerdem nur beim Tastdruck ihre Position verändern und nicht in der Lage sein, die Welt über ihre Grenzen zu verlassen. Um diese Bedingungen mit der Bewegung der Rakete in Verbindung zu bringen, verwenden wir eine <i>if-Methode</i>, die die Ausführung einer oder mehrerer Methoden nur zulässt, wenn alle ihre Bedingungsparameter erfüllt werden. Werden die in runden Klammern stehenden Bedingungen erfüllt, so werden die in geschweiften Klammern stehende Methoden im Anschluss an die if-Methode ausgeführt. In unserem Fall bestehen unsere Bedinungsparameter aus zwei <i>Greenfoot.isKeyDown</i>-Methoden und dem Rückgabetyp <i>getY()</i>. Die Methode <i>Greenfoot.isKeyDown</i> prüft ständig, ob eine bestimmte Taste auf der Tastatur gedrückt wird. Dabei wird der jeweilige Tastenname in Anführungszeichen in Klammern an die Methode ergänzt. Da die Steuerung optional über die Pfeiltasten "oben" und "unten", sowie über die Tasten "w" und "s" erfolgen soll, verwenden wir <i>Greenfoot.isKeyDown</i> zweimal pro if-Methode. Für die Abwärtsbewegung bespielsweise verwenden wir <i>Greenfoot.isKeyDown("down")</i> und <i>Greenfoot.isKeyDown("s")</i>, die durch zwei senkrechte Striche "||" voneinander getrennt werden. Diese bilden einen Operator, in diesem Fall einen arithmetischen Ausdruck, der soviel wie "oder" bedeutet. Damit die Rakete die Welt nicht verlassen kann, haben wir den Rückgabetyp <i>getY()</i> als kleiner 540 festgelegt, was der maximalen y-Koordiante unserer Welt entspricht. Er wird mit zwei Et-Zeichen "<span>&amp;&amp;</span>" an die beiden <i>Greenfoot.isKeyDown</i> ergänzt. Die beiden Et-Zeichen ergeben ebenfalls einen Operator mit der Bedeutung "und". Daraus folgt, dass die Bedingung der if-Methode nur erfüllt ist, wenn mindestens einer der Tasten "down" oder "s" gedrückt wird und die aktulle Position der Rakete eine kleinere y-Koordinate als 540 aufweist. Werden die Bedingungen erfüllt, bewegt sich die Rakete mit einer Geschwindigkeit von 12 Pixeln pro frame-Ausführung entlang der y-Achse in Richtung der unteren Kante der Welt.
 </p>
 
-<pre><code>Code-Script 2.4
+```javascript
+Code-Script 2.4
 if (Greenfoot.isKeyDown("down") || Greenfoot.isKeyDown("s") <span>&amp;&amp;</span> getY() <span>&gt;=</span> 540)
-   {
-      setRotation(20);
-      setLocation(getX(), getY()+12);
-   }
-</code></pre>
+{
+    setRotation(20);
+    setLocation(getX(), getY()+12);
+}
+
 
 Äquivalent dazu ergibt sich für die Aufwärtsbewegung:
 
-<pre><code><strong>Code-Script 2.5</strong>
+Code-Script 2.5
 if (Greenfoot.isKeyDown("up") || Greenfoot.isKeyDown("w") <span>&amp;&amp;</span> getY() <span class="sy0">&gt;=</span> 0)
-   {
-   setRotation(-20);
-   setLocation(getX(), getY()-12);
-   }
-</code></pre>
+{
+    setRotation(-20);
+    setLocation(getX(), getY()-12);
+}
+```
+
 
 <p>
 Hier wurden "down" und "s" durch "up" und "w" ersetzt und der der Rückgabewert <i>getY</i> größer gleich 0 gesetzt. Dadurch ist die Bedingung der if-Methode nur erfüllt, wenn die "up"- oder "w"-Taste gedrückt und die aktuelle y-Koordinaten der Rakete größer als 0 ist. Somit kann die Rakete die Welt nicht an der oberen Kante verlassen. Die Neigung der Aufwärtsbewegung ist betragsgleich der Neigung der Abwärtsbewegung, jedoch ist sie negativ, sodass die Rakete gegen dem Uhrzeigersinn sich mit 20° um die eigene Achse rotiert. In der Methode <i>setLocation</i> wird der Rückgabetyp <i>getY</i> mit 12 subtrahiert, sodass sich die Rakete nach oben anstatt nach unten bewegt.
@@ -777,33 +779,40 @@ Dann haben wir mithilfe von int unseren Score auf 0 festgelegt, das heißt bevor
 Bei uns jedoch funktioniert der score noch nicht wie gewollt, da Greenfoot noch keine Punkte für ein bestimmtes Objekt zum Score hinzufügt. Dazu haben wir schon eine neue Klasse erstellt, die Goldball Klasse,die wir finn genannt haben. Die Goldbälle sollen sich ähnlich wie die Asteroiden verhalten, allerdings viel seltener spawnen, damit das Spiel nicht zu leicht ist. Für jeden Goldball soll dann eine bestimmte Punktemenge z.B. 20 zum Score hinzugefügt werden. Das versuchen wir in der nächsten Zeit zu programmieren. Hier erst einmal der Code für die Score-Klasse: 
 
 ```javascript
+Code-Script 4.0
+
 int score = 0;
-   
-public Score() {
+
+public Score()
+{
       add(0);
-    }
-  public void add(int amount) {
-  
-      score = score + amount;
+}
+public void add(int amount)
+{
+    score = score + amount;
       
-      GreenfootImage robin = new GreenfootImage(10, 10);
-      robin.drawString("Score: " + score, 200, 500);
-      setImage(robin);    
-      
+    GreenfootImage robin = new GreenfootImage(10, 10);
+    robin.drawString("Score: " + score, 200, 500);
+    setImage(robin);  
 }
 ```
 
 <h4>
 <a id="Game-Over"> 2.5 Game-Over</a>
 </h4>
- 
+
+<p><img src="images/Screenshot_SpaceRocket_GameOver_extract.png" alt="Projekt"></p>
 
 Beim Programmieren des Game-Overs sind wir ähnlich vorgegangen wie bei der Programmierung des Scores. Zuerst haben wir die neue Klasse mit dem Namen game-Over mit einem bei Paint selbst erstellten Bild zur Welt hinzugefügt. Das Bild hat einen Weißen Game-Over-Schriftzug mit einem schwarzen Hintergrund und passt somit zum Hintergrund der Welt. Wir haben auch hier das Bild robin genannt und als neues Bild mit der Länge 300 und der Breite 200 identifiziert. Mithilfe von .drawString fügen wir auch dieses neu erstellte Bild in die Welt hinzu und lassen es beim vorher definierten Game-Over, nämlich wenn die Rakete einen Asteroiden crasht, mit den Koordinaten x=100 und y=200 in der Welt erscheinen. Es befindet sich somit recht mittig auf dem Bildschirm. Der Code sieht dann folgendermaßen aus:
 
 ```javascript
-public GameOver()  {
+Code-Script 5.0
+
+public GameOver()
+{
      GreenfootImage robin = new GreenfootImage(300,200);
      robin.drawString ("Game Over", 100, 200);
+}
 ```
 
 
@@ -816,6 +825,8 @@ Zu Beginn haben wir eine neue Klasse namens finn hinzugefügt und dieser das fer
 Der Programmiercode des Goldballs sieht zwar lang und kompliziert aus, ist im Endeffekt jedoch fast der gleiche wie der der Asteroiden, da diese mit fast den gleichen Eigenschaften durch die Welt fliegen sollen. Die Goldbälle sollen lediglich viel seltener spawnen, als die Asteroiden. Der einzige Unterschied besteht darin, dass der Goldball beim Kollidieren mit der Rakete nicht aus der Welt entfernt wird, sondern weiterhin in der Welt existiert. Der Goldball hat jedoch noch keine große Funktion, da er noch nicht, wie die Asteroiden, ständig neu spawnt und Punkte einbringen. Dies versuchen wir in der nächsten Zeit zum Laufen zu bringen.
 
 ```javascript
+Code-Script 6.0
+
 int Angle = Greenfoot.getRandomNumber(10);
     int TypeOfRotation = Greenfoot.getRandomNumber(2);
   
@@ -853,6 +864,8 @@ public void act()
     getWorld().removeObject(this);
 }
 ```
+
+<p><img src="images/Screenshot_SpaceRocket_while_playing_extract.png" alt="Projekt"></p>
 
 <p>
 Dies ist unser derzeitiger Stand zu unserem Spiel SpaceRocket, dennoch haben wir das Projekt noch nicht fertiggestellt da uns noch viele Dinge fehlen, die wir geplant haben:
