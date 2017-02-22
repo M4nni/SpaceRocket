@@ -211,7 +211,7 @@ int y = 540;
 ```
 
 <p>
-Für alle drei Ränder der Welt stellen wir jeweils eine if-Methode mit den entsprechenden Koordinaten auf. In den <i>addObject</i>-Methoden geben wir durch Asteroiden-Klasse <i>Asteroid()</i> und der Referenz <i>new</i> an, dass ein neuer Asteroid hinzugefügt werden soll. Als Orts-Parameter verwenden wir die Variablen <i>x</i> und <i>y</i>, die die jeweiligen definierten Werte annehmen. Essentiell ist außerdem, dass der <i>counter</i>, sobald die if-Methode ausgeführt wurde, auf 0 den Startwert zurückgesetzt, damit der <i>counter</i> wieder bei 0 anfängt zu zählen. Ansonsten würde die Anweisungen innerhalb der if-Methode nur einmal ausgeführt werden, weil ohne Zurücksetzen der Bedingungswert erreicht und weiter überschritten. Erste das erneute erreichen des Bedingungswertes sorgt für ein erneutes Ausführen der if-Methode und somit für neue Asteroiden.
+Für alle drei Ränder der Welt stellen wir jeweils eine if-Methode mit den entsprechenden Koordinaten auf. In den <i>addObject</i>-Methoden geben wir durch Asteroiden-Klasse <i>Asteroid()</i> und der Referenz <i>new</i> an, dass ein neuer Asteroid hinzugefügt werden soll. Als Orts-Parameter verwenden wir die Variablen <i>x</i> und <i>y</i>, die die jeweiligen definierten Werte annehmen. Essentiell ist außerdem, dass der <i>counter</i>, sobald die if-Methode ausgeführt wurde, auf 0 den Startwert zurückgesetzt, damit der <i>counter</i> wieder bei 0 anfängt zu zählen. Ansonsten würden die Anweisungen innerhalb der if-Methode nur einmal ausgeführt werden, weil ohne Zurücksetzen der Bedingungswert erreicht und weiter überschritten wird. Erst das erneute Erreichen des Bedingungswertes sorgt für ein erneutes Ausführen der if-Methode und somit für neue Asteroiden.
 </p>
 
 <p>
