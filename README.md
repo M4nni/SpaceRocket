@@ -1,3 +1,4 @@
+
 <!--
 <head>
 <style>
@@ -29,15 +30,20 @@ Ein Informatik-Projekt von Robin Wagner und Finn Westphal
 <ul>
 <li><a href= "#Einleitung"> 1. Einleitung: Anforderungen und Elemente des Spiels</a></li>
     <ul>
-    <li><a href= "#Das Spiel und die Dokumentation"> 1.1 Das Spiel und die Dokumentation</a></li>
-    <li><a href= "#Snytax und Funktionsweise von Java"> 1.2 Snytax und Funktionsweise von Java</a></li>
-    </ul>
+    
+    <li><a href= "Das Spiel und die Dokumentation"> 1.1 Das Spiel und die Dokumentation</a>
+    <li><a href= "Snytax und Funktionsweise von Java"> 1.2 Snytax und Funktionsweise von Java</a>
+   
+   </ul>
 <li><a href= "#Umsetzung"> 2. Umsetzung</a></li>
     <ul>
     <li><a href= "#Das Szenario"> 2.1 Das Szenario</a></li>
         <ul>
         <li><a href= "#Erstellen einer Welt"> 2.1.1 Erstellen einer Welt</a></li>
         <li><a href= "#Objekte in der Welt"> 2.1.2 Objekte in der Welt</a></li>
+        <li><a href= "#Der Counter"> 2.1.3 Der Counter</a></li>
+	
+	
         </ul>
     <li><a href= "#Die Rakete"> 2.2 Die Rakete</a></li>
         <ul>
@@ -45,6 +51,9 @@ Ein Informatik-Projekt von Robin Wagner und Finn Westphal
         <li><a href= "#Bewegung und Rotation"> 2.2.2 Bewegung und Rotation</a></li>
         <li><a href= "#Steuerung Rakete"> 2.2.3 Steuerung</a></li>
         <li><a href= "#Code-Zusammenfassung Rakete"> 2.2.4 Code-Zusammenfassung</a></li>
+	<li><a href= "#Das Spielende"> 2.2.5 Das Spielende</a></li>
+	<li><a href= "#Objekte aus der Welt entfernen"> 2.2.6 Objekte aus der Welt entfernen</a></li>
+	
         </ul>
     <li><a href= "#Die Asteroiden"> 2.3 Die Asteroiden</a></li>
         <ul>
@@ -159,7 +168,11 @@ addObject(new Asteroid(), Greenfoot.getRandomNumber(480) + 480, 0);
 addObject(new Asteroid(), Greenfoot.getRandomNumber(480) + 480, 540);
 </code></pre>
 
-(((Weiterhin haben wir in unserer Welt einen Counter hinzugefügt, der bestimmte natürliche Zahlenwerte annehmen kann. Gleichzeitig haben wir auch eine Counter-Klasse ohne Bild erstellt, da Greenfoot diese sonst nicht erkennen würde. Wir haben die Counter Klasse aber nur in der Welt space_background_1verwendet. Zu Beginn des Spiels soll der Counter noch nicht aktiviert sein, da sich noch keine Objekte in der Welt befinden. Deshalb haben wir den counter mithilfe von int auf 0 festgelegt: 
+<h3>
+<a id="Der Counter"> 2.1.3 Der Counter</a>
+</h3>
+
+Weiterhin haben wir in unserer Welt einen Counter hinzugefügt, der bestimmte natürliche Zahlenwerte annehmen kann. Gleichzeitig haben wir auch eine Counter-Klasse ohne Bild erstellt, da Greenfoot diese sonst nicht erkennen würde. Wir haben die Counter Klasse aber nur in der Welt space_background_1verwendet. Zu Beginn des Spiels soll der Counter noch nicht aktiviert sein, da sich noch keine Objekte in der Welt befinden. Deshalb haben wir den counter mithilfe von int auf 0 festgelegt: 
 
 int counter =0;
 
@@ -196,15 +209,14 @@ Nachfolgend der Code des Counters in der Welt space_background_1:
         
     }
 ```
-
-)))
-
+    
 <p>
 Zusammengefasst ergibt sich für die World-Klasse:
 </p>
 
 <pre><code><strong>Code-Script 1.4</strong>
 import greenfoot.*;
+int counter =0;
 public space_backround_1()
     {
         super(960, 540, 1, true);
@@ -213,6 +225,36 @@ public space_backround_1()
         addObject(new Asteroid(), 960, Greenfoot.getRandomNumber(541) - 0);
         addObject(new Asteroid(), Greenfoot.getRandomNumber(480) + 480, 1);
         addObject(new Asteroid(), Greenfoot.getRandomNumber(480) + 480, 540);
+	
+	   public void act() {
+    counter++;
+    if(counter >= 10 ) {
+        Asteroid robin = new Asteroid();
+        int x = 960;
+        int y = Greenfoot.getRandomNumber(541) - 0;
+        addObject(robin, x, y);
+        counter = 0;
+        
+    }
+     if(counter >= 10 ) {
+        Asteroid robin = new Asteroid();
+        int x = Greenfoot.getRandomNumber(480) + 480;
+        int y = 1;
+        addObject(robin, x, y);
+        counter = 0;
+        
+    }
+     if(counter >= 10)
+    {
+        Asteroid robin = new Asteroid();
+        int x = Greenfoot.getRandomNumber(480) + 480;
+        int y = 540;
+        addObject(robin, x, y);
+        counter = 0;
+        
+    }
+    
+}
     }
 </code></pre>
 
@@ -293,35 +335,46 @@ if (Greenfoot.isKeyDown("up") || Greenfoot.isKeyDown("w") <span>&amp;&amp;</span
    setRotation(-20);
    setLocation(getX(), getY()-12);
    }
-</code></pre>
+```javascript</code></pre>
 
 <p>
 Hier wurden "down" und "s" durch "up" und "w" ersetzt und der der Rückgabewert <i>getY</i> größer gleich 0 gesetzt. Dadurch ist die Bedingung der if-Methode nur erfüllt, wenn die "up"- oder "w"-Taste gedrückt und die aktuelle y-Koordinaten der Rakete größer als 0 ist. Somit kann die Rakete die Welt nicht an der oberen Kante verlassen. Die Neigung der Aufwärtsbewegung ist betragsgleich der Neigung der Abwärtsbewegung, jedoch ist sie negativ, sodass die Rakete gegen dem Uhrzeigersinn sich mit 20° um die eigene Achse rotiert. In der Methode <i>setLocation</i> wird der Rückgabetyp <i>getY</i> mit 12 subtrahiert, sodass sich die Rakete nach oben anstatt nach unten bewegt.
 </p>
 
-(((Desweiteren lassen wir die Rakete einen Klassen-Test durchführen. Wir wollen damit erreichen, dass das Spiel zuende ist, wenn die Rakete einen Asteroiden berührt und die beiden Objekte schließlich auch aus der Welt entfernt werden. Dazu führen wir einen Test durch, der besagt, ob die Rakete ein Object einer Klasse berührt (getOneIntersectingObject).In unserem Fall handelt es sich um die Asteroiden, da man nur verlieren soll, wenn man mit ihnen zusammenkracht. Wenn der Test 0 ist, die Rakete also keinen Asteroiden berührt, läuft das Spiel ganz normal weiter, dazu brauchen wir keinen extra Befehl. Wenn die Rakete allerdings einen Asteroiden berührt, der Test also nicht null ist (!= bedeutet ungleich), fügen wir ein neues GameOver mit dem Namen robin hinzu, wofür wir vorher eine neue Klasse erstellt haben, die unten beschrieben wird. Dieses neue Game Over erscheint, indem das Bild für das GameOver robin mit den Koordinaten der halben länge und halben Breite eingefügt wird. Außerdem gibt es einen einfachen Befehl, um das Spiel zu stoppen: Man sagt Greenfoot.stop();
+<h3>
+<a id="Das Spielende"> 2.2.5 Das Spielende</a>
+</h3>
+
+Desweiteren lassen wir die Rakete einen Klassen-Test durchführen. Wir wollen damit erreichen, dass das Spiel zuende ist, wenn die Rakete einen Asteroiden berührt und die beiden Objekte schließlich auch aus der Welt entfernt werden. Dazu führen wir einen Test durch, der besagt, ob die Rakete ein Object einer Klasse berührt (getOneIntersectingObject).In unserem Fall handelt es sich um die Asteroiden, da man nur verlieren soll, wenn man mit ihnen zusammenkracht. Wenn der Test 0 ist, die Rakete also keinen Asteroiden berührt, läuft das Spiel ganz normal weiter, dazu brauchen wir keinen extra Befehl. Wenn die Rakete allerdings einen Asteroiden berührt, der Test also nicht null ist (!= bedeutet ungleich), fügen wir ein neues GameOver mit dem Namen robin hinzu, wofür wir vorher eine neue Klasse erstellt haben, die unten beschrieben wird. Dieses neue Game Over erscheint, indem das Bild für das GameOver robin mit den Koordinaten der halben länge und halben Breite eingefügt wird. Außerdem gibt es einen einfachen Befehl, um das Spiel zu stoppen: Man sagt Greenfoot.stop();
 Der Code sieht dann folgendermaßen aus:
 
+```javascript
 Actor test = getOneIntersectingObject(Asteroid.class);
 
 if (test != null) {
     GameOver robin = new GameOver();
-    getWorld().addObject(robin, getWorld(). getWidth()/2, getWorld().getHeight()/2);
+
+getWorld().addObject(robin, getWorld(). getWidth()/2, getWorld().getHeight()/2);
     Greenfoot.stop();
     
 }
+```
+
+<h3>
+<a id="Objekte aus der Welt entfernen"> 2.2.6 Objekte aus der Welt entfernen</a>
+</h3>
 
 Wenn das Spiel stoppt, sollen gleichzeitig die Rakete und der betreffende Asteroid aus der Welt entfernt werden. Dies geschieht zunächst daduch, dass wir die Klasse Robin als das betreffende Objekt der Asteroiden Klasse identifizieren. Wenn dieses, wie es oben annähernd schon aufgeführt ist, nicht gleich 0 ist, also existiert, dann sucht greenfoot in dieser Welt und entfernt dieses spezielle Objekt Robin. Es funktioniert nicht, zu sagen, dass das Objekt Asteroid entfernt wird, da Greenfoot nicht eine komplette Klasse während des Spiels aus der Welt entfernen kann. Dafür lässt sich das eigene Objekt mithilfe des Befehls this, was in unserem Fall die Rakete ist, entfernen.
 
-
+```javascript
 Actor robin = getOneIntersectingObject(Asteroid.class);
 
 if (robin != null) { 
     getWorld().removeObject(robin);
     getWorld().removeObject(this);
 }
+```
 
-)))
 
 <h4>
 <a id="Code-Zusammenfassung Rakete"> 2.2.4 Code-Zusammenfassung</a>
@@ -351,6 +404,22 @@ public void act()
    setRotation(-20);
    setLocation(getX(), getY()-12);
    }
+
+Actor test = getOneIntersectingObject(Asteroid.class);
+
+if (test != null) {
+    GameOver robin = new GameOver();
+    getWorld().addObject(robin, getWorld(). getWidth()/2, getWorld().getHeight()/2);
+    Greenfoot.stop();
+    
+}
+
+Actor robin = getOneIntersectingObject(Asteroid.class);
+
+if (robin != null) { 
+    getWorld().removeObject(robin);
+    getWorld().removeObject(this);
+}   
 }
 }
 ```
@@ -366,7 +435,7 @@ public void act()
 </h4>
 
 <p>
-Anschließend haben wir uns um die Programmierung der Asteroiden gekümmert, in die wir bisher am meisten Zeit hineingesteckt haben. Zu Beginn haben wir eine Asteroiden-Klasse namens "Asteroid" erstellt und ihr die Bilddatei rock.png zugeortnet, die Greenfoot standardmäßig zur Verfügung stellt. Die Asteroiden sollen während der Ausführung des Szenarios zufällig spawnen und sich von rechts nach links mit einem zufälligen Winkel in Richtung der Rakete bewegen. Sobald sie auf den Rand der Welt zufliegen, sollen sie aus dem Szenario entfernt werden. Um diese Anforderungen zu erfüllen, benötigen wir eine Methode, die in der Lage ist, einen Asteroiden zu entfernen, wenn er sich am Rand der Welt befindet. Außerdem brauchen wir eine weitere Methoden, die den Asteroiden eine feste Geschwindigkeit und einen zufälligen Winkel zuweisen.
+Anschließend haben wir uns um die Programmierung der Asteroiden gekümmert. Zu Beginn haben wir eine Asteroiden-Klasse namens "Asteroid" erstellt und ihr die Bilddatei rock.png zugeortnet, die Greenfoot standardmäßig zur Verfügung stellt. Die Asteroiden sollen während der Ausführung des Szenarios zufällig spawnen und sich von rechts nach links mit einem zufälligen Winkel in Richtung der Rakete bewegen. Sobald sie auf den Rand der Welt zufliegen, sollen sie aus dem Szenario entfernt werden. Um diese Anforderungen zu erfüllen, benötigen wir eine Methode, die in der Lage ist, einen Asteroiden zu entfernen, wenn er sich am Rand der Welt befindet. Außerdem brauchen wir eine weitere Methoden, die den Asteroiden eine feste Geschwindigkeit und einen zufälligen Winkel zuweisen.
 </p>
 
 <h4>
@@ -589,15 +658,16 @@ public boolean atWorldEdge()
 }
 ```
 
-((( Wenn ein Objekt der Asteroiden-Klasse nun den Rand der Welt berührt, wird aus dieser Welt genau das Objekt entfernt, welches den Rand gerade berührt. Das Objekt, das sich in der Welt bewegt hat kann sich durch den Ausdruck this sozusagen selbst beim Kollidieren mit dem Rand der Welt entfernen:
+ Wenn ein Objekt der Asteroiden-Klasse nun den Rand der Welt berührt, wird aus dieser Welt genau das Objekt entfernt, welches den Rand gerade berührt. Das Objekt, das sich in der Welt bewegt hat kann sich durch den Ausdruck this sozusagen selbst beim Kollidieren mit dem Rand der Welt entfernen:
 
 
+```javascript
 if (atWorldEdge())
 {
     getWorld().removeObject(this);
 }
+```
 
-)))
 
 <h4>
 <a id="Code-Zusammenfassung Asteroiden"> 2.3.5 Code-Zusammenfassung></a>
@@ -648,7 +718,7 @@ if(getY() == 0 && TypeOfRotation == 0 || getY() == getWorld().getHeight() - 1 &&
 }
 ```
 
-(((
+
 Der Score
 
 Anschließend benötigen wir eine Score-Klasse, damit das Spiel auch reizend wird und Spaß macht, da es sonst, wenn man eh keine Punkte einsammeln kann, schnell langweilig wird. Zunächst haben wir die Score Klasse ohne ein Bild als eine neue Klasse zur Welt hinzufegügt.
