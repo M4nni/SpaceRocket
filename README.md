@@ -41,7 +41,9 @@ Ein Informatik-Projekt von Robin Wagner und Finn Westphal
         <ul>
         <li><a href= "#Erstellen einer Welt"> 2.1.1 Erstellen einer Welt</a></li>
         <li><a href= "#Objekte in der Welt"> 2.1.2 Objekte in der Welt</a></li>
-        <li><a href= "#Die Rakete als Actor"> 2.2.1 Die Rakete als Actor</a></li>
+        
+	
+	
         </ul>
     <li><a href= "#Die Rakete"> 2.2 Die Rakete</a></li>
         <ul>
