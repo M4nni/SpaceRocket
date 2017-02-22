@@ -1,4 +1,3 @@
-
 <!--
 <head>
 <style>
@@ -41,9 +40,6 @@ Ein Informatik-Projekt von Robin Wagner und Finn Westphal
         <ul>
         <li><a href= "#Erstellen einer Welt"> 2.1.1 Erstellen einer Welt</a></li>
         <li><a href= "#Objekte in der Welt"> 2.1.2 Objekte in der Welt</a></li>
-        
-	
-	
         </ul>
     <li><a href= "#Die Rakete"> 2.2 Die Rakete</a></li>
         <ul>
@@ -202,7 +198,7 @@ Nachfolgend der Code des Counters in der Welt space_background_1:
         
     }
 ```
-    
+
 )))
 
 <p>
