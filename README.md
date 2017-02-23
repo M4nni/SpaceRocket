@@ -400,7 +400,7 @@ getWorld().addObject(robin, getWorld(). getWidth()/2, getWorld().getHeight()/2);
 Greenfoot.stop();   
 }
 ```
-<p><p>
+<p></p>
 
 <h3>
 <a id="Objekte aus der Welt entfernen"> 2.2.6 Objekte aus der Welt entfernen</a>
