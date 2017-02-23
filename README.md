@@ -469,11 +469,6 @@ if (robin != null)
 }
 ```
 
-<p></p>
-
-<p></p>
-
-
 <h4>
 <a id= "Die Asteroiden"> 2.3 Die Asteroiden</a>
 </h4>
