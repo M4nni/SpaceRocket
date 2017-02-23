@@ -420,7 +420,6 @@ if (robin != null)
 }
 ```
 
-
 <h4>
 <a id="Code-Zusammenfassung Rakete"> 2.2.4 Code-Zusammenfassung</a>
 </h4>
@@ -441,8 +440,8 @@ public void act()
     
    if (Greenfoot.isKeyDown("down") || Greenfoot.isKeyDown("s") && getY() <= 540)
    {
-      setRotation(20);
-      setLocation(getX(), getY()+12);
+       setRotation(20);
+       setLocation(getX(), getY()+12);
    }
    if (Greenfoot.isKeyDown("up") || Greenfoot.isKeyDown("w") && getY() >= 0)
    {
@@ -452,16 +451,17 @@ public void act()
 
 Actor test = getOneIntersectingObject(Asteroid.class);
 
-if (test != null) {
+if (test != null)
+{
     GameOver robin = new GameOver();
     getWorld().addObject(robin, getWorld(). getWidth()/2, getWorld().getHeight()/2);
     Greenfoot.stop();
-    
 }
 
 Actor robin = getOneIntersectingObject(Asteroid.class);
 
-if (robin != null) { 
+if (robin != null)
+{ 
     getWorld().removeObject(robin);
     getWorld().removeObject(this);
 }
@@ -470,6 +470,9 @@ if (robin != null) {
 ```
 
 <p>test</p>
+
+<p>test</p>
+
 
 <h4>
 <a id= "Die Asteroiden"> 2.3 Die Asteroiden</a>
