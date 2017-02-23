@@ -353,20 +353,19 @@ Die Rakete soll außerdem nur beim Tastdruck ihre Position verändern und nicht 
 
 ```javascript
 Code-Script 2.4
-if (Greenfoot.isKeyDown("down") || Greenfoot.isKeyDown("s") <span>&amp;&amp;</span> getY() <span>&gt;=</span> 540)
+if (Greenfoot.isKeyDown("down") || Greenfoot.isKeyDown("s") && getY() <= 540)
 {
     setRotation(20);
     setLocation(getX(), getY()+12);
 }
 ```
 
+Äquivalent dazu ergibt sich für die Aufwärtsbewegung:
+
 ```javascript
 Code-Script 2.5
 
-Äquivalent dazu ergibt sich für die Aufwärtsbewegung:
-
-Code-Script 2.5
-if (Greenfoot.isKeyDown("up") || Greenfoot.isKeyDown("w") <span>&amp;&amp;</span> getY() <span class="sy0">&gt;=</span> 0)
+if (Greenfoot.isKeyDown("up") || Greenfoot.isKeyDown("w") && getY() >= 0)
 {
     setRotation(-20);
     setLocation(getX(), getY()-12);
@@ -440,12 +439,12 @@ public void act()
 {
    setRotation(0);
     
-   if (Greenfoot.isKeyDown("down") || Greenfoot.isKeyDown("s") <span>&amp;&amp;</span> getY() < 540)
+   if (Greenfoot.isKeyDown("down") || Greenfoot.isKeyDown("s") && getY() <= 540)
    {
       setRotation(20);
       setLocation(getX(), getY()+12);
    }
-   if (Greenfoot.isKeyDown("up") || Greenfoot.isKeyDown("w") && getY() > 0)
+   if (Greenfoot.isKeyDown("up") || Greenfoot.isKeyDown("w") && getY() >= 0)
    {
    setRotation(-20);
    setLocation(getX(), getY()-12);
@@ -697,7 +696,7 @@ public boolean atWorldEdge()
     }
     if(getY() == 0 && TypeOfRotation == 0 || getY() == 539 && TypeOfRotation == 1)
     {
-                      return true;
+    	return true;
     }
     else
     {
@@ -734,12 +733,13 @@ public class Asteroid extends mover
 {
    int Angle = Greenfoot.getRandomNumber(50);
    int TypeOfRotation = Greenfoot.getRandomNumber(2);
-   public void act()   {
+   public void act()
+   {
        move(-12);
        if (TypeOfRotation == 0)
        {
            setRotation(Angle);
-        }
+       }
        if (TypeOfRotation == 1)
        {
            setRotation(-Angle);
@@ -749,22 +749,22 @@ public class Asteroid extends mover
            getWorld().removeObject(this);
        }
    }
-   public boolean atWorldEdge()
-   {
-      if(getX() == 0)
-      {
-          return true;
-      }
+    public boolean atWorldEdge()
+    {
+    	if(getX() == 0)
+    	{
+            return true;
+        }
 
-if(getY() == 0 && TypeOfRotation == 0 || getY() == getWorld().getHeight() - 1 && TypeOfRotation == 1)
-      {
-          return true;
-      }
-      else
-      {
-          return false;
-      }
-   }
+        if(getY() == 0 && TypeOfRotation == 0 || getY() == getWorld().getHeight() - 1 && TypeOfRotation == 1)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
 }
 ```
 
@@ -827,10 +827,11 @@ Der Programmiercode des Goldballs sieht zwar lang und kompliziert aus, ist im En
 Code-Script 6.0
 
 int Angle = Greenfoot.getRandomNumber(10);
-    int TypeOfRotation = Greenfoot.getRandomNumber(2);
+int TypeOfRotation = Greenfoot.getRandomNumber(2);
   
     
-    public boolean atWorldEdge()    {
+    public boolean atWorldEdge()
+    {
         if(getX() == 0)
         {
             return true;
