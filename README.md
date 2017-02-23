@@ -246,7 +246,7 @@ Zusammengefasst ergibt sich für die World-Klasse:
 Code-Script 1.8
 
 import greenfoot.*;
-int counter =0;
+int counter = 0;
 public space_backround_1()
 {
     super(960, 540, 1, true);
@@ -400,9 +400,9 @@ Greenfoot.stop();
 }
 ```
 
-<h3>
+<h4>
 <a id="Objekte aus der Welt entfernen"> 2.2.6 Objekte aus der Welt entfernen</a>
-</h3>
+</h4>
 
 <p>
 Wenn das Spiel stoppt, sollen gleichzeitig die Rakete und der betreffende Asteroid aus der Welt entfernt werden. Dies geschieht zunächst dadurch, dass wir die Klasse <i>Robin</i> als das betroffene Objekt der Asteroiden-Klasse identifizieren. Wenn dieses, wie es oben annähernd schon aufgeführt ist, nicht gleich 0 ist, also existiert, dann sucht Greenfoot in dieser Welt und entfernt dieses spezielle Objekt Robin. Es funktioniert nicht, zu sagen, dass das Objekt Asteroid entfernt wird, da Greenfoot nicht eine komplette Klasse während des Spiels aus der Welt entfernen kann. Dafür lässt sich das betroffene Objekt einer Klasse mit dem Rückgabetyp <i>this</i> identifizieren, was in unserem Fall die Rakete ist und somit entfernen. Damit wird nur ein spezielles Objekt einer Klasse und nicht die gesamte Klasse entfernt.
