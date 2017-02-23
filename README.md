@@ -285,6 +285,9 @@ public void act()
 }
 ```
 
+<p>
+</p>
+
 <h3>
 <a id= "Die Rakete"> 2.2 Die Rakete</a>
 </h3>
@@ -390,14 +393,14 @@ Code-Script 2.6
 
 Actor test = getOneIntersectingObject(Asteroid.class);
 
-if (test != null) {
-    GameOver robin = new GameOver();
-
+if (test != null)
+{
+GameOver robin = new GameOver();
 getWorld().addObject(robin, getWorld(). getWidth()/2, getWorld().getHeight()/2);
-    Greenfoot.stop();
-    
+Greenfoot.stop();   
 }
 ```
+<p><p>
 
 <h3>
 <a id="Objekte aus der Welt entfernen"> 2.2.6 Objekte aus der Welt entfernen</a>
