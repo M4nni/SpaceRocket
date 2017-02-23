@@ -724,8 +724,9 @@ if (atWorldEdge())
 <a id="Code-Zusammenfassung Asteroiden"> 2.3.5 Code-Zusammenfassung</a>
 </h4>
 
- Fasst man Code-Script 3.05 und 3.14 zusammen, so ergibt sich für den Code der Asteroiden:
-
+<p>
+Fasst man Code-Script 3.05 und 3.14 zusammen, so ergibt sich für den Code der Asteroiden:
+</p>
 
 ```javascript
 Code-Script 3.16
@@ -769,7 +770,6 @@ public class Asteroid extends mover
     }
 }
 ```
-
 
 <h4>
 <a id="Der Score"> 2.4 Der Score</a>
