@@ -776,10 +776,14 @@ public class Asteroid extends mover
 <a id="Der Score"> 2.4 Der Score</a>
 </h4>
 
+<p>
 Anschließend benötigen wir eine Score-Klasse, damit das Spiel auch reizend wird und Spaß macht, da es sonst, wenn man eh keine Punkte einsammeln kann, schnell langweilig wird. Zunächst haben wir die Score Klasse ohne ein Bild als eine neue Klasse zur Welt hinzugefügt.
 Dann haben wir mithilfe von int unseren Score auf 0 festgelegt, das heißt bevor unser Spiel beginnt, zeigt der Score immer einen Punktestand von 0 an. Damit Greenfoot diesen in der Welt überhaupt anzeigt, haben wir zu unserem Score 0 Punkte erst einmal hinzugefügt. Zu diesem Score soll dann mit der Zeit die Punktemenge (amount) hinzugefügt werden, sodass der alte score dann gleich der neue score und die hinzugefügte Punktemenge ist. Das Bild des Scores, dem wir den Namen robin gegeben haben, ist ein neues Greenfoot Bild mit zunächst der Länge 10 und der Breite 10. Dieses neue Bild wird dann mit dem Befehl .drawString in die Welt mit den Koordinaten x=200 und y=500 in die Welt eingefügt/eingezeichnet mit der Schrift Score: und dann dahinter der entsprechenden Punktezahl. Mithilfe von setImage() lässt sich dieses neu erstellte Objekt robin dann auch in der Welt wiederfinden.
+</p>
 
-Bei uns jedoch funktioniert der score noch nicht wie gewollt, da Greenfoot noch keine Punkte für ein bestimmtes Objekt zum Score hinzufügt. Dazu haben wir schon eine neue Klasse erstellt, die Goldball Klasse, die wir finn genannt haben. Die Goldbälle sollen sich ähnlich wie die Asteroiden verhalten, allerdings viel seltener spawnen, damit das Spiel nicht zu leicht ist. Für jeden Goldball soll dann eine bestimmte Punktemenge z.B. 20 zum Score hinzugefügt werden. Das versuchen wir in der nächsten Zeit zu programmieren. Hier erst einmal der Code für die Score-Klasse: 
+<p>
+Bei uns jedoch funktioniert der score noch nicht wie gewollt, da Greenfoot noch keine Punkte für ein bestimmtes Objekt zum Score hinzufügt. Dazu haben wir schon eine neue Klasse erstellt, die Goldball Klasse, die wir finn genannt haben. Die Goldbälle sollen sich ähnlich wie die Asteroiden verhalten, allerdings viel seltener spawnen, damit das Spiel nicht zu leicht ist. Für jeden Goldball soll dann eine bestimmte Punktemenge z.B. 20 zum Score hinzugefügt werden. Das versuchen wir in der nächsten Zeit zu programmieren. Hier erst einmal der Code für die Score-Klasse:
+</p>
 
 ```javascript
 Code-Script 4.0
