@@ -285,7 +285,7 @@ public void act()
 }
 ```
 
-<p>test</p>
+<p></p>
 
 <h3>
 <a id= "Die Rakete"> 2.2 Die Rakete</a>
