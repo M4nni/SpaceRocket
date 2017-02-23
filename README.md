@@ -145,7 +145,7 @@ Code-Script 1.3
 
 addObject(new rocket(), 150, 270);
 addObject(new counter(), 30, 510);
-addObject(new Asteroid(), 960, Greenfoot.getRandomNumber(541) - 0);
+addObject(new Asteroid(), 960, Greenfoot.getRandomNumber(541);
 addObject(new Asteroid(), Greenfoot.getRandomNumber(480) + 480, 0);
 addObject(new Asteroid(), Greenfoot.getRandomNumber(480) + 480, 540);
 ```
@@ -284,8 +284,6 @@ public void act()
     }
 }
 ```
-
-<p></p>
 
 <h3>
 <a id= "Die Rakete"> 2.2 Die Rakete</a>
